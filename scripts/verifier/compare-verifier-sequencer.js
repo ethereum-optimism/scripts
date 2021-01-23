@@ -32,11 +32,16 @@ async function main() {
     console.log(`Latest state roots are mismatched!`)
     console.log(`Executing a binary search to determine the first mismatched block...`)
 
-    let start = 0
+    let start = 1
     let end = latest
     while (start + 1 !== end) {
       const middle = Math.floor((start + end) / 2)
-      log(`Checking block: ${middle}\n`)
+      let ncount = Math.floor((1 - (start / end)) * 10)
+      if (middle + 1 !== end) {
+        ncount++
+      }
+
+      log(`Checking block: ${middle + 1} ${ncount > 0 ? '🤔'.repeat(ncount) : '💀'}\n`)
 
       const verifierBlock = await getBlock(verifier, middle)
       const sequencerBlock = await getBlock(sequencer, middle)
@@ -52,7 +57,9 @@ async function main() {
     console.log(`First block with a mismatched state root is: ${end}`)
   }
 
-  console.log(`Checking for any mismatched transactions...`)
+  log.clear()
+  console.log(`Checking for any mismatched transactions...\n`)
+
   let i = 0
   while (i < latest) {
     log(`Checking transaction: ${i}\n`)
@@ -62,7 +69,8 @@ async function main() {
       const verifierBlock = await getBlock(verifier, i)
 
       if (sequencerBlock.transactions[0].hash !== verifierBlock.transactions[0].hash) {
-        console.log(`Found a mismatched transaction at index: ${i}`)
+        log.clear()
+        console.log(`Found a mismatched transaction at index: ${i} 💀\n`)
       }
 
       i++
@@ -71,9 +79,11 @@ async function main() {
       console.log(`Ran into a temporary error, trying the same index again.`)
       console.log(`Here's the error:`)
       console.log(err)
+      log.clear()
     }
   }
 
+  log.clear()
   log.clear()
 }
 
