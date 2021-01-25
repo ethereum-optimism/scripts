@@ -1,7 +1,7 @@
 /**
  * Utility script for running a health check that compares the state of a verifier to the state of
  * the current sequencer. Useful for catching discrepancies on verifier/sequencer codebases.
- * 
+ *
  * Required environment variables:
  * VERIFIER_ENDPOINT: RPC endpoint for the verifier node.
  * SEQUENCER_ENDPOINT: RPC endpoint for the sequencer node.
@@ -60,7 +60,7 @@ async function main() {
   log.clear()
   console.log(`Checking for any mismatched transactions...\n`)
 
-  let i = 0
+  let i = 1
   while (i < latest) {
     log(`Checking transaction: ${i}\n`)
 
