@@ -1,3 +1,5 @@
+#!/usr/bin/env -S node --require ts-node/register
+
 /**
  * Simple script for printing out all of the blocks in L2 for a range. This was designed for debugging monotonicity bugs.
  *
@@ -34,7 +36,7 @@ const log = { debug: console.log }
 /* Env */
 const env = process.env
 const startBlock = parseInt(env.START_BLOCK, 10)
-const numberOfBlocks = parseInt(env.NUMBER_OF_BLOCKS, 10)
+let numberOfBlocks = parseInt(env.NUMBER_OF_BLOCKS, 10)
 
 /* Types */
 export interface RollupInfo {
@@ -83,10 +85,18 @@ export const run = async () => {
 
   const lastBlockNumber = (await l2Provider.getBlock('latest')).number
   const test = await l2Provider.getBlockWithTransactions(lastBlockNumber)
+
+  if (!numberOfBlocks) {
+    numberOfBlocks = lastBlockNumber - startBlock
+  }
+
   const blocks: L2Block[]  = []
   const l1ToL2Blocks: L2Block[]  = []
+  const endBlock = startBlock + numberOfBlocks
 
-  for (let i = startBlock; i < startBlock + numberOfBlocks; i++) {
+  console.log(`Starting block: ${startBlock}`)
+  console.log(`End block: ${endBlock}`)
+  for (let i = startBlock; i < endBlock; i++) {
     blocks.push(await l2Provider.getBlockWithTransactions(i) as L2Block)
     console.log('Got block', i)
   }
@@ -103,10 +113,10 @@ export const run = async () => {
 
   console.log('writing all blocks...')
   const allBlocks = JSON.stringify(blocks, null, 2)
-  fs.writeFileSync('./all-blocks.log', allBlocks, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-blocks.json', allBlocks, 'utf-8')  // lord forgive me for i have sinned
   console.log('writing all queue txs...')
   const allQueueTxs = JSON.stringify(queueTxs, null, 2)
-  fs.writeFileSync('./all-queue-txs.log', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-queue-txs.json', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
   console.log('~~~~~~~~~~~~ Some final debug info: ~~~~~~~~~~~~~~')
 
   // Get all of the queue elements
@@ -115,8 +125,25 @@ export const run = async () => {
   const wallet = new Wallet('0x1101010101010101010101010101010101010101010101010101010101010100', l1Provider)
   const ctc = (await getContractFactory('OVM_CanonicalTransactionChain', wallet)).attach(ctcAddress)
 
-  const totalQueueElements = await ctc.getNextQueueIndex()
-  console.log('Total Queue Elements', totalQueueElements)
+  // TODO: temp
+  //const nextQueueIndex = await ctc.getNextQueueIndex()
+  const nextQueueIndex = 2155
+  console.log('Next Queue Index', nextQueueIndex)
+
+  const totalQueueElements = await ctc.getTotalElements()
+  console.log('Total Queue Elements', totalQueueElements.toString())
+
+  const elements = []
+  for (let i = 0; i < nextQueueIndex; i++) {
+    const element = await ctc.getQueueElement(i)
+    elements.push({
+      index: i,
+      timestamp: element[1],
+      blockNumber: element[2]
+    })
+  }
+
+  fs.writeFileSync('./all-queue-elements.json', JSON.stringify(elements, null, 2), 'utf-8')
 }
 
 
