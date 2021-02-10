@@ -125,9 +125,7 @@ export const run = async () => {
   const wallet = new Wallet('0x1101010101010101010101010101010101010101010101010101010101010100', l1Provider)
   const ctc = (await getContractFactory('OVM_CanonicalTransactionChain', wallet)).attach(ctcAddress)
 
-  // TODO: temp
-  //const nextQueueIndex = await ctc.getNextQueueIndex()
-  const nextQueueIndex = 2155
+  const nextQueueIndex = await ctc.getNextQueueIndex()
   console.log('Next Queue Index', nextQueueIndex)
 
   const totalQueueElements = await ctc.getTotalElements()
