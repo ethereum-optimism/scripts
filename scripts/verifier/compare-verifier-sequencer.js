@@ -21,7 +21,7 @@ async function main() {
   const verifier = new JsonRpcProvider(process.env.VERIFIER_ENDPOINT)
   const sequencer = new JsonRpcProvider(process.env.SEQUENCER_ENDPOINT)
 
-  const latest = await verifier.getBlockNumber()
+  let latest = await verifier.getBlockNumber()
   console.log(`Latest Verifier block number is: ${latest}`)
 
   console.log(`Comparing the latest state roots...`)
@@ -67,10 +67,84 @@ async function main() {
     try {
       const sequencerBlock = await getBlock(sequencer, i)
       const verifierBlock = await getBlock(verifier, i)
+      const sequencerTx = sequencerBlock.transactions[0]
+      const verifierTx = verifierBlock.transactions[0]
 
-      if (sequencerBlock.transactions[0].hash !== verifierBlock.transactions[0].hash) {
-        log.clear()
-        console.log(`Found a mismatched transaction at index: ${i} 💀\n`)
+      if (sequencerTx.hash !== verifierTx.hash) {
+        console.log(`Found a mismatched transaction at index: ${i} 💀`)
+        if (sequencerTx.nonce !== verifierTx.nonce) {
+          console.log('  Mismatched nonce')
+          console.log(`    verifier: ${parseInt(verifierTx.nonce,16)}`)
+          console.log(`    sequencer: ${parseInt(sequencerTx.nonce,16)}`)
+        }
+        if (sequencerTx.from !== verifierTx.from) {
+          console.log('  Mismatched from')
+          console.log(`    verifier: ${verifierTx.from}`)
+          console.log(`    sequencer: ${sequencerTx.from}`)
+        }
+        if (sequencerTx.blockNumber !== verifierTx.blockNumber) {
+          console.log('  Mismatched blocknumber')
+          console.log(`    verifier: ${verifierTx.blockNumber}`)
+          console.log(`    sequencer: ${sequencerTx.blockNumber}`)
+        }
+        if (sequencerTx.gas !== verifierTx.gas) {
+          console.log('  Mismatched gas')
+          console.log(`    verifier: ${verifierTx.gas}`)
+          console.log(`    sequencer: ${sequencerTx.gas}`)
+        }
+        if (sequencerTx.gasPrice !== verifierTx.gasPrice) {
+          console.log('  Mismatched gas price')
+          console.log(`    verifier: ${verifierTx.gasPrice}`)
+          console.log(`    sequencer: ${sequencerTx.gasPrice}`)
+        }
+        if (sequencerTx.to !== verifierTx.to) {
+          console.log('  Mismatched to')
+          console.log(`    verifier: ${verifierTx.to}`)
+          console.log(`    sequencer: ${sequencerTx.to}`)
+        }
+        if (sequencerTx.queueOrigin !== verifierTx.queueOrigin) {
+          console.log('  Mismatched queue origin')
+          console.log(`    verifier: ${verifierTx.queueOrigin}`)
+          console.log(`    sequencer: ${sequencerTx.queueOrigin}`)
+        }
+        if (sequencerTx.txType !== verifierTx.txType) {
+          console.log('  Mismatched tx type')
+          console.log(`    verifier: ${verifierTx.txType}`)
+          console.log(`    sequencer: ${sequencerTx.txType}`)
+        }
+        if (sequencerTx.value !== verifierTx.value) {
+          console.log('  Mismatched value')
+        }
+        if (sequencerTx.l1TxOrigin !== verifierTx.l1TxOrigin) {
+          console.log('  Mismatched tx origin')
+          console.log(`    verifier: ${verifierTx.l1TxOrigin}`)
+          console.log(`    sequencer: ${sequencerTx.l1TxOrigin}`)
+        }
+        if (sequencerTx.l1BlockNumber !== verifierTx.l1BlockNumber) {
+          console.log('  Mismatched l1 blocknumber')
+          console.log(`    verifier: ${parseInt(verifierTx.l1BlockNumber, 16)}`)
+          console.log(`    sequencer: ${parseInt(sequencerTx.l1BlockNumber, 16)}`)
+        }
+        if (sequencerTx.l1Timestamp !== verifierTx.l1Timestamp) {
+          console.log('  Mismatched l1 timestamp')
+          console.log(`    verifier: ${parseInt(verifierTx.l1Timestamp, 16)}`)
+          console.log(`    sequencer: ${parseInt(sequencerTx.l1Timestamp, 16)}`)
+        }
+        if (sequencerTx.v !== verifierTx.v) {
+          console.log('  Mismatched v')
+        }
+        if (sequencerTx.r !== verifierTx.r) {
+          console.log('  Mismatched r')
+        }
+        if (sequencerTx.s !== verifierTx.s) {
+          console.log('  Mismatched s')
+        }
+        if (sequencerTx.input !== verifierTx.input) {
+          console.log('  Mismatched data')
+          console.log(`    verifier: len(data) = ${verifierTx.input.length}`)
+          console.log(`    sequencer: len(data) = ${sequencerTx.input.length}`)
+        }
+        console.log('')
       }
 
       i++
