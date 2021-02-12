@@ -18,5 +18,8 @@
     "single-line-log": "^1.1.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "@eth-optimism/dev": "^1.0.0"
   }
 }

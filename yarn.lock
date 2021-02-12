@@ -50,6 +50,11 @@
     express "^4.17.1"
     uuid "^3.3.3"
 
+"@eth-optimism/dev@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/dev/-/dev-1.0.0.tgz#6a8ba479abe9a87fc689ba7bc6d23365f90b3a00"
+  integrity sha512-btafO+VcHrWND3giztLo08LAaVx7k9UIODU0NEgw6NR2XvSZpcTbXf0xb4RDCMxwpmkbZc5gpyHrP72Uk9xSxw==
+
 "@eth-optimism/provider@^0.0.1-alpha.14":
   version "0.0.1-alpha.14"
   resolved "https://registry.yarnpkg.com/@eth-optimism/provider/-/provider-0.0.1-alpha.14.tgz#fec9df0abcdf8281c6a3cf4bc0e0085ccc7691c4"
