@@ -336,7 +336,7 @@
   dependencies:
     "@ethersproject/logger" "^5.0.8"
 
-"@ethersproject/providers@5.0.22", "@ethersproject/providers@^5.0.0", "@ethersproject/providers@^5.0.21":
+"@ethersproject/providers@5.0.22", "@ethersproject/providers@^5.0.0", "@ethersproject/providers@^5.0.21", "@ethersproject/providers@^5.0.22":
   version "5.0.22"
   resolved "https://registry.yarnpkg.com/@ethersproject/providers/-/providers-5.0.22.tgz#a84b48d74d7f243d1f4f5c789c4a3342bd3f690c"
   integrity sha512-6C6agQsz/7FRFfZFok+m1HVUS6G+IU1grLwBx9+W11SF3UeP8vquXRMVDfOiKWyvy+g4bJT1+9C/QuC8lG08DQ==
