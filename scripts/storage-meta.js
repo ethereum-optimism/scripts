@@ -20,8 +20,6 @@ const ADDRESS_MANAGER_ADDRESS = env.ADDRESS_MANAGER_ADDRESS || '0x1De8CFD4C1A486
   meta = meta.slice(2)
   // convert to bytes27
   meta = meta.slice(10)
-  // remove trailing uint40
-  meta = meta.slice(0, meta.length-10)
 
   const totalElements = meta.slice(-10)
   console.log(`total elements: ${parseInt(totalElements, 16)}`)
