@@ -54,6 +54,10 @@ async function main() {
   const latestVerifierBlock = await getBlock(verifier, latest)
   const latestSequencerBlock = await getBlock(sequencer, latest)
 
+  if (latestSequencerBlock == null) {
+    throw new Error('Latest Sequencer Block is null')
+  }
+
   if (latestVerifierBlock.stateRoot !== latestSequencerBlock.stateRoot) {
     console.log(`Latest state roots are mismatched!`)
     console.log(`Executing a binary search to determine the first mismatched block...`)
@@ -86,16 +90,7 @@ async function main() {
   log.clear()
   console.log(`Checking for any mismatched transactions...\n`)
 
-  // Differences:
-  // Due to queue fixes:
-  // - 23159
-  // - 23162
-
-  // ???
-  // 36883
-
   i = 1
-  i = 36880
   while (i < latest) {
     log(`Checking transaction: ${i}\n`)
 
