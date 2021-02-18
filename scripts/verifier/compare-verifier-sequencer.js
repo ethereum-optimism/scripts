@@ -51,8 +51,10 @@ async function main() {
   console.log(`Latest Verifier block number is: ${latest}`)
 
   console.log(`Comparing the latest state roots...`)
-  const latestVerifierBlock = await getBlock(verifier, latest)
-  const latestSequencerBlock = await getBlock(sequencer, latest)
+  const [latestVerifierBlock,  latestSequencerBlock] = await Promise.all([
+    getBlock(verifier, latest),
+    getBlock(sequencer, latest)
+  ])
 
   if (latestSequencerBlock == null) {
     throw new Error('Latest Sequencer Block is null')
@@ -72,9 +74,10 @@ async function main() {
       }
 
       log(`Checking block: ${middle + 1} ${ncount > 0 ? '🤔'.repeat(ncount) : '💀'}\n`)
-
-      const verifierBlock = await getBlock(verifier, middle)
-      const sequencerBlock = await getBlock(sequencer, middle)
+      const [verifierBlock, sequencerBlock] = await Promise.all([
+        getBlock(verifier, middle),
+        getBlock(sequencer, middle)
+      ])
 
       if (verifierBlock.stateRoot === sequencerBlock.stateRoot) {
         start = middle
@@ -95,8 +98,11 @@ async function main() {
     log(`Checking transaction: ${i}\n`)
 
     try {
-      const sequencerBlock = await getBlock(sequencer, i)
-      const verifierBlock = await getBlock(verifier, i)
+      const [verifierBlock, sequencerBlock] = await Promise.all([
+        getBlock(verifier, i),
+        getBlock(sequencer, i)
+      ])
+
       const sequencerTx = sequencerBlock.transactions[0]
       const verifierTx = verifierBlock.transactions[0]
       let queueElement = null
