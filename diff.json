@@ -2,6 +2,14 @@
   {
     "kind": "E",
     "path": [
+      "root"
+    ],
+    "lhs": "b4ab712ae5e997fe749168f1b68931624c081ab1caec2494c53463df6a07f597",
+    "rhs": "e1b1fd3142626a669623c5dae2f20526d174254629b1356e65ef032c1c7c3f1f"
+  },
+  {
+    "kind": "E",
+    "path": [
       "accounts",
       "OVM_L2CrossDomainMessenger",
       "root"
@@ -37,6 +45,16 @@
       "root"
     ],
     "lhs": "c1f853d6ca1d3645234c240558cc0d4f7e005d07a2ca3f86060a7059ade8808d",
-    "rhs": "4c866ca31a724b3d7bd4b7f4b25eb19fca24c5069d60b6fb4ec9609b8773987f"
+    "rhs": "2b7862c83a874a1e419c0d4fc8b72e37df1bf010e2c59bc01d84a0aedc8efe77"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "accounts",
+      "0xac1e8b385230970319906c03a1d8567e3996d1d5",
+      "nonce"
+    ],
+    "lhs": 22777,
+    "rhs": 23547
   }
 ]

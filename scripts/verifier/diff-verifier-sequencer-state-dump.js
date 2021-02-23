@@ -73,13 +73,10 @@ async function main() {
     if (addressMapping[address]) {
       // swaps address for contract name
       diffItem.path[1] = addressMapping[address];
-
-      // ignore ExchangeRates storage diffs
-      if (diffItem.path[1] === "ExchangeRates" && diffItem.path[2] === "storage") {
-        continue;
-      } else {
-        differences.push(diffItem);
-      }
+    }
+    // ignore ExchangeRates storage diffs
+    if (!(diffItem.path[1] === "ExchangeRates" && diffItem.path[2] === "storage")) {
+      differences.push(diffItem);
     }
   }
 
