@@ -18,6 +18,7 @@
     "@ethersproject/providers": "^5.0.22",
     "@types/node": "^14.14.22",
     "colors": "^1.4.0",
+    "commander": "^7.1.0",
     "deep-diff": "^1.0.2",
     "diff": "^5.0.0",
     "dotenv": "^8.2.0",

@@ -7,13 +7,19 @@
  * SEQUENCER_ENDPOINT: RPC endpoint for the sequencer node.
  */
 require("colors");
+const { Command } = require("commander");
 const axios = require("axios");
 const diff = require("deep-diff").diff;
 const fs = require("fs");
 const log = require("single-line-log").stdout;
 const dotenv = require("dotenv").config();
 const { JsonRpcProvider } = require("@ethersproject/providers");
-const differences = [];
+const program = new Command();
+
+program.option("-b, --block <number>", "specify block number");
+program.option("-s, --search", "binary search for specific diff");
+program.parse(process.argv);
+const argOptions = program.opts();
 
 const sources = [
   {
@@ -26,13 +32,15 @@ const sources = [
   },
 ];
 
+const verifier = new JsonRpcProvider(process.env.VERIFIER_ENDPOINT);
+const sequencer = new JsonRpcProvider(process.env.SEQUENCER_ENDPOINT);
+
 const getBlock = async (provider, index) => {
   return provider.send("eth_getBlockByNumber", [`0x${index.toString(16)}`, true]);
 };
 
-const getAddressMapping = async () => {
+async function getAddressMappping() {
   const addressMapping = {};
-
   for (const addressItem of sources) {
     let { data: contractInfo } = await axios.get(addressItem.url);
     contractInfo = contractInfo[addressItem.path];
@@ -42,45 +50,75 @@ const getAddressMapping = async () => {
     }
   }
   return addressMapping;
-};
+}
 
 async function main() {
-  const addressMapping = await getAddressMapping();
-
-  const verifier = new JsonRpcProvider(process.env.VERIFIER_ENDPOINT);
-  const sequencer = new JsonRpcProvider(process.env.SEQUENCER_ENDPOINT);
-
-  // get current block number for verifier and sequeuncer
+  const addressMapping = await getAddressMappping();
   const latestVerifierBlockNum = await verifier.getBlockNumber();
   const latestSequencerBlockNum = await sequencer.getBlockNumber();
 
   // use lower block number
-  const latestBlockNum = Math.min(latestVerifierBlockNum, latestSequencerBlockNum);
+  const blockNum = +argOptions.block || Math.min(latestVerifierBlockNum, latestSequencerBlockNum);
 
-  console.log(`Getting the verfier data...`);
-
-  let vdump = await verifier.send("debug_dumpBlock", [`0x${latestBlockNum.toString(16)}`]);
-
-  console.log(`Getting the sequencer data...`);
-  let sdump = await sequencer.send("debug_dumpBlock", [`0x${latestBlockNum.toString(16)}`]);
-
-  console.log(`Making the diff...`);
-  const tempDifferences = diff(vdump, sdump);
-
-  for (const diffItem of tempDifferences) {
-    const address = diffItem.path[1] && diffItem.path[1].toUpperCase();
-
-    if (addressMapping[address]) {
-      // swaps address for contract name
-      diffItem.path[1] = addressMapping[address];
-    }
-    // ignore ExchangeRates storage diffs
-    if (!(diffItem.path[1] === "ExchangeRates" && diffItem.path[2] === "storage")) {
-      differences.push(diffItem);
-    }
-  }
+  const differences = (await getDiff(blockNum, addressMapping)) || [];
 
   fs.writeFileSync("diff.json", JSON.stringify(differences, null, 2));
 }
 
-main();
+async function getDiff(blockNum, addressMapping) {
+  console.log("Making diff at block", blockNum);
+
+  let vdump = await verifier.send("debug_dumpBlock", [`0x${blockNum.toString(16)}`]);
+  let sdump = await sequencer.send("debug_dumpBlock", [`0x${blockNum.toString(16)}`]);
+
+  const differences = await diff(vdump, sdump);
+
+  if (differences) {
+    // swaps addresses for contract names
+    for (const diffItem of differences) {
+      const address = diffItem.path[1] && diffItem.path[1].toUpperCase();
+      if (addressMapping[address]) {
+        diffItem.path[1] = addressMapping[address];
+      }
+    }
+  }
+  return differences;
+}
+
+/**
+ * Search for specific diff (use -s flag in command)
+ */
+async function binarySearch() {
+  const addressMapping = await getAddressMappping();
+  const latestVerifierBlockNum = await verifier.getBlockNumber();
+  const latestSequencerBlockNum = await sequencer.getBlockNumber();
+
+  let startBlock = 1;
+  let endBlock = Math.min(latestVerifierBlockNum, latestSequencerBlockNum);
+  let middleBlock, differences;
+
+  while (startBlock + 1 !== endBlock) {
+    middleBlock = Math.floor((startBlock + endBlock) / 2);
+    differences = await getDiff(middleBlock, addressMapping);
+
+    if (
+      differences &&
+      // change logic here to find where a specific diff begins
+      differences.find(
+        (diffItem) => diffItem.path[1] === "OVM_L2CrossDomainMessenger" && diffItem.path[2] === "storage"
+      )
+    ) {
+      endBlock = middleBlock;
+    } else {
+      startBlock = middleBlock;
+    }
+  }
+  fs.writeFileSync("diff.json", JSON.stringify(differences, null, 2));
+  console.log("\nDifference starts at", endBlock, "🎉");
+}
+
+if (argOptions.search) {
+  binarySearch();
+} else {
+  main();
+}
