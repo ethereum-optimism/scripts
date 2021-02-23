@@ -39,7 +39,7 @@ const getAddressMapping = async () => {
     let { data: contractInfo } = await axios.get(addressItem.url);
     contractInfo = contractInfo[addressItem.path];
     for (const contractName in contractInfo) {
-      const contractAddress = contractInfo[contractName].address;
+      const contractAddress = contractInfo[contractName].address.toUpperCase();
       addressMapping[contractAddress] = contractName;
     }
   }
@@ -48,6 +48,7 @@ const getAddressMapping = async () => {
 
 async function main() {
   const addressMapping = await getAddressMapping();
+
   const verifier = new JsonRpcProvider(process.env.VERIFIER_ENDPOINT);
   const sequencer = new JsonRpcProvider(process.env.SEQUENCER_ENDPOINT);
   console.log("----------getting Verifier dump-----------");
@@ -66,11 +67,18 @@ async function main() {
   console.log(`Getting the sequencer data...`);
   let sdump = await sequencer.send("debug_dumpBlock", [`0x${latestBlockNum.toString(16)}`]);
 
-  console.log(`Stringifying data...`);
-
   console.log(`Making the diff...`);
-  var differences = diff(vdump, sdump);
-  console.log(differences);
+  const differences = diff(vdump, sdump);
+
+  for (const diffItem of differences) {
+    const address = diffItem.path[1] && diffItem.path[1].toUpperCase();
+
+    if (addressMapping[address]) {
+      // swaps address for contract name
+      diffItem.path[1] = addressMapping[address];
+    }
+  }
+  console.log(addressMapping);
   fs.writeFileSync("diff.json", JSON.stringify(differences, null, 2));
 }
 
