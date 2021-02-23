@@ -13,20 +13,18 @@ const fs = require("fs");
 const log = require("single-line-log").stdout;
 const dotenv = require("dotenv").config();
 const { JsonRpcProvider } = require("@ethersproject/providers");
+const differences = [];
 
-const sources = {
-  kovan: [
-    { url: "https://raw.githubusercontent.com/ethereum-optimism/regenesis/master/kovan/1.json", path: "accounts" },
-    {
-      url: "https://raw.githubusercontent.com/Synthetixio/synthetix/develop/publish/deployed/kovan-ovm/deployment.json",
-      path: "targets",
-    },
-  ],
-  mainnet: [
-    { url: "", path: "accounts" },
-    { url: "", path: "targets" },
-  ],
-};
+const sources = [
+  {
+    url: `https://raw.githubusercontent.com/ethereum-optimism/regenesis/master/${process.env.ETH_NETWORK}/1.json`,
+    path: "accounts",
+  },
+  {
+    url: `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/publish/deployed/${process.env.ETH_NETWORK}-ovm/deployment.json`,
+    path: "targets",
+  },
+];
 
 const getBlock = async (provider, index) => {
   return provider.send("eth_getBlockByNumber", [`0x${index.toString(16)}`, true]);
@@ -35,7 +33,7 @@ const getBlock = async (provider, index) => {
 const getAddressMapping = async () => {
   const addressMapping = {};
 
-  for (const addressItem of sources[process.env.ETH_NETWORK]) {
+  for (const addressItem of sources) {
     let { data: contractInfo } = await axios.get(addressItem.url);
     contractInfo = contractInfo[addressItem.path];
     for (const contractName in contractInfo) {
@@ -51,7 +49,6 @@ async function main() {
 
   const verifier = new JsonRpcProvider(process.env.VERIFIER_ENDPOINT);
   const sequencer = new JsonRpcProvider(process.env.SEQUENCER_ENDPOINT);
-  console.log("----------getting Verifier dump-----------");
 
   // get current block number for verifier and sequeuncer
   const latestVerifierBlockNum = await verifier.getBlockNumber();
@@ -68,17 +65,24 @@ async function main() {
   let sdump = await sequencer.send("debug_dumpBlock", [`0x${latestBlockNum.toString(16)}`]);
 
   console.log(`Making the diff...`);
-  const differences = diff(vdump, sdump);
+  const tempDifferences = diff(vdump, sdump);
 
-  for (const diffItem of differences) {
+  for (const diffItem of tempDifferences) {
     const address = diffItem.path[1] && diffItem.path[1].toUpperCase();
 
     if (addressMapping[address]) {
       // swaps address for contract name
       diffItem.path[1] = addressMapping[address];
+
+      // ignore ExchangeRates storage diffs
+      if (diffItem.path[1] === "ExchangeRates" && diffItem.path[2] === "storage") {
+        continue;
+      } else {
+        differences.push(diffItem);
+      }
     }
   }
-  console.log(addressMapping);
+
   fs.writeFileSync("diff.json", JSON.stringify(differences, null, 2));
 }
 
