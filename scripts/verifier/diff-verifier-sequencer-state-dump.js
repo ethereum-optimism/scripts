@@ -71,14 +71,18 @@ async function getDiff(blockNum, addressMapping) {
   let vdump = await verifier.send("debug_dumpBlock", [`0x${blockNum.toString(16)}`]);
   let sdump = await sequencer.send("debug_dumpBlock", [`0x${blockNum.toString(16)}`]);
 
-  const differences = await diff(vdump, sdump);
+  const tempDiff = await diff(vdump, sdump);
+  const differences = [];
 
-  if (differences) {
+  if (tempDiff) {
     // swaps addresses for contract names
-    for (const diffItem of differences) {
+    for (const diffItem of tempDiff) {
       const address = diffItem.path[1] && diffItem.path[1].toUpperCase();
       if (addressMapping[address]) {
         diffItem.path[1] = addressMapping[address];
+      }
+      if (!(diffItem.path[1] === "ExchangeRates" && diffItem.path[2] === "storage")) {
+        differences.push(diffItem);
       }
     }
   }
