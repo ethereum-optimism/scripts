@@ -23,7 +23,7 @@ const argOptions = program.opts();
 
 const sources = [
   {
-    url: `https://raw.githubusercontent.com/ethereum-optimism/regenesis/master/${process.env.ETH_NETWORK}/1.json`,
+    url: `https://raw.githubusercontent.com/ethereum-optimism/regenesis/master/${process.env.ETH_NETWORK}/2.json`,
     path: "accounts",
   },
   {

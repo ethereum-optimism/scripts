@@ -6,3 +6,7 @@ node_modules/
 
 # Logging
 *.log
+
+diff.json
+
+.DS_Store
