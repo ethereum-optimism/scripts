@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start:print-blocks": "ts-node ./scripts/verifier/print-blocks-and-queue-elements.ts",
+    "start:spam": "ts-node ./scripts/spam-till-70800.ts",
     "diff-dumps:kovan": "ETH_NETWORK=kovan node ./scripts/verifier/diff-verifier-sequencer-state-dump.js",
     "diff-dumps:mainnet": "ETH_NETWORK=mainnet node ./scripts/verifier/diff-verifier-sequencer-state-dump.js"
   },
