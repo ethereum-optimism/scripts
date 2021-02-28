@@ -38,46 +38,6 @@ log.debug('hello world')
 /* Env */
 const env = process.env
 
-/* Types */
-export interface RollupInfo {
-  signer: string
-  mode: 'sequencer' | 'verifier'
-  syncing: boolean
-  l1BlockHash: string
-  l1BlockHeight: number
-  addresses: {
-    canonicalTransactionChain: string
-    stateCommitmentChain: string
-    addressResolver: string
-    l1ToL2TransactionQueue: string
-    sequencerDecompression: string
-  }
-}
-
-export enum QueueOrigin {
-  Sequencer = 0,
-  L1ToL2 = 1,
-}
-
-export const queueOriginPlainText = {
-  0: QueueOrigin.Sequencer,
-  1: QueueOrigin.L1ToL2,
-  sequencer: QueueOrigin.Sequencer,
-  l1ToL2: QueueOrigin.L1ToL2,
-}
-
-export interface L2Transaction extends TransactionResponse {
-  l1BlockNumber: number
-  l1TxOrigin: string
-  txType: number
-  queueOrigin: number
-}
-
-export interface L2Block extends BlockWithTransactions {
-  stateRoot: string
-  transactions: [L2Transaction]
-}
-
 
 /* Run! */
 export const run = async () => {
@@ -86,14 +46,19 @@ export const run = async () => {
   const wallet = Wallet.createRandom().connect(l2Provider)
 
   let lastBlockNumber = (await l2Provider.getBlock('latest')).number
-  log.debug(lastBlockNumber)
+  log.debug('Beginning spam')
 
-  for (let i = lastBlockNumber; i < THE_BLOCK_NUMBER; i++) {
-    wallet.sendTransaction({
+  while (lastBlockNumber < THE_BLOCK_NUMBER) {
+    log.debug('Sending tx...')
+    const res = await wallet.sendTransaction({
       to: '0x4a16A42407AA491564643E1dfc1fd50af29794eF',
       data: '0x',
       gasPrice: 0
     })
+    await res.wait()
+    log.debug('Complete!')
+    lastBlockNumber = (await l2Provider.getBlock('latest')).number
+    log.debug('New last block:', lastBlockNumber)
   }
 }
 
