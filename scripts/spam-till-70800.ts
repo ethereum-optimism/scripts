@@ -48,18 +48,27 @@ export const run = async () => {
   let lastBlockNumber = (await l2Provider.getBlock('latest')).number
   log.debug('Beginning spam')
 
+  let nonce = 0
   while (lastBlockNumber < THE_BLOCK_NUMBER) {
     log.debug('Sending tx...')
     const res = await wallet.sendTransaction({
-      to: '0x4a16A42407AA491564643E1dfc1fd50af29794eF',
-      data: '0x',
-      gasPrice: 0
+      to: '0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4',
+      data: '0x1234',
+      gasPrice: 0,
+      nonce
     })
-    await res.wait()
-    log.debug('Complete!')
+    nonce++
+    try {
+      await res.wait()
+    } catch (e) {
+      log.debug('Threw error:')
+      log.debug(e)
+    }
+    log.debug('Sent tx for block number:', lastBlockNumber)
     lastBlockNumber = (await l2Provider.getBlock('latest')).number
     log.debug('New last block:', lastBlockNumber)
   }
+  log.debug('Complete')
 }
 
 run()
