@@ -25,6 +25,7 @@
     "ethers": "^5.0.26",
     "prettydiff": "^101.2.6",
     "single-line-log": "^1.1.2",
+    "synthetix": "^2.39.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
