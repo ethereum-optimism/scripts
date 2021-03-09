@@ -1,11 +1,14 @@
+#!/usr/bin/env -S node --require ts-node/register
+
 import { ethers } from 'ethers'
 import synthetix from 'synthetix'
 import * as path from 'path'
 import * as fs from 'fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
 
-const NODE_A_URL = 'http://'
-const NODE_B_URL = 'http://'
+const env = process.env
+const NODE_A_URL = env.NODE_A_URL || 'http://127.0.0.1:8545'
+const NODE_B_URL = env.NODE_B_URL || 'http://mainnet.optimism.io'
 const MAX_BLOCKS_PER_LOOP = 1000
 
 const range = (
@@ -93,7 +96,7 @@ const main = async () => {
   const nodeA_Synthetix = loadSnxContract('ProxyERC20', '0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4', nodeA_rpcProvider)
   const nodeA_ProxyERC20sUSD = loadSnxContract('ProxyERC20', '0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9', nodeA_rpcProvider)
   const nodeB_Synthetix = loadSnxContract('ProxyERC20', '0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4', nodeB_rpcProvider)
-  const nodeB_ProxyERC20sUSD = loadSnxContract('ProxyERC20', '0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9', nodeB_rpcProvider) 
+  const nodeB_ProxyERC20sUSD = loadSnxContract('ProxyERC20', '0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9', nodeB_rpcProvider)
 
   for (const account of Array.from(touchedAccounts)) {
     try {
