@@ -3,6 +3,8 @@
 import {ethers} from 'ethers';
 import {L1DataTransportClient} from '@eth-optimism/data-transport-layer'
 import assert from 'assert'
+import fs from 'fs'
+const dotenv = require("dotenv").config();
 
 const env = process.env
 const DATA_TRANSPORT_URL = env.DATA_TRANSPORT_URL || 'http://18.191.34.195:7878'
@@ -11,74 +13,93 @@ const REPLICA_DATA_TRANSPORT_URL = env.REPLICA_DATA_TRANSPORT_URL || 'http://loc
 const dtl = new L1DataTransportClient(DATA_TRANSPORT_URL)
 const replica = new L1DataTransportClient(REPLICA_DATA_TRANSPORT_URL)
 
+
+const getMismatchedTx = async (i) => {
+  const tx = await dtl.getTransactionByIndex(i)
+  const rtx = await replica.getTransactionByIndex(i)
+
+  function equal(...keys) {
+    let rhs = tx
+    let lhs = rtx
+    for (let key of keys) {
+      rhs = rhs[key]
+      lhs = lhs[key]
+    }
+    return deepEqual(lhs, rhs)
+  }
+
+  const mismatch = []
+
+  console.log(`checking tx at ${i}`)
+  if (!equal('transaction', 'index')) {
+    mismatch.push('Index')
+    console.log(`  Index mismatch`)
+    console.log(`    sequencer: ${tx.transaction.index}`)
+    console.log(`    replica: ${rtx.transaction.index}`)
+  }
+  if (!equal('transaction', 'blockNumber')) {
+    mismatch.push('BlockNumber')
+    console.log('  blocknumber mismatch')
+    console.log(`    sequencer: ${tx.transaction.blockNumber}`)
+    console.log(`    replica: ${rtx.transaction.blockNumber}`)
+  }
+  if (!equal('transaction', 'timestamp')) {
+    mismatch.push('Timestamp')
+    console.log('timestamp mismatch')
+    console.log(`    sequencer: ${tx.transaction.timestamp}`)
+    console.log(`    replica: ${rtx.transaction.timestamp}`)
+  }
+  if (!equal('transaction', 'queueOrigin')) {
+    mismatch.push('QueueOrigin')
+    console.log('queue origin mismatch')
+  }
+  if (!equal('transaction', 'target')) {
+    mismatch.push('Target')
+    console.log('target mismatch')
+  }
+  if (!equal('transaction', 'data')) {
+    mismatch.push('Data')
+    console.log('data mismatch')
+  }
+  if (mismatch.length !== 0) {
+    console.log('Mismatched index', i)
+    return {
+      verifier: tx,
+      replica: rtx,
+      mismatch
+    }
+  }
+  return undefined
+}
+
 ;(async () => {
   const latest = await dtl.getLatestTransacton()
   const rlatest = await replica.getLatestTransacton()
 
   const min = Math.min(latest.transaction.index, rlatest.transaction.index)
+  const mismatchedTxs = []
+  const requestBatchSize = 100
 
-  for (let i = 0; i < 100; i++) {
-    const tx = await dtl.getTransactionByIndex(i)
-    const rtx = await replica.getTransactionByIndex(i)
-
-    function equal(...keys) {
-      let rhs = tx
-      let lhs = rtx
-      for (let key of keys) {
-        rhs = rhs[key]
-        lhs = lhs[key]
-      }
-      return deepEqual(lhs, rhs)
+  for (let i = 0; i < min; i += requestBatchSize) {
+    console.log('Getting txs for range', i, 'to', i + requestBatchSize)
+    await new Promise(r => setTimeout(r, 100))
+    if (i > min) {
+      i = min
     }
-
-    if (!equal()) {
-      console.log(`mismatch at ${i}`)
-      if (!equal('transaction', 'index')) {
-        console.log(`  Index mismatch`)
-        console.log(`    sequencer: ${tx.transaction.index}`)
-        console.log(`    replica: ${rtx.transaction.index}`)
+    const promises = []
+    for (let j = i; j < i + requestBatchSize; j++) {
+      promises.push(getMismatchedTx(j))
+    }
+    const mismatched = await Promise.all(promises)
+    for (const m of mismatched) {
+      if (m !== undefined) {
+        mismatchedTxs.push(m)
       }
-      if (!equal('transaction', 'blockNumber')) {
-        console.log('  blocknumber mismatch')
-        console.log(`    sequencer: ${tx.transaction.blockNumber}`)
-        console.log(`    replica: ${rtx.transaction.blockNumber}`)
-      }
-      if (!equal('transaction', 'timestamp')) {
-        console.log('timestamp mismatch')
-        console.log(`    sequencer: ${tx.transaction.timestamp}`)
-        console.log(`    replica: ${rtx.transaction.timestamp}`)
-      }
-      if (!equal('transaction', 'queueOrigin')) {
-        console.log('queue origin mismatch')
-      }
-      if (!equal('transaction', 'type')) {
-        console.log('tx type mismatch')
-      }
-      if (!equal('transaction', 'queueIndex')) {
-        console.log('queue index mismatch')
-      }
-      if (!equal('transaction', 'confirmed')) {
-        console.log('confirmation mismatch')
-      }
-      if (!equal('transaction', 'gasLimit')) {
-        console.log('gas limit mismatch')
-      }
-      if (!equal('transaction', 'target')) {
-        console.log('target mismatch')
-      }
-      if (!equal('transaction', 'origin')) {
-        console.log('origin mismatch')
-      }
-      if (!equal('transaction', 'data')) {
-        console.log('data mismatch')
-      }
-      if (!equal('transaction', 'decoded')) {
-        console.log('decoded mismatch')
-      }
-      //console.log(JSON.stringify(tx,null,2))
-      //console.log(JSON.stringify(rtx,null,2))
     }
   }
+  console.log(mismatchedTxs)
+
+  fs.writeFileSync('./mismatched-txs.json', JSON.stringify(mismatchedTxs), 'utf-8'); 
 })().catch(err => {
   console.log(err)
   process.exit(1)
