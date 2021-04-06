@@ -8,6 +8,7 @@
  * NUMBER_OF_BLOCKS: The number of blocks that should be returned. (END_BLOCK = START_BLOCK + NUMBER_OF_BLOCKS)
  * L1_NODE_WEB3_URL: L1 node
  * L2_NODE_WEB3_URL: L2 node
+ * ADDRESS_MANAGER_ADDRESS: Address of address manager
  */
 
 /* External Imports */
@@ -39,21 +40,6 @@ const startBlock = parseInt(env.START_BLOCK, 10)
 let numberOfBlocks = parseInt(env.NUMBER_OF_BLOCKS, 10)
 
 /* Types */
-export interface RollupInfo {
-  signer: string
-  mode: 'sequencer' | 'verifier'
-  syncing: boolean
-  l1BlockHash: string
-  l1BlockHeight: number
-  addresses: {
-    canonicalTransactionChain: string
-    stateCommitmentChain: string
-    addressResolver: string
-    l1ToL2TransactionQueue: string
-    sequencerDecompression: string
-  }
-}
-
 export enum QueueOrigin {
   Sequencer = 0,
   L1ToL2 = 1,
@@ -131,6 +117,9 @@ export const run = async () => {
   const totalQueueElements = await ctc.getTotalElements()
   console.log('Total Queue Elements', totalQueueElements.toString())
 
+  const pendingQueueElements = await ctc.getNumPendingQueueElements()
+  console.log('Pending Queue Elements', pendingQueueElements.toString())
+
   const elements = []
   for (let i = 0; i < nextQueueIndex; i++) {
     const element = await ctc.getQueueElement(i)
@@ -149,16 +138,16 @@ async function getChainAddresses(
   l1Provider: JsonRpcProvider,
   l2Provider: JsonRpcProvider
 ): Promise<{ ctcAddress: string; sccAddress: string }> {
-  const rollupInfo = await l2Provider.send('rollup_getInfo', [])
   const addressManager = (
     await getContractFactory('Lib_AddressManager')
-  ).attach(rollupInfo.addresses.addressResolver).connect(l1Provider)
+  ).attach(env.ADDRESS_MANAGER_ADDRESS).connect(l1Provider)
   const sccAddress = await addressManager.getAddress(
     'OVM_StateCommitmentChain'
   )
   const ctcAddress = await addressManager.getAddress(
     'OVM_CanonicalTransactionChain'
   )
+
   return {
     ctcAddress,
     sccAddress,
