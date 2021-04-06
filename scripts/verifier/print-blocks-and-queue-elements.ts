@@ -12,6 +12,7 @@
  */
 
 /* External Imports */
+import { Promise as bPromise } from 'bluebird'
 import { Wallet } from 'ethers'
 import {
   BlockWithTransactions,
@@ -76,16 +77,25 @@ export const run = async () => {
     numberOfBlocks = lastBlockNumber - startBlock
   }
 
-  const blocks: L2Block[]  = []
   const l1ToL2Blocks: L2Block[]  = []
   const endBlock = startBlock + numberOfBlocks
 
   console.log(`Starting block: ${startBlock}`)
   console.log(`End block: ${endBlock}`)
-  for (let i = startBlock; i < endBlock; i++) {
-    blocks.push(await l2Provider.getBlockWithTransactions(i) as L2Block)
-    console.log('Got block', i)
-  }
+  const blocks: L2Block[]  = await bPromise.map(
+    [...Array(numberOfBlocks).keys()],
+    (i) => {
+      console.log('Got block', startBlock + i)
+      return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
+        console.log('Retrying once', reason)
+        return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
+          console.log('Retrying twice', reason)
+          return l2Provider.getBlockWithTransactions(startBlock + i) as L2Block
+        }) as L2Block
+      }) as L2Block
+    },
+    { concurrency: 100 }
+  )
 
   const queueTxs: L2Block[]  = []
   for (const block of blocks) {
@@ -99,10 +109,10 @@ export const run = async () => {
 
   console.log('writing all blocks...')
   const allBlocks = JSON.stringify(blocks, null, 2)
-  fs.writeFileSync('./all-blocks.json', allBlocks, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-sequencer-blocks.json', allBlocks, 'utf-8')  // lord forgive me for i have sinned
   console.log('writing all queue txs...')
   const allQueueTxs = JSON.stringify(queueTxs, null, 2)
-  fs.writeFileSync('./all-queue-txs.json', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-sequencer-queue-txs.json', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
   console.log('~~~~~~~~~~~~ Some final debug info: ~~~~~~~~~~~~~~')
 
   // Get all of the queue elements
@@ -120,17 +130,21 @@ export const run = async () => {
   const pendingQueueElements = await ctc.getNumPendingQueueElements()
   console.log('Pending Queue Elements', pendingQueueElements.toString())
 
-  const elements = []
-  for (let i = 0; i < nextQueueIndex; i++) {
-    const element = await ctc.getQueueElement(i)
-    elements.push({
-      index: i,
-      timestamp: element[1],
-      blockNumber: element[2]
-    })
-  }
+  const elements = await bPromise.map(
+    [...Array(nextQueueIndex).keys()],
+    async (i) => {
+      const element = await ctc.getQueueElement(i)
+      console.log('Current element', element)
+      return {
+        index: i,
+        timestamp: element[1],
+        blockNumber: element[2]
+      }
+    },
+    { concurrency: 100 }
+  )
 
-  fs.writeFileSync('./all-queue-elements.json', JSON.stringify(elements, null, 2), 'utf-8')
+  fs.writeFileSync('./all-l1-queue-elements.json', JSON.stringify(elements, null, 2), 'utf-8')
 }
 
 
