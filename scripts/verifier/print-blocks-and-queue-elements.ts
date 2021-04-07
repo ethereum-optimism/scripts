@@ -87,9 +87,9 @@ export const run = async () => {
     (i) => {
       console.log('Got block', startBlock + i)
       return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
-        console.log('Retrying once', reason)
+        console.log(`Retrying once at block ${startBlock + i}`, reason)
         return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
-          console.log('Retrying twice', reason)
+          console.log(`Retrying twice at block ${startBlock + i}`, reason)
           return l2Provider.getBlockWithTransactions(startBlock + i) as L2Block
         }) as L2Block
       }) as L2Block
@@ -98,7 +98,17 @@ export const run = async () => {
   )
 
   const queueTxs: L2Block[]  = []
-  for (const block of blocks) {
+  const missingBlockNums : number[] = []
+  for (let i = 0; i < blocks.length; i++) {
+    let block = blocks[i];
+    console.log(`Current block at index ${startBlock + i}`, block)
+    if (block == null) {
+      console.log(`Missing block at ${startBlock + i}`)
+      missingBlockNums.push(startBlock + i)
+      block = await l2Provider.getBlockWithTransactions(startBlock + i) as L2Block
+      console.log(`Queried block with index ${startBlock + i}`, block) 
+    }
+
     if (block.transactions[0].queueOrigin === ('sequencer' as any)) {
       console.log('sequencer tx found!')
     } else {
@@ -106,6 +116,8 @@ export const run = async () => {
       queueTxs.push(block)
     }
   }
+
+  console.log(`Missing ${missingBlockNums.length} blocks`, missingBlockNums)
 
   console.log('writing all blocks...')
   const allBlocks = JSON.stringify(blocks, null, 2)
@@ -134,7 +146,7 @@ export const run = async () => {
     [...Array(nextQueueIndex).keys()],
     async (i) => {
       const element = await ctc.getQueueElement(i)
-      console.log('Current element', element)
+      // console.log('Current element', element)
       return {
         index: i,
         timestamp: element[1],
