@@ -86,12 +86,8 @@ export const run = async () => {
     [...Array(numberOfBlocks).keys()],
     (i) => {
       console.log('Got block', startBlock + i)
-      return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
-        console.log(`Retrying once at block ${startBlock + i}`, reason)
-        return l2Provider.getBlockWithTransactions(startBlock + i).catch((reason) => {
-          console.log(`Retrying twice at block ${startBlock + i}`, reason)
-          return l2Provider.getBlockWithTransactions(startBlock + i) as L2Block
-        }) as L2Block
+      return l2Provider.getBlockWithTransactions(startBlock + i).catch((err) => {
+        return retry(l1Provider.getBlockWithTransactions, startBlock+i, 5, err) as L2Block
       }) as L2Block
     },
     { concurrency: 100 }
@@ -178,6 +174,17 @@ async function getChainAddresses(
     ctcAddress,
     sccAddress,
   }
+}
+
+function retry(fn, params, retries=5, err=null) {
+  console.log(`${retries} retries remaining, calling with ${params}`, err)
+  if (!retries) {
+    return Promise.reject(err)
+  }
+
+  return fn(params).catch(err => {
+    return retry(fn, params, retries-1, err)
+  })
 }
 
 run()
