@@ -85,10 +85,8 @@ export const run = async () => {
   const blocks: L2Block[]  = await bPromise.map(
     [...Array(numberOfBlocks).keys()],
     (i) => {
-      console.log('Got block', startBlock + i)
-      return l2Provider.getBlockWithTransactions(startBlock + i).catch((err) => {
-        return retry(l1Provider.getBlockWithTransactions, startBlock+i, 5, err) as L2Block
-      }) as L2Block
+      console.log('Getting block', startBlock + i)
+      return retry(() => {return l2Provider.getBlockWithTransactions(startBlock+i)}) as L2Block
     },
     { concurrency: 100 }
   )
@@ -176,14 +174,14 @@ async function getChainAddresses(
   }
 }
 
-function retry(fn, params, retries=5, err=null) {
-  console.log(`${retries} retries remaining, calling with ${params}`, err)
+function retry(fn, retries=5, err=null) {
   if (!retries) {
     return Promise.reject(err)
   }
 
-  return fn(params).catch(err => {
-    return retry(fn, params, retries-1, err)
+  if(retries < 5) console.log(`${retries} retries remaining`, err)
+  return fn().catch(err => {
+    return retry(fn, retries-1, err)
   })
 }
 
