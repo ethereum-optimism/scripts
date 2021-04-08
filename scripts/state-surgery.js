@@ -18,6 +18,9 @@ const contracts = {
   ProxyEOA: getContractDefinition('OVM_ProxyEOA'),
 }
 const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
+const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/publish/deployed/${cfg.ethNetwork}-ovm/deployment.json`
+
+const unknowns = []
 
 ;(async () => {
   let currentState;
@@ -26,7 +29,7 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
     try {
       currentState = await sequencer.send('debug_dumpBlock', ['latest']);
     } catch (e) {
-      // Do nothing
+      console.error(e)
     }
   }
 
@@ -37,6 +40,12 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
     contractsDump = res.data
   } else {
     contractsDump = getLatestStateDump()
+  }
+
+  const res = await axios.get(snx)
+  const synthetix = {}
+  for (const [name, target] of Object.entries(res.data.targets)) {
+    synthetix[target.address.toLowerCase()] = name
   }
 
   for (const [address, account] of Object.entries(currentState.accounts)) {
@@ -59,7 +68,14 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
     } else {
       // Handle the Synthetix contracts. The account comes from the current
       // state
-      contractsDump.accounts[address] = {
+      let name = synthetix[address]
+      if (!name) {
+        console.error(`Unknown address ${address}`)
+        name = address
+        unknowns.push(address)
+      }
+
+      contractsDump.accounts[name] = {
         address: address,
         nonce: account.nonce,
         code: account.code,
@@ -68,10 +84,11 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
       }
     }
   }
-
+  contractsDump.unknowns = unknowns
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
-  console.log(err)
+  console.error(err)
+  console.log(JSON.stringify({}))
   process.exit(1)
 })
 
@@ -106,9 +123,12 @@ function getFindAndReplacedCode(str) {
 function config() {
   if (!process.env.SEQUENCER_ENDPOINT)
     throw new Error('Must pass SEQUENCER_ENDPOINT')
+  if (!process.env.ETH_NETWORK)
+    throw new Error('Must pass ETH_NETWORK')
 
   return {
     sequencerEndpoint: process.env.SEQUENCER_ENDPOINT,
     stateDumpPath: process.env.STATE_DUMP_PATH,
+    ethNetwork: process.env.ETH_NETWORK,
   }
 }
