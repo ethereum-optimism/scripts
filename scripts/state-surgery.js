@@ -55,7 +55,6 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
       }
     } else if (isPredeploy(address) || isSystemAccount(address)) {
       // Predeploys and System Accounts keep the same nonce and code
-
       // Iterate through the contractsDump to find the matching addresses so
       // that the storage can be pulled in
       for (const [name, dumpAccount] of Object.entries(contractsDump.accounts)) {
