@@ -1,8 +1,9 @@
 /**
  * State Surgery Script
  *
- * Required env var:
+ * Required env vars:
  *  SEQUENCER_ENDPOINT
+ *  ETH_NETWORK
  * Optional env var:
  *  STATE_DUMP_PATH
  */
