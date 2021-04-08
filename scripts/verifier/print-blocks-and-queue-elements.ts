@@ -96,12 +96,6 @@ export const run = async () => {
   for (let i = 0; i < blocks.length; i++) {
     let block = blocks[i];
     console.log(`Current block at index ${startBlock + i}`, block)
-    if (block == null) {
-      console.log(`Missing block at ${startBlock + i}`)
-      missingBlockNums.push(startBlock + i)
-      block = await l2Provider.getBlockWithTransactions(startBlock + i) as L2Block
-      console.log(`Queried block with index ${startBlock + i}`, block) 
-    }
 
     if (block.transactions[0].queueOrigin === ('sequencer' as any)) {
       console.log('sequencer tx found!')
