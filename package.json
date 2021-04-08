@@ -29,6 +29,7 @@
     "typescript": "^4.1.3"
   },
   "devDependencies": {
-    "@eth-optimism/dev": "^1.0.0"
+    "@eth-optimism/dev": "^1.1.1",
+    "synthetix": "^2.39.4"
   }
 }
