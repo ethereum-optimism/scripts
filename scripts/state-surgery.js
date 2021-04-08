@@ -9,29 +9,13 @@
 const fs = require('fs');
 const axios = require('axios');
 const { JsonRpcProvider } = require('@ethersproject/providers');
-const { getContractDefinition } = require('@eth-optimism/contracts')
+const { getLatestStateDump, getContractDefinition } = require('@eth-optimism/contracts')
 
 const cfg = config()
 
 const contracts = {
   ProxyEOA: getContractDefinition('OVM_ProxyEOA'),
-  Lib_AddressManager: getContractDefinition('Lib_AddressManager'),
-  OVM_DeployerWhitelist: getContractDefinition('OVM_DeployerWhitelist'),
-  OVM_L1MessageSender: getContractDefinition('OVM_L1MessageSender'),
-  OVM_L2ToL1MessagePasser: getContractDefinition('OVM_L2ToL1MessagePasser'),
-  OVM_ProxyEOA: getContractDefinition('OVM_ProxyEOA'),
-  OVM_ECDSAContractAccount: getContractDefinition('OVM_ECDSAContractAccount'),
-  mockOVM_ECDSAContractAccount: getContractDefinition('mockOVM_ECDSAContractAccount'),
-  OVM_ProxySequencerEntrypoint: getContractDefinition('OVM_ProxySequencerEntrypoint'),
-  ERC1820Registry: getContractDefinition('ERC1820Registry'),
-  OVM_SequencerEntrypoint: getContractDefinition('OVM_SequencerEntrypoint'),
-  OVM_L2CrossDomainMessenger: getContractDefinition('OVM_L2CrossDomainMessenger'),
-  OVM_SafetyChecker: getContractDefinition('OVM_SafetyChecker'),
-  OVM_ExecutionManager: getContractDefinition('OVM_ExecutionManager'),
-  OVM_StateManager: getContractDefinition('OVM_StateManager'),
-  OVM_ETH: getContractDefinition('OVM_ETH'),
 }
-
 const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
 
 ;(async () => {
@@ -46,46 +30,34 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
   }
 
   // Need to merge current state into contractsDump
-  const res = await axios.get(cfg.stateDumpPath)
-  const contractsDump = res.data
+  let contractsDump
+  if (cfg.stateDumpPath) {
+    const res = await axios.get(cfg.stateDumpPath)
+    contractsDump = res.data
+  } else {
+    contractsDump = getLatestStateDump()
+  }
 
   for (const [address, account] of Object.entries(currentState.accounts)) {
-    // EOA Accounts receive the latest OVM_ProxyEOA code. They keep the same
-    // storage and nonce.
     if (isEOA(account)) {
+      // EOA Accounts receive the latest OVM_ProxyEOA code. They keep the same
+      // storage and nonce. Leave out the ABI to not bloat the file
       const eoaName = 'EOA_' + address
       contractsDump.accounts[eoaName] = {
         address: address,
         nonce: account.nonce,
-        code: contracts.ProxyEOA.deployedBytecode,
+        code: getFindAndReplacedCode(contracts.ProxyEOA.deployedBytecode),
         storage: account.storage,
-        abi: contracts.ProxyEOA.abi
+        abi: []
       }
     } else if (isPredeploy(address) || isSystemAccount(address)) {
-      // Predeploys and System Accounts keep the same nonce and code
-      // Iterate through the contractsDump to find the matching addresses so
-      // that the storage can be pulled in
-      for (const [name, dumpAccount] of Object.entries(contractsDump.accounts)) {
-        if (dumpAccount.address === address) {
-          let newAccount = contracts[name]
-          if (!newAccount)
-            throw new Error(`Cannot find code for ${name}`)
-
-          const updated = {
-            address: address,
-            nonce: 0,
-            code: newAccount.deployedBytecode,
-            storage: dumpAccount.storage,
-            abi: newAccount.abi,
-          }
-
-          contractsDump.accounts[name] = updated
-        }
-      }
+      // Predeploys and System Accounts keep the same nonce and code.
+      // Do nothing
     } else if (isPrecompile(address)) {
-      // do nothing
+      // Do nothing
     } else {
-      // handle the Synthetix contracts
+      // Handle the Synthetix contracts. The account comes from the current
+      // state
       contractsDump.accounts[address] = {
         address: address,
         nonce: account.nonce,
@@ -101,11 +73,6 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
   console.log(err)
   process.exit(1)
 })
-
-
-function isEmptyAccount(account) {
-  return account.codeHash == 'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
-}
 
 // corresponds to the storage slots
 // 0xdead....dead => 0x4200....03
@@ -127,22 +94,20 @@ function isPrecompile(address) {
   return int <= 9 && int !== 0
 }
 
-const add0x = (str) => {
-  if (str === undefined) {
-    return str
-  }
-  return str.startsWith('0x') ? str : '0x' + str
+function getFindAndReplacedCode(str) {
+  return str.split(
+    '336000905af158601d01573d60011458600c01573d6000803e3d621234565260ea61109c52'
+  ).join(
+    '336000905af158600e01573d6000803e3d6000fd5b3d6001141558600a015760016000f35b'
+  )
 }
 
 function config() {
   if (!process.env.SEQUENCER_ENDPOINT)
     throw new Error('Must pass SEQUENCER_ENDPOINT')
-  if (!process.env.STATE_DUMP_PATH)
-    throw new Error('Must pass STATE_DUMP_PATH')
 
   return {
     sequencerEndpoint: process.env.SEQUENCER_ENDPOINT,
     stateDumpPath: process.env.STATE_DUMP_PATH,
   }
 }
-
