@@ -10,7 +10,6 @@ const fs = require('fs');
 const axios = require('axios');
 const { JsonRpcProvider } = require('@ethersproject/providers');
 const { getContractDefinition } = require('@eth-optimism/contracts')
-const { keccak256 } = require("@ethersproject/keccak256");
 
 const cfg = config()
 
