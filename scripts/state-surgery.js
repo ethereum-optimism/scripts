@@ -35,7 +35,15 @@ const contracts = {
 const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
 
 ;(async () => {
-  const currentState = await sequencer.send('debug_dumpBlock', ['latest']);
+  let currentState;
+
+  while (!currentState) {
+    try {
+      currentState = await sequencer.send('debug_dumpBlock', ['latest']);
+    } catch (e) {
+      // Do nothing
+    }
+  }
 
   // Need to merge current state into contractsDump
   const res = await axios.get(cfg.stateDumpPath)
@@ -67,8 +75,8 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
             address: address,
             nonce: 0,
             code: newAccount.deployedBytecode,
-            abi: newAccount.abi,
             storage: dumpAccount.storage,
+            abi: newAccount.abi,
           }
 
           contractsDump.accounts[name] = updated
@@ -83,7 +91,7 @@ const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
         nonce: account.nonce,
         code: account.code,
         storage: account.storage,
-        abi: {}
+        abi: []
       }
     }
   }
