@@ -6,6 +6,7 @@
  *  ETH_NETWORK
  * Optional env var:
  *  STATE_DUMP_PATH
+ *  CURRENT_STATE_PATH
  */
 
 const fs = require('fs');
@@ -27,11 +28,22 @@ const unknowns = []
 ;(async () => {
   let currentState;
 
-  while (!currentState) {
-    try {
-      currentState = await sequencer.send('debug_dumpBlock', ['latest']);
-    } catch (e) {
-      console.error(e)
+  // Fetch the state dump via HTTP if the current state path is passed,
+  // otherwise fetch it from the sequencer
+  if (cfg.currentStatePath) {
+    const res = await axios.get(cfg.currentStatePath)
+    currentState = res.data
+    if (currentState.result)
+      currentState = currentState.result
+  } else {
+    let attempt = 1
+    while (!currentState) {
+      try {
+        currentState = await sequencer.send('debug_dumpBlock', ['latest']);
+      } catch (e) {
+        console.error(`timeout ${attempt}`)
+        attempt++
+      }
     }
   }
 
@@ -44,9 +56,13 @@ const unknowns = []
     contractsDump = getLatestStateDump()
   }
 
-  const res = await axios.get(snx)
-  for (const [name, target] of Object.entries(res.data.targets)) {
-    synthetix[target.address.toLowerCase()] = name
+  try {
+    const res = await axios.get(snx)
+    for (const [name, target] of Object.entries(res.data.targets)) {
+      synthetix[target.address.toLowerCase()] = name
+    }
+  } catch (e) {
+    console.error('unable to fetch synthetix contracts')
   }
 
   for (const [address, account] of Object.entries(currentState.accounts)) {
@@ -90,7 +106,7 @@ const unknowns = []
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
   console.error(err)
-  console.log(JSON.stringify({}))
+  console.log(JSON.stringify(err))
   process.exit(1)
 })
 
@@ -127,13 +143,14 @@ function getFindAndReplacedCode(str) {
 }
 
 function config() {
-  if (!process.env.SEQUENCER_ENDPOINT)
-    throw new Error('Must pass SEQUENCER_ENDPOINT')
+  if (!process.env.SEQUENCER_ENDPOINT && !process.env.CURRENT_STATE_PATH)
+    throw new Error('Must pass SEQUENCER_ENDPOINT or CURRENT_STATE_PATH')
   if (!process.env.ETH_NETWORK)
     throw new Error('Must pass ETH_NETWORK')
 
   return {
     sequencerEndpoint: process.env.SEQUENCER_ENDPOINT,
+    currentStatePath: process.env.CURRENT_STATE_PATH,
     stateDumpPath: process.env.STATE_DUMP_PATH,
     ethNetwork: process.env.ETH_NETWORK,
   }

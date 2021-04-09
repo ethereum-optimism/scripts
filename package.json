@@ -11,7 +11,7 @@
     "diff-dumps:mainnet": "ETH_NETWORK=mainnet node ./scripts/verifier/diff-verifier-sequencer-state-dump.js"
   },
   "dependencies": {
-    "@eth-optimism/contracts": "^0.1.11",
+    "@eth-optimism/contracts": "0.2.0",
     "@eth-optimism/core-utils": "^0.1.5",
     "@eth-optimism/data-transport-layer": "^0.1.0",
     "@eth-optimism/provider": "^0.0.1-alpha.14",

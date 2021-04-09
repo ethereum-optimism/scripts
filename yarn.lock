@@ -38,7 +38,20 @@
   dependencies:
     ethers "5.0.0"
 
-"@eth-optimism/contracts@^0.1.11", "@eth-optimism/contracts@^0.1.4":
+"@eth-optimism/contracts@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.2.0.tgz#bed0b86702e7a492e8a18ad9cb675fc29afd79b5"
+  integrity sha512-v7TuRsCzJm7M7g9ogO17aZOYDQYUbW0uZfFeBGYNifMyVHqVNkaKw7+fAj8DkJe4ZJ2iDFuSSOJahqDm1vuc2w==
+  dependencies:
+    "@eth-optimism/core-utils" "^0.1.10"
+    "@ethersproject/abstract-provider" "^5.0.8"
+    "@ethersproject/contracts" "^5.0.5"
+    "@ethersproject/hardware-wallets" "^5.0.8"
+    "@openzeppelin/contracts" "^3.3.0"
+    ganache-core "^2.13.2"
+    glob "^7.1.6"
+
+"@eth-optimism/contracts@^0.1.4":
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.1.11.tgz#d33354b69e1bdaf11eac799a1f4dfb17295a04e7"
   integrity sha512-Ak4VoPwn9ZTH7Th5Ioh9HxGt9mtriOuiH1YuOtRihnhmmsJ0DO5k5dqdzbckUKYDW1s3sA7N6Yw3pbtZ9qiVWw==
@@ -73,7 +86,7 @@
     ts-md5 "^1.2.4"
     uuid "^3.3.3"
 
-"@eth-optimism/core-utils@^0.1.5", "@eth-optimism/core-utils@^0.1.8":
+"@eth-optimism/core-utils@^0.1.10":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.1.10.tgz#bbed838cb7c9354e8b90029c47b7556ceaa756bf"
   integrity sha512-RyZ79yP1gJP8Clx6AqvoDiJzbOVQccsyj0OobwiNfO4gUU1Lpmz37zXsQITSO+3bKWj+ipxg2baZnJwfoTxl5g==
@@ -83,6 +96,21 @@
     debug "^4.3.1"
     ethers "^5.0.31"
     pino "^6.11.1"
+
+"@eth-optimism/core-utils@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.1.5.tgz#90b3f3d14b25abd8a210d78678d36e54f0c841f4"
+  integrity sha512-DLcHKFXcfoVb0yizfHeDGvgfHYb5DRRMnZyXLXIN0HNrAeavQEjgRFLOo/qy+xNjGI99LKSvyJtHP/C9ImJDag==
+  dependencies:
+    "@ethersproject/abstract-provider" "^5.0.9"
+    axios "^0.21.1"
+    body-parser "^1.19.0"
+    debug "^4.1.1"
+    dotenv "^8.2.0"
+    ethereumjs-util "^6.2.0"
+    ethers "^5.0.24"
+    express "^4.17.1"
+    uuid "^3.3.3"
 
 "@eth-optimism/data-transport-layer@^0.1.0":
   version "0.1.0"
@@ -1508,6 +1536,13 @@ axios@^0.19.0:
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   dependencies:
     follow-redirects "1.5.10"
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -4140,6 +4175,11 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
+follow-redirects@^1.10.0:
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
+  integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
+
 for-each@^0.3.3, for-each@~0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.3.tgz#69b447e88a0a5d32c3e7084f3f1710034b21376e"
@@ -4238,7 +4278,7 @@ functional-red-black-tree@^1.0.1, functional-red-black-tree@~1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-ganache-core@^2.12.1:
+ganache-core@^2.13.2:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/ganache-core/-/ganache-core-2.13.2.tgz#27e6fc5417c10e6e76e2e646671869d7665814a3"
   integrity sha512-tIF5cR+ANQz0+3pHWxHjIwHqFXcVo0Mb+kcsNhglNFALcYo49aQpnS9dqHartqPfMFjiHh/qFoD3mYK0d/qGgw==
@@ -6280,7 +6320,7 @@ path-to-regexp@0.1.7:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
 
-pathval@^1.1.1:
+pathval@^1.1.0, pathval@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/pathval/-/pathval-1.1.1.tgz#8534e77a77ce7ac5a2512ea21e0fdb8fcf6c3d8d"
   integrity sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==
