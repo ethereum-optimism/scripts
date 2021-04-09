@@ -21,6 +21,7 @@ const contracts = {
 const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
 const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/publish/deployed/${cfg.ethNetwork}-ovm/deployment.json`
 
+const synthetix = {}
 const unknowns = []
 
 ;(async () => {
@@ -44,7 +45,6 @@ const unknowns = []
   }
 
   const res = await axios.get(snx)
-  const synthetix = {}
   for (const [name, target] of Object.entries(res.data.targets)) {
     synthetix[target.address.toLowerCase()] = name
   }
@@ -61,26 +61,27 @@ const unknowns = []
         storage: account.storage,
         abi: []
       }
-    } else if (isPredeploy(address) || isSystemAccount(address)) {
-      // Predeploys and System Accounts keep the same nonce and code.
+    } else if (isPredeploy(address) || isSystemAccount(address) || isPrecompile(address)) {
       // Do nothing
-    } else if (isPrecompile(address)) {
-      // Do nothing
-    } else {
-      // Handle the Synthetix contracts. The account comes from the current
-      // state
-      let name = synthetix[address]
-      if (!name) {
-        console.error(`Unknown address ${address}`)
-        name = address
-        unknowns.push(address)
-      }
-
+    } else if (isSynthetix(address)) {
+      // Handle the synthetix contracts
+      const name = synthetix[address]
       contractsDump.accounts[name] = {
         address: address,
         nonce: account.nonce,
         code: account.code,
         storage: account.storage,
+        abi: []
+      }
+    } else {
+      // Handle the other contracts
+      console.error(`Unknown address ${address}`)
+      unknowns.push(address)
+      contractsDump.accounts[address] = {
+        address: address,
+        nonce: account.nonce,
+        code: account.code,
+        storage: account.storage || {},
         abi: []
       }
     }
@@ -105,6 +106,10 @@ function isPredeploy(address) {
 
 function isSystemAccount(address) {
   return address.startsWith('0xdeaddeaddeaddeaddeaddeaddeaddeaddead')
+}
+
+function isSynthetix(address) {
+  return address.toLowerCase() in synthetix
 }
 
 // 1-9 are defined as precompiles
