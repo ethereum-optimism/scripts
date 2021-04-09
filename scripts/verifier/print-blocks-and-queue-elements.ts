@@ -8,9 +8,11 @@
  * NUMBER_OF_BLOCKS: The number of blocks that should be returned. (END_BLOCK = START_BLOCK + NUMBER_OF_BLOCKS)
  * L1_NODE_WEB3_URL: L1 node
  * L2_NODE_WEB3_URL: L2 node
+ * ADDRESS_MANAGER_ADDRESS: Address of address manager
  */
 
 /* External Imports */
+import { Promise as bPromise } from 'bluebird'
 import { Wallet } from 'ethers'
 import {
   BlockWithTransactions,
@@ -39,21 +41,6 @@ const startBlock = parseInt(env.START_BLOCK, 10)
 let numberOfBlocks = parseInt(env.NUMBER_OF_BLOCKS, 10)
 
 /* Types */
-export interface RollupInfo {
-  signer: string
-  mode: 'sequencer' | 'verifier'
-  syncing: boolean
-  l1BlockHash: string
-  l1BlockHeight: number
-  addresses: {
-    canonicalTransactionChain: string
-    stateCommitmentChain: string
-    addressResolver: string
-    l1ToL2TransactionQueue: string
-    sequencerDecompression: string
-  }
-}
-
 export enum QueueOrigin {
   Sequencer = 0,
   L1ToL2 = 1,
@@ -90,19 +77,26 @@ export const run = async () => {
     numberOfBlocks = lastBlockNumber - startBlock
   }
 
-  const blocks: L2Block[]  = []
   const l1ToL2Blocks: L2Block[]  = []
   const endBlock = startBlock + numberOfBlocks
 
   console.log(`Starting block: ${startBlock}`)
   console.log(`End block: ${endBlock}`)
-  for (let i = startBlock; i < endBlock; i++) {
-    blocks.push(await l2Provider.getBlockWithTransactions(i) as L2Block)
-    console.log('Got block', i)
-  }
+  const blocks: L2Block[]  = await bPromise.map(
+    [...Array(numberOfBlocks).keys()],
+    (i) => {
+      console.log('Getting block', startBlock + i)
+      return retry(() => {return l2Provider.getBlockWithTransactions(startBlock+i)}) as L2Block
+    },
+    { concurrency: 100 }
+  )
 
   const queueTxs: L2Block[]  = []
-  for (const block of blocks) {
+  const missingBlockNums : number[] = []
+  for (let i = 0; i < blocks.length; i++) {
+    let block = blocks[i];
+    console.log(`Current block at index ${startBlock + i}`, block)
+
     if (block.transactions[0].queueOrigin === ('sequencer' as any)) {
       console.log('sequencer tx found!')
     } else {
@@ -111,12 +105,14 @@ export const run = async () => {
     }
   }
 
+  console.log(`Missing ${missingBlockNums.length} blocks`, missingBlockNums)
+
   console.log('writing all blocks...')
   const allBlocks = JSON.stringify(blocks, null, 2)
-  fs.writeFileSync('./all-blocks.json', allBlocks, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-sequencer-blocks.json', allBlocks, 'utf-8')  // lord forgive me for i have sinned
   console.log('writing all queue txs...')
   const allQueueTxs = JSON.stringify(queueTxs, null, 2)
-  fs.writeFileSync('./all-queue-txs.json', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
+  fs.writeFileSync('./all-sequencer-queue-txs.json', allQueueTxs, 'utf-8')  // lord forgive me for i have sinned
   console.log('~~~~~~~~~~~~ Some final debug info: ~~~~~~~~~~~~~~')
 
   // Get all of the queue elements
@@ -131,17 +127,24 @@ export const run = async () => {
   const totalQueueElements = await ctc.getTotalElements()
   console.log('Total Queue Elements', totalQueueElements.toString())
 
-  const elements = []
-  for (let i = 0; i < nextQueueIndex; i++) {
-    const element = await ctc.getQueueElement(i)
-    elements.push({
-      index: i,
-      timestamp: element[1],
-      blockNumber: element[2]
-    })
-  }
+  const pendingQueueElements = await ctc.getNumPendingQueueElements()
+  console.log('Pending Queue Elements', pendingQueueElements.toString())
 
-  fs.writeFileSync('./all-queue-elements.json', JSON.stringify(elements, null, 2), 'utf-8')
+  const elements = await bPromise.map(
+    [...Array(nextQueueIndex).keys()],
+    async (i) => {
+      const element = await ctc.getQueueElement(i)
+      // console.log('Current element', element)
+      return {
+        index: i,
+        timestamp: element[1],
+        blockNumber: element[2]
+      }
+    },
+    { concurrency: 100 }
+  )
+
+  fs.writeFileSync('./all-l1-queue-elements.json', JSON.stringify(elements, null, 2), 'utf-8')
 }
 
 
@@ -149,20 +152,31 @@ async function getChainAddresses(
   l1Provider: JsonRpcProvider,
   l2Provider: JsonRpcProvider
 ): Promise<{ ctcAddress: string; sccAddress: string }> {
-  const rollupInfo = await l2Provider.send('rollup_getInfo', [])
   const addressManager = (
     await getContractFactory('Lib_AddressManager')
-  ).attach(rollupInfo.addresses.addressResolver).connect(l1Provider)
+  ).attach(env.ADDRESS_MANAGER_ADDRESS).connect(l1Provider)
   const sccAddress = await addressManager.getAddress(
     'OVM_StateCommitmentChain'
   )
   const ctcAddress = await addressManager.getAddress(
     'OVM_CanonicalTransactionChain'
   )
+
   return {
     ctcAddress,
     sccAddress,
   }
+}
+
+function retry(fn, retries=5, err=null) {
+  if (!retries) {
+    return Promise.reject(err)
+  }
+
+  if(retries < 5) console.log(`${retries} retries remaining`, err)
+  return fn().catch(err => {
+    return retry(fn, retries-1, err)
+  })
 }
 
 run()
