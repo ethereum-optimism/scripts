@@ -2,11 +2,10 @@
  * State Surgery Script
  *
  * Required env vars:
- *  SEQUENCER_ENDPOINT
+ *  SEQUENCER_ENDPOINT or CURRENT_STATE_PATH
  *  ETH_NETWORK
  * Optional env var:
  *  STATE_DUMP_PATH
- *  CURRENT_STATE_PATH
  */
 
 const fs = require('fs');
