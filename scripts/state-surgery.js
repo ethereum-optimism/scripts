@@ -55,6 +55,9 @@ const unknowns = []
     contractsDump = getLatestStateDump()
   }
 
+  // Replace all of the existing smart contract wallets with the latest code
+  const proxyEOA = contractsDump.accounts.OVM_ProxyEOA
+
   try {
     const res = await axios.get(snx)
     for (const [name, target] of Object.entries(res.data.targets)) {
@@ -72,7 +75,7 @@ const unknowns = []
       contractsDump.accounts[eoaName] = {
         address: address,
         nonce: account.nonce,
-        code: getFindAndReplacedCode(contracts.ProxyEOA.deployedBytecode),
+        code: proxyEOA.code,
         storage: account.storage,
         abi: []
       }
