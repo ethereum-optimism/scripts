@@ -55,6 +55,9 @@ const unknowns = []
     contractsDump = getLatestStateDump()
   }
 
+  // Replace all of the existing smart contract wallets with the latest code
+  const proxyEOA = contractsDump.accounts.OVM_ProxyEOA
+
   try {
     const res = await axios.get(snx)
     for (const [name, target] of Object.entries(res.data.targets)) {
@@ -68,15 +71,29 @@ const unknowns = []
     if (isEOA(account)) {
       // EOA Accounts receive the latest OVM_ProxyEOA code. They keep the same
       // storage and nonce. Leave out the ABI to not bloat the file
+
+      const key = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
+      const val = '4200000000000000000000000000000000000003'
       const eoaName = 'EOA_' + address
       contractsDump.accounts[eoaName] = {
         address: address,
         nonce: account.nonce,
-        code: getFindAndReplacedCode(contracts.ProxyEOA.deployedBytecode),
-        storage: account.storage,
+        code: proxyEOA.code,
+        storage: {key: val},
         abi: []
       }
     } else if (isPredeploy(address) || isSystemAccount(address) || isPrecompile(address)) {
+      // Keep the storage for OVM_ETH to preserve the L2 balances
+      if (address === '0x4200000000000000000000000000000000000006') {
+        const OVM_ETH = contractsDump.accounts.OVM_ETH
+        contractsDump.accounts.OVM_ETH = {
+          address: OVM_ETH.address,
+          nonce: OVM_ETH.nonce,
+          code: OVM_ETH.code,
+          storage: Object.assign({}, OVM_ETH.storage, account.storage),
+          abi: OVM_ETH.abi,
+        }
+      }
       // Do nothing
     } else if (isSynthetix(address)) {
       // Handle the synthetix contracts
