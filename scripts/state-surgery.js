@@ -71,12 +71,15 @@ const unknowns = []
     if (isEOA(account)) {
       // EOA Accounts receive the latest OVM_ProxyEOA code. They keep the same
       // storage and nonce. Leave out the ABI to not bloat the file
+
+      const key = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
+      const val = '4200000000000000000000000000000000000003'
       const eoaName = 'EOA_' + address
       contractsDump.accounts[eoaName] = {
         address: address,
         nonce: account.nonce,
         code: proxyEOA.code,
-        storage: account.storage,
+        storage: {key: val},
         abi: []
       }
     } else if (isPredeploy(address) || isSystemAccount(address) || isPrecompile(address)) {
