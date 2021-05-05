@@ -24,6 +24,9 @@ const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/pub
 const synthetix = {}
 const unknowns = []
 
+// This script will need to be updated for the next state dump
+// - isEOA will need to use EIP-1967
+
 ;(async () => {
   let currentState;
 
@@ -71,26 +74,30 @@ const unknowns = []
     if (isEOA(account)) {
       // EOA Accounts receive the latest OVM_ProxyEOA code. They keep the same
       // storage and nonce. Leave out the ABI to not bloat the file
-
       const key = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
-      const val = '4200000000000000000000000000000000000003'
+      const val = '0x4200000000000000000000000000000000000003'
+      const storage = {}
+      storage[key] = val
+
       const eoaName = 'EOA_' + address
       contractsDump.accounts[eoaName] = {
         address: address,
         nonce: account.nonce,
         code: proxyEOA.code,
-        storage: {key: val},
+        storage: storage,
         abi: []
       }
     } else if (isPredeploy(address) || isSystemAccount(address) || isPrecompile(address)) {
       // Keep the storage for OVM_ETH to preserve the L2 balances
       if (address === '0x4200000000000000000000000000000000000006') {
         const OVM_ETH = contractsDump.accounts.OVM_ETH
+        const storage = Object.assign(add0xToObject(OVM_ETH.storage), add0xToObject(account.storage))
+
         contractsDump.accounts.OVM_ETH = {
           address: OVM_ETH.address,
           nonce: OVM_ETH.nonce,
           code: OVM_ETH.code,
-          storage: Object.assign({}, OVM_ETH.storage, account.storage),
+          storage: storage,
           abi: OVM_ETH.abi,
         }
       }
@@ -102,23 +109,36 @@ const unknowns = []
         address: address,
         nonce: account.nonce,
         code: account.code,
-        storage: account.storage,
+        storage: add0xToObject(account.storage),
         abi: []
       }
     } else {
       // Handle the other contracts
       console.error(`Unknown address ${address}`)
+      let storage = {}
+      if (typeof account.storage === 'object') {
+        storage = add0xToObject(account.storage)
+      }
+
       unknowns.push(address)
       contractsDump.accounts[address] = {
         address: address,
         nonce: account.nonce,
-        code: account.code,
-        storage: account.storage || {},
+        code: add0x(account.code),
+        storage: storage,
         abi: []
       }
     }
   }
   contractsDump.unknowns = unknowns
+
+  contractsDump.accounts.ProxyERC20.code = add0x(contractsDump.accounts.ProxyERC20.code)
+  const erc20State = {}
+  for ([key, val] of Object.entries(contractsDump.accounts.ProxyERC20.storage)) {
+    erc20State[add0x(key)] = add0x(val)
+  }
+  contractsDump.accounts.ProxyERC20.storage = erc20State
+
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
   console.error(err)
@@ -156,6 +176,24 @@ function getFindAndReplacedCode(str) {
   ).join(
     '336000905af158600e01573d6000803e3d6000fd5b3d6001141558600a015760016000f35b'
   )
+}
+
+function add0x(str) {
+  if (typeof str === 'undefined')
+    return '0x'
+  if (str.startsWith('0x'))
+    return str
+  return `0x${str}`
+}
+
+function add0xToObject(obj) {
+  if (obj == null)
+    return {}
+  const ret = {}
+  for ([key, val] of Object.entries(obj)) {
+    ret[add0x(key)] = add0x(val)
+  }
+  return ret
 }
 
 function config() {
