@@ -43,26 +43,6 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "DepositFinalized",
-    "type": "event",
-    "signature": "0x162eb12ad2bd8b6ca7960f162208414ab3bc2da9f37953788ffd8cf850c3492b"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
         "name": "account",
         "type": "address"
       },
@@ -97,17 +77,37 @@
   },
   {
     "anonymous": false,
-    "inputs": [],
-    "name": "InitiationResumed",
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "MintedSecondary",
     "type": "event",
-    "signature": "0x7c88488c18e2ff121a34a4a2a44990557a5b76ab1ceb6bd95ebe7d419c7575f4"
+    "signature": "0x8bee677ce808ba08aedfdf407cbf9c4414e77f8b66c0d96f335b275cbf534144"
   },
   {
     "anonymous": false,
-    "inputs": [],
-    "name": "InitiationSuspended",
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "MintedSecondaryRewards",
     "type": "event",
-    "signature": "0x43e00f2c8f8651a29db34d34fb689573423f8aaae8f9d32e3e871b4c35c62546"
+    "signature": "0x4c867b72baae24147e49f29f47f17923bea3b5d1a076dff11e0bac8c180a84c1"
   },
   {
     "anonymous": false,
@@ -147,9 +147,9 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
-        "name": "from",
+        "name": "account",
         "type": "address"
       },
       {
@@ -159,35 +159,9 @@
         "type": "uint256"
       }
     ],
-    "name": "RewardDepositFinalized",
-    "type": "event",
-    "signature": "0x3b30e867826d81d6591924b1675cfdcac994f0199eed66250d8c834b3b0ed216"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
     "name": "WithdrawalInitiated",
     "type": "event",
-    "signature": "0xbb2689ff876f7ef453cf8865dde5ab10349d222e2e1383c5152fbdb083f02da2"
+    "signature": "0x6d92f7d3303f995bf21956bb0c51b388bae348eaf45c23debd2cfa3fcd9ec646"
   },
   {
     "constant": false,
@@ -204,21 +178,21 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "to",
+        "name": "account",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "amount",
+        "name": "depositAmount",
         "type": "uint256"
       }
     ],
-    "name": "finalizeDeposit",
+    "name": "completeDeposit",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0x8d6e9a5b"
+    "signature": "0x130a75fe"
   },
   {
     "constant": false,
@@ -251,49 +225,44 @@
         "type": "tuple[]"
       }
     ],
-    "name": "finalizeEscrowMigration",
+    "name": "completeEscrowMigration",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0xf97824fe"
+    "signature": "0x6ab7e1c2"
   },
   {
     "constant": false,
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-      },
       {
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
       }
     ],
-    "name": "finalizeRewardDeposit",
+    "name": "completeRewardDeposit",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0xa616cdfb"
+    "signature": "0xf69053c5"
   },
   {
-    "constant": true,
-    "inputs": [],
-    "name": "initiationActive",
-    "outputs": [
+    "constant": false,
+    "inputs": [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
+    "name": "initiateWithdrawal",
+    "outputs": [],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0x100be6d4"
+    "signature": "0x12edde5e"
   },
   {
     "constant": true,
@@ -400,62 +369,5 @@
     "stateMutability": "view",
     "type": "function",
     "signature": "0x899ffef4"
-  },
-  {
-    "constant": false,
-    "inputs": [],
-    "name": "resumeInitiation",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function",
-    "signature": "0x698a26b2"
-  },
-  {
-    "constant": false,
-    "inputs": [],
-    "name": "suspendInitiation",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function",
-    "signature": "0x3872dda3"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "withdraw",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function",
-    "signature": "0x2e1a7d4d"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "withdrawTo",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function",
-    "signature": "0x205c2878"
   }
 ]

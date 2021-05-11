@@ -3,12 +3,9 @@ const fs = require("fs");
 const { JsonRpcProvider } = require("@ethersproject/providers");
 const { Contract } = require("@ethersproject/contracts");
 const { ethers } = require("ethers");
-const synthetixL1Bridge = require("./SynthetixBridgeToOptimism.json");
 const synthetixL2Bridge = require("./SynthetixBridgeToBase.json");
-const xDomainMessenger = require("./xDomainMessenger.json");
 const { Watcher } = require("@eth-optimism/watcher");
 
-const dump = require("./dump.json");
 dotenv.config();
 
 const FETCH_SIZE = 1000;
@@ -28,7 +25,7 @@ const watcher = new Watcher({
 
 (async () => {
   // SNX bridge
-  const l2BridgeAddress = "0x3f87Ff1de58128eF8FCb4c807eFD776E1aC72E51";
+  const l2BridgeAddress = "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc";
   const l2BridgeContract = new Contract(l2BridgeAddress, synthetixL2Bridge, l2Provider);
 
   try {
@@ -42,8 +39,6 @@ const watcher = new Watcher({
   }
 
   async function getTxHistory({ bridgeAddress, provider, eventFilter }) {
-    const history = [];
-
     try {
       const currentBlock = await provider.getBlockNumber();
       // const currentBlock = 21634;
@@ -58,9 +53,8 @@ const watcher = new Watcher({
             fromBlock,
             toBlock,
           });
-          console.log("logs", logs);
           const events = await processLogs({ logs, provider });
-          fs.appendFileSync(`./dump.json`, JSON.stringify(events, null, 2));
+          fs.appendFileSync(__dirname + `/dump.json`, JSON.stringify(events, null, 2));
           toBlock = fromBlock - 1;
           fromBlock = fromBlock - FETCH_SIZE;
         } catch (err) {

@@ -1,1 +1,2498 @@
-[]
+[
+  {
+    "initiatedTime": 1620560113000,
+    "account": "0x096CeBf3c4dFD7833E9F8281078448E090108Ad9",
+    "amount": "38701976046418652057",
+    "l2TransactionHash": "0xd8b5a520e69c6b73055ce731a751dfc55878ca941d0ba1319113e64269b11482",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620566672000,
+    "account": "0x58Dc290f9F70B9a6F176a53A5cf8c833F6679D9B",
+    "amount": "1140708974199414367992",
+    "l2TransactionHash": "0x54a013f1553e1312381b0226442b3856e995f6d25ce73cf0de07733d3c53370c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620567625000,
+    "account": "0xF3C9C9B1bAe1d8463dCfB439A70C63bb7252C788",
+    "amount": "1969783873786954860681",
+    "l2TransactionHash": "0x4e61d37c0f4cb2767b1ec0ba6a2df0c42ee19cdd1d69be0dbaf66a6163b2d0ed",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620592433000,
+    "account": "0x11dC41d2BedDA9e2f37F586C8f430Ffaad408D26",
+    "amount": "177800000000000000000",
+    "l2TransactionHash": "0x41899ab9457cf649bf97f293d4c57363dc5f531bcd4efd8d5d985d22a4543c87",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620593701000,
+    "account": "0x5aaB5A7686B7ec6d3FF5Bc06fB4aD6D7EB3eE55C",
+    "amount": "53396100634982461690",
+    "l2TransactionHash": "0x666c8b5b84de6e060f6b941b5c9051d6f1a19ae8c1bf1976797bbfac4e6ed5ef",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620614771000,
+    "account": "0xcc46fF6146E614831ce262DaB973e45ed6476447",
+    "amount": "976346056000000000000",
+    "l2TransactionHash": "0x01b4b7cd99c6b120bb5335d9c21e29f93608ee2ea3f63894087221b6d3cccd27",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620617595000,
+    "account": "0x5264303672181D024A9209058E80462E4dE42A61",
+    "amount": "54270145890000000000",
+    "l2TransactionHash": "0x79af35af9d236bf8b5493687edab1e27f9f8f467406de0a02b66f5f5337d00c3",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620617595000,
+    "account": "0xFddE7aD56320B9CC691ad319a8fec2C8D6b993E6",
+    "amount": "28494077662422668402146",
+    "l2TransactionHash": "0xca8a7ac3898db3de4e5de7f52428fafb4de489bf6160dcadb2915a0444671e16",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620647065000,
+    "account": "0x6E3Ba50F3cad8E8177C6BB9815e9a23E397D5A5B",
+    "amount": "20000000000000000000000",
+    "l2TransactionHash": "0x9d802aeffbc6a2f380c05684f06f4eb6cb224adfc134e114d2130997da541ce0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620663073000,
+    "account": "0xE4bCB40C996caf87b62885D3A190B4c0b0dC7cC4",
+    "amount": "300243975106058010696",
+    "l2TransactionHash": "0x3ff33072414835f1c0a2b7004be71ce264535827d5191380ad9a777e6b9128bd",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620665302000,
+    "account": "0x81312Ad57EF129a6Cc8C3Ffc16816f7B512e0636",
+    "amount": "308555838546539305354",
+    "l2TransactionHash": "0xae49ea9bdafa493d90c8644e104693502630df3cfdb27a05c571911a5f2cd380",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x8a0693a28cb89724449951c622a202a2abc0a67cdb22594d0efa98e9c0ac53f2"
+  },
+  {
+    "initiatedTime": 1620400438000,
+    "account": "0xfCb2dE90b3160feB77A46E1D3E353d864A076bCF",
+    "amount": "22697406000000000000",
+    "l2TransactionHash": "0xb7814ee23101704d3cc1f04d033e99fc5d08ffaa647764bce1caa1d7b632e9d8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620402352000,
+    "account": "0x0b7E829367F8DADdc2a019E40f6c4F397d9E0A4f",
+    "amount": "290060000000000000000",
+    "l2TransactionHash": "0x3e0f3b56a01cd599103682db16a155732a257cb12e76bd9e8c49ad6af158788c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620402981000,
+    "account": "0x867E5fa879A582c3f64F2F546Fa67FD0E6a9A3D2",
+    "amount": "147927352895727743810",
+    "l2TransactionHash": "0x004dff3c1b0e38572c5e2093a5a355093c6202a88f8e37fb29cc85229e9afcb2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620431601000,
+    "account": "0xB334727d5A12FDD2eBEb2d0b5901712CC7ffe8EC",
+    "amount": "271992413000000000000",
+    "l2TransactionHash": "0x3954b9e952c48eb6ea1551926c81094fd41b79c3839016bd51f7e2a75dc5b1e3",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620480054000,
+    "account": "0x66b84B20b68bFa80446b35f03C10C9b7D119f004",
+    "amount": "6375536595593152882939",
+    "l2TransactionHash": "0x75d9e3001bdb9e11c27a2db1479e7472fb47e49b48cb7c2da460ad1287c3a746",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620484946000,
+    "account": "0x2f4B21934be7bC9C765D09C2f8F414f043B2495E",
+    "amount": "27200407442447404737",
+    "l2TransactionHash": "0x33188517c884b4c231bbb195dd86b0bd7d016b595c219d6833ee74c09196c731",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620489411000,
+    "account": "0x178B335e964188C2AdaAEC45d720645db347bB5f",
+    "amount": "116000000000000000000",
+    "l2TransactionHash": "0x4d6feae72f172565f60be0a1b6f315796b721c3e4fb2f6f943783520a9ca2b09",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620503844000,
+    "account": "0x3092c453B65DeB8C4Cef4F66A1363733618A3C43",
+    "amount": "51275524000000000000",
+    "l2TransactionHash": "0x60ce19424c270ed870375eb6e3cb29243e95a93625b223bc2664f25a15ba48d0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620329504000,
+    "account": "0xa3dB05c72c79d52D2D37170A342a2c21c5e5d7C0",
+    "amount": "905012212986265016760",
+    "l2TransactionHash": "0x92fe3faabe52850bb708b3c74798a83c2e0cf84eeca8c03636969dbac52fdb3b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620333625000,
+    "account": "0xBBE1CFA46204465Cdbda63600FD1B65A13C8FC57",
+    "amount": "664850740072520262949",
+    "l2TransactionHash": "0x76dd0bcd73f2d9becdd9b26d64324223e2173dddfd2f3c6d4bb28326198ec3c3",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620336475000,
+    "account": "0xd57Caf59A0243897162a514F6BA7bFFDBF170e98",
+    "amount": "59900463070000000000",
+    "l2TransactionHash": "0xd1786ae5bd6710345d7c24ea038127d87488a9ccbe71b4631aecab0a70185483",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620336785000,
+    "account": "0x1F5A399f4A01b7b93f58a638FB7F8e4d7DAB4332",
+    "amount": "2284803236740849825780",
+    "l2TransactionHash": "0x626146c65f30782c84504135aeb0e68613d9952b0f14a2860d32ac9a74871cdd",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620343290000,
+    "account": "0x5122b4D90185958FAa110a3A02B647C755B977Fd",
+    "amount": "50000139317709851815",
+    "l2TransactionHash": "0xfef2fe694ff5e321f178de9d6ce09a3b9374fcfebf4110a877f5f0d25887ba50",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620343916000,
+    "account": "0x558F4945326eEE823Fcb1d1FAD268c7e82D6BA00",
+    "amount": "261356962896813586369",
+    "l2TransactionHash": "0x1cea7cb54164e75a450b30aa1eceb34b81dd0920d3d922f185cd8fc742c12053",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620354066000,
+    "account": "0x6eCe4786b92654dc8d7145839F5eAf3C3414148c",
+    "amount": "110000000000000000000",
+    "l2TransactionHash": "0xebd87e9db7d76455a0f9ca9b0084f07f2860b6985b5875f6afaed781a0e5659a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620363978000,
+    "account": "0xEae9C2A2C803BEcbC81F3A485a7cdA9D03E33165",
+    "amount": "117453147000000000000",
+    "l2TransactionHash": "0xa0b6c90a4d5f861c2bfe228111f768913d6d48a1ad7537d4a3b78d440306cadc",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620373857000,
+    "account": "0xFc830CD343857a3BefC4dc53828846cE97CA13A9",
+    "amount": "176135358941127148044",
+    "l2TransactionHash": "0x976f1fc2489c2d314362134a799f86787f789b27bf5bff1773d42c97b58b6f06",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620373857000,
+    "account": "0x2173895042B4C74b65E5f2815A612F06Aa63BB87",
+    "amount": "29001449841703896870",
+    "l2TransactionHash": "0xf5e7b105d4b128d09312805ac7d8f82c7ab3fbc36c66d9098890ef08c6a7f966",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620374525000,
+    "account": "0x7c95D0cD038e06C4152a37325d48aED406006fE3",
+    "amount": "325863117748939345534",
+    "l2TransactionHash": "0xcfcfcc7ae36c7984717a289135b3afa109fbd654d57129a22f8712014b3d2bfb",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620377101000,
+    "account": "0xAB32018e451B055FeB0389dF27790C61420e8C3e",
+    "amount": "1000129395000000000000",
+    "l2TransactionHash": "0xa76e2cbf176ecce8f6b1398ad18181999138a03d53c545eb66e23a7a8407e6c1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620383481000,
+    "account": "0xCb802A37fb3f81754cbf0b7764A7D2043644E83b",
+    "amount": "2415701045600305360495",
+    "l2TransactionHash": "0xb39ba6255c8b97f010da99d309a526f01cb1df9f0314e314e0c7eb754727bac4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x047f5dd02bd68348a91f8d59ffc6bf2dcacda1d482db7747e3ac8f6f71400f68"
+  },
+  {
+    "initiatedTime": 1620276686000,
+    "account": "0xf60C9808a0205535C6A211f2732c730157F163fc",
+    "amount": "52502609754078547288",
+    "l2TransactionHash": "0x43ed31d674941cd51eaca8c9a84fdcf52e77f8ff8eb9b4e63b875d0aff4cd7f0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620288866000,
+    "account": "0x4A41b48314C0bDa6c1954AC1B1670F62fEB7AE9b",
+    "amount": "64081826892868625778",
+    "l2TransactionHash": "0x1761c50bf1613dd33ebe5cea846fa0ecfbbbb5a06383752ee0cde0fbd01bd6e5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620288866000,
+    "account": "0x329e20FFc2e15209d36ad22cA6d9070160337Ce0",
+    "amount": "138458099000000000000",
+    "l2TransactionHash": "0xa55f95e90211f8a344678fb0f3c93686477f3b5bb056393d00efdeb9e89c4243",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620304150000,
+    "account": "0xF98b4b6DA3e7836A9a0d664722572644C86b707E",
+    "amount": "82759939292236028334",
+    "l2TransactionHash": "0x1b67f92a159ab23d60da90bdd967f0ba31075e031c243d211115b6af6b8044a7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620309813000,
+    "account": "0x2B1edaC1D63Fb086bc358598b1A5F175C9A0541E",
+    "amount": "271847941832491550552",
+    "l2TransactionHash": "0x29500e128185b84a11f89ee5d1b6520a1520125fb7d53e833de15ae33cac5d8a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620317138000,
+    "account": "0x044458a2D946ec0533725A4c587C1de0dBbAcF89",
+    "amount": "19812586000000000000",
+    "l2TransactionHash": "0x60392e257eba0e500eeabe0bfd95102eed07839ee16d7b4afb6879d311f83a34",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620324599000,
+    "account": "0x7BCb3A4Fcb474AF5B21E95666c67b6363f9be1A7",
+    "amount": "361481989100000000000",
+    "l2TransactionHash": "0xdef8e96545eb5de38d605e45b975e5ff51bf9651d9555a9be8befe82c9bf37d2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620239511000,
+    "account": "0xB78a63B0CE816af3a1Ae53659953d28f82d6f50F",
+    "amount": "1413288896370724750808",
+    "l2TransactionHash": "0x45385f4cb2745b5999b7d50be18553096f65d0359914f62333c6408cb3cda3ad",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620245974000,
+    "account": "0x2EF0782745B9890c2D1047cBd33bE98e22ec35a2",
+    "amount": "1385489059901937425505",
+    "l2TransactionHash": "0xd46c9a4afc94827af2e642775810f3634ba2954eb43da2336a7d48e1da7f5963",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620250142000,
+    "account": "0x76a1de0eC05fee7c0D01897c3B94e216c50557AD",
+    "amount": "964218617736177520544",
+    "l2TransactionHash": "0x307272a475bc57f15175c704113275f4161dff890c49983eb1e336a4a565c366",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620252579000,
+    "account": "0x3006adAc5B86b7c317DC5144C8Dde42439340970",
+    "amount": "661350839574576466897",
+    "l2TransactionHash": "0x188736c708831a670170059ef5a33e4f4f7b0a1795b1fb5613cdc29876b185ee",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620255181000,
+    "account": "0x57e0eF04b3D4bE5583d89AbD135e110517f0AC59",
+    "amount": "2013561517734184659570",
+    "l2TransactionHash": "0xfd3d7ec3ee229dade157fe23603a077991183676ae23b2067538ada30d0cc7a1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620268581000,
+    "account": "0x0DFC27a79a89444367edC7725A99013A1F897fAf",
+    "amount": "2210699848798178818693",
+    "l2TransactionHash": "0xb614c887f949361461a1a7b8d6056e10933b8ea7be148db258e67e3d36af00ac",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620269516000,
+    "account": "0x80acF755b3967e42F659D78972C989c68Cc33DFA",
+    "amount": "382443123920215943812",
+    "l2TransactionHash": "0x48c88feb4de33b2041c80c39c6515e5f406a78e304d7ef3bac1c17a79d0b3b3a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xf11514ac461903d20ede0e02a93813df944e138f8bacf239b99ff192a6e2c81e"
+  },
+  {
+    "initiatedTime": 1620217758000,
+    "account": "0x7056bf340C08B611e42663D6dd8C4fa2Bc2d6053",
+    "amount": "2962676862461741701199",
+    "l2TransactionHash": "0xd63c27ab407530d5d4ae5347cfb53ed9bf0f64f632794b258c38c89999da620a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620226681000,
+    "account": "0x02e8F808a3CaAA6a439e52775354F7395a21B4A7",
+    "amount": "500713491514305547965",
+    "l2TransactionHash": "0x0dc4e978e6f5090afd1d375bdb8b3a7dd914183ebc1453ce4f90782f934c0e9a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620227671000,
+    "account": "0xe1C83D448788af03049c7239da79007536F8AFfD",
+    "amount": "4018816368549907242399",
+    "l2TransactionHash": "0x6bddc4b9f197ca69c2a4c418af2de83723ad2597fa1e6d0d54d5f4171de60f8a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620228598000,
+    "account": "0x7FAF38633A3AbFecC7e22b55bC25218Bc778D2F5",
+    "amount": "2251102684715939083923",
+    "l2TransactionHash": "0x0aa07bd042db777487a6bcda7a9bd58fc083c497d240ff2185329dd8d953d38a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620231458000,
+    "account": "0x2D8719Cf0fE19782140aE16eEc03938a96f5228b",
+    "amount": "2770198441602739939286",
+    "l2TransactionHash": "0xbfb5e010a1e9ce5766897dda6f7d4fc62cd0bee0c8cfa7f67ea5ba68abb1006d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620231766000,
+    "account": "0x92d07dA081da3603fCE208A29f40C22b8cc6A840",
+    "amount": "10264500000000000000",
+    "l2TransactionHash": "0xd5c64ce71c9c90b4c92d8080eaf4c7f2869611ec2b8f438928f5688b5e1ac751",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620233391000,
+    "account": "0xfC6dedCb48E4Fa0db54D8F9EB72DEeD1D1BBe368",
+    "amount": "2476619137000000000000",
+    "l2TransactionHash": "0x36665deded585b4bb7dceebd79511896fe4d58cf57e448735731ee397966e254",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620198410000,
+    "account": "0xa72782657dd132cEEC83344488c5A25E2fB2A083",
+    "amount": "65449708023748478599",
+    "l2TransactionHash": "0x37295a35fb6672afb13e56d54e6acd410906f924ff379d89989b9ce511b8bd2a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620198724000,
+    "account": "0xa982BbDaf783Eb7C3914D988b7e2a0bE865ccB53",
+    "amount": "1318325823482658222669",
+    "l2TransactionHash": "0xd1db534e44fa8f0b47e929d70c3c957a53a3d4a6b209aac751e9412585f0207e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620207585000,
+    "account": "0xF7f502609de883a240536832E7917db9eE802990",
+    "amount": "4391799111635094159225",
+    "l2TransactionHash": "0x791f4aec89ca67050aba271012e0fad23a615c83350231002f896d14900f9004",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620207919000,
+    "account": "0x476ACd6F1a1143442a84BfB92AFabD91f15A07D4",
+    "amount": "587658502475929239490",
+    "l2TransactionHash": "0xa777870b5ebf1304c40e1f7c347afa4ee00a9736e68a6a851c55b33ad14fab76",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620211086000,
+    "account": "0xd9b70b615015226F6822A3C7ca8aa6d50c9B328F",
+    "amount": "58058213000000000000",
+    "l2TransactionHash": "0x909526acd59ca88d5bb5f4103d506285c00222341e8057f918aacbe73f96c4f1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x9ae6e2277badc6b21ee4a52e3c12089446dae9282d113a2375370496aa2bd0e1"
+  },
+  {
+    "initiatedTime": 1620131208000,
+    "account": "0xb0b41af7360F98D1c9D719fB90aCdb02C114147d",
+    "amount": "34152422260000000000",
+    "l2TransactionHash": "0x01e7861595ad538e4aeead8a7c2089b51499b820e31159d2ccb7994b610456b1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620136168000,
+    "account": "0x865FC5C542280C9Dba0D559f67112179e20574D2",
+    "amount": "20000000000000000000",
+    "l2TransactionHash": "0xe103292d15cb4781b85c31b014d02b4045ea209b32c27d2f6691052d0fe93aed",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620183913000,
+    "account": "0x5FB229CE880e5C917a918c0004711Baab311eBbe",
+    "amount": "45214739047049283087",
+    "l2TransactionHash": "0xa59563605ad97759278a64f615ca770ca5b545c44d3030e487db81ac81a3a69b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620194640000,
+    "account": "0x2fB733C3239A1E807d380FA0845B9101ee54c693",
+    "amount": "16963120985787893305751",
+    "l2TransactionHash": "0x03bc455abf3e6779a00e3ee8ffe4b451c9f036cde5dc2a0d71d422560912c66f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620047495000,
+    "account": "0xaa051E49767e1e899574E3EbcaaeD237f2F67a0A",
+    "amount": "832219452456139716678",
+    "l2TransactionHash": "0x27287bb58a55993883e0401ca1b582e73e810f0ccffbddc9fd5e10dc2eb4cf7c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620052709000,
+    "account": "0x532bfd20230E205Cf283996Ceef4E6BB19e65110",
+    "amount": "177829713055662840091",
+    "l2TransactionHash": "0x04402a8e151836ef153ceaa902deb8bd281e9df64ef3fa1838110bdac6f878ee",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620053663000,
+    "account": "0x2F1C281333E871bBCB261914E848545FA12FE9b3",
+    "amount": "82842444135328534294",
+    "l2TransactionHash": "0x07b9212c96afbb15963310fbb14ff5e419478eb789879b8177443f39ce229c2c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620069513000,
+    "account": "0x1fF034901dbEe276aF5f75DbA762C3aeB59784D8",
+    "amount": "108326903344769532805",
+    "l2TransactionHash": "0xe3174db0aa4b5e6445d2aa6a9ceaa3f642c590d8d038f097e52505b42bc9e97e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620080125000,
+    "account": "0x02A59f642E07bf5b180fD8e51e13DfDDf8dE1228",
+    "amount": "194413533943575961420",
+    "l2TransactionHash": "0xf4a7edde81349147d53c9b3be343d9a1805b3962ae58762236997107b2faed9a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620103248000,
+    "account": "0xf498c194B3012c40E1d067F388BC386a7006C07F",
+    "amount": "37756151900000000000",
+    "l2TransactionHash": "0x6d7372b47325e10898b6a98708afef76d4b00b45e2dfa26e154f41742dbd2fb5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1619889298000,
+    "account": "0x22844582cC209c9FE424344037f560E6EeC15eEE",
+    "amount": "2124201099873392951474",
+    "l2TransactionHash": "0xbf31989a11e3e70647ede6580ae9e1bec1339d838b10d34f4b7047845c3f55b9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619889617000,
+    "account": "0x638C585d7c29F9c2021EA6851f3c627B981740ff",
+    "amount": "99250000000000000000",
+    "l2TransactionHash": "0x0fb2c09fc6d90e45d16fcc98199603975d41e9b7eba53b7895f0e7d3732c81ac",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619889617000,
+    "account": "0x3f078d334B3A5A192Ac80c589E5Ae1C8c8C5CABF",
+    "amount": "99250000000000000000",
+    "l2TransactionHash": "0xc6561b879f99cba1fca8ceb8b55eaaf8ba60dd6dd124e102be28bea18e85d396",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619892873000,
+    "account": "0x25Acc9bd6aF42183f9DB30476D174402fd6f757C",
+    "amount": "162735315387374031069",
+    "l2TransactionHash": "0xce2cf384e9d1229f8bc64880201b851d211f09dc98baf54c1ced009529c66818",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619892873000,
+    "account": "0x4D94003301291785fdDcE11ED1cF52fC4C8Cb154",
+    "amount": "44925948717335900821",
+    "l2TransactionHash": "0xa513d12397eacefde5565f77a564c20e041ef4717f463ad95a9dacaaab256283",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619893203000,
+    "account": "0x18fEe6e511646B8ea2e4964277574F637Bc03f3b",
+    "amount": "499731000000000000000",
+    "l2TransactionHash": "0xca5dc01febed2812fb9889c71697de9a388099fa514d6585159a90aa7beaf87e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619897560000,
+    "account": "0x61c1C0FCf49Fc75eA9c3f272CAfEAC7D3abf4EEB",
+    "amount": "77231364928246784554",
+    "l2TransactionHash": "0x23d75f55873d2e9b80dbd0570fd04a4e6ab6ad559eb5d72d69ecb66d49550f54",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619901523000,
+    "account": "0x2c2579b2F41c495238BA8f3ee3B073a4CD01b16E",
+    "amount": "175185327000000000000",
+    "l2TransactionHash": "0xfdebc49a6c61feae13b6d7bc9183fc3bbded54ad7fe484167fe0a87d605e3bc4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619911193000,
+    "account": "0xc1Dd073c0Ee4bf474A5Ce5B0D08A4e240115F176",
+    "amount": "33148410014699706437",
+    "l2TransactionHash": "0x80869cb69fe668003c8c501391ab44148d00b6b0b0ba09f6ac0b72e915f5736c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619921758000,
+    "account": "0xA1758d337343856036858aC32216d7c72be580Cc",
+    "amount": "532844010260115908671",
+    "l2TransactionHash": "0x6aa00e63ef4de2bab5857e2de470de7e64eab27e7a8bbee30641a876a474faf8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619925393000,
+    "account": "0x3cD0f0CFF87f64D43b2F55c2c8aB8842FE1fdF5d",
+    "amount": "108101000000000000000",
+    "l2TransactionHash": "0x2559891f5600ab93f4832cc4daa34f16a868b1140994472476e0a105eb8be22f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619942551000,
+    "account": "0x19f02f8Bce04C815a9c2B3bDfe4cdDfeed49BC2f",
+    "amount": "1011191908668828179",
+    "l2TransactionHash": "0xc1474eda3971f1cd527d1a9e7c795c378334b7f0171e10c34d2dd750e255e503",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619948536000,
+    "account": "0xa81de19907C577e1E1304673233f459eAF7c7311",
+    "amount": "18878075900000000000",
+    "l2TransactionHash": "0x934d7c129a1c582b2a034b15b21024de76e6a12df2dc7617896168b60f858f88",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619960375000,
+    "account": "0x6E22Cb9fA9F94C30A7682F0D12100A3808c84DAe",
+    "amount": "1244459029656050446412",
+    "l2TransactionHash": "0xe189b053623f1d04f2c81d68b4bc25400d308afffcc53b328954544cc769ce47",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619963626000,
+    "account": "0x90B50EE9Aeb83001fBEAF61541fc666341f36400",
+    "amount": "222736750207005476181",
+    "l2TransactionHash": "0x6ea4815fa40ad78ab33d541f9b5d117fab5af87ddf9d5eb3cc6a17302bc481c5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619964870000,
+    "account": "0x03aba3b0000a092CB1677152D03E0Afe6AD01c87",
+    "amount": "32000000000000000000",
+    "l2TransactionHash": "0x4faf74245e675058edad9bd0484fa59aa2c41298cdb0eba33c66735a8b5b3262",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619990471000,
+    "account": "0xc0AFEF712a1341cA78dA145B2AFAd346E8C3574F",
+    "amount": "73930447228572546206",
+    "l2TransactionHash": "0xa24b3276477764265e195c50411c0281f589151c75d56c54c77912746ec88831",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619990471000,
+    "account": "0xB04a6DB13942b6d4416AbeC5A8327866375c17a4",
+    "amount": "39905736571068446347",
+    "l2TransactionHash": "0xcaf5beb93d5b2f09820f2b9106dc595a9a920ac3bbb50eaedfea6de7d26164e5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1619992443000,
+    "account": "0x7BBCAE65a58f913408e2eD06d96345cb450deaDF",
+    "amount": "954738489711483245469",
+    "l2TransactionHash": "0xd0d19854cd5d785ab5332f04821e3ac4b2e037ae27bd01c33cd5a869a3ef8406",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1620000538000,
+    "account": "0xFE8865D2c7772e65688003b8269259A2Bc6cd7Ac",
+    "amount": "1000000000000000000",
+    "l2TransactionHash": "0x1ee2bff32ad61dbbe87f667b4f83f02beb47c908e13d68ac0aa62ae520cfc391",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1620003881000,
+    "account": "0x282173335ae1F328b34Eb9Acadc052E59E70A89f",
+    "amount": "136187626998715034547",
+    "l2TransactionHash": "0x0af95bf1f8902dc562a27d26df631180dcce53d2c168ea04239df517c164dad7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1620009358000,
+    "account": "0x1b826e30B83A5066474C7E3CA8D9b3880Ba97F09",
+    "amount": "466758211420000000000",
+    "l2TransactionHash": "0xafcbea36c05f91705585e71670ad7f801ed27495f863b79e94e39fb602cc24d0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x08e3db7f3ed73b66d19f037ca7ead6ac7f338fdb5fb465be9ba51d718ed4b2b7"
+  },
+  {
+    "initiatedTime": 1620009358000,
+    "account": "0x182392299A002b189D6051687c92323F9EE33cd0",
+    "amount": "240428786361611311956",
+    "l2TransactionHash": "0x015e888832b7d24097d3141dc26053357f604888ed73f3228681f4fb751427ce",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620009697000,
+    "account": "0xBc8cc8B1Fee0ED52deA5ACdfD0002C2A679FF13a",
+    "amount": "54116028565790447430",
+    "l2TransactionHash": "0x939c66d82b4882dcc6aa05c312916c21c29a28fe0e8f4cd3cb5abcddb3d728ee",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1620030331000,
+    "account": "0x9cFc4cfB2aa99bedc98d52E2DCc0Eb010F20718f",
+    "amount": "598000000000000000000",
+    "l2TransactionHash": "0x4f6cbbd929805b75e0e98bbabb4cafe9528dcc2812a8d82621470a78540940bf",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b76134221cbb77d625ad14ee782e19aef86b9e517cfa0ef8e8aa1a12781928a"
+  },
+  {
+    "initiatedTime": 1619801503000,
+    "account": "0x270C988084e999A6C8c33A43A580c73bD9e52a09",
+    "amount": "556675000000000000000",
+    "l2TransactionHash": "0x9bda8d5eaa82f8d835f7e94fa0348d438ddd8c3ec92f3b0536ab5ff67d63f03d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619809668000,
+    "account": "0x938c6C571c568994f1d10A13d3103457E7D1F433",
+    "amount": "472454799152688654042",
+    "l2TransactionHash": "0x512a245c4a050be4f81038a41245c6de6a51c10499a8b600ed442f50cd79118a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619816077000,
+    "account": "0xaC749eF37797F963acC59146E1D2F4015E97dC79",
+    "amount": "2500000000000000000000",
+    "l2TransactionHash": "0x4f5836e08dc77ca87e2c205bba1c0db6913b8d9e0617b25ff91c4e847323abd6",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619817318000,
+    "account": "0x2533b1ab5b0817F0681a64999AcE6D39bED8eC99",
+    "amount": "1008044683400123417291",
+    "l2TransactionHash": "0x4dcc6df03dddf5c5028e8dcc3cdc15834e34c8dce16d371bbee12941f8bb52ae",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619823921000,
+    "account": "0xDA3cFd1B3Ed7b471F66C97fd34C8267D5818a138",
+    "amount": "365038319960123729073",
+    "l2TransactionHash": "0x91cf37b950fbf3935f49dffbe0cbe0648a84d94ce42df5b8567e31270f5cd909",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619861856000,
+    "account": "0xdF038885B13579FB8A1531178E63DE93cd49C62f",
+    "amount": "1981106505398125898098",
+    "l2TransactionHash": "0x4c1fec6661513eb17a7d4e518ab30461ff94c65626f56c864a418c920225c28e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619866989000,
+    "account": "0x9C3bB1C7626d4F6881AE169A7ed3063B64eF6040",
+    "amount": "19641425430000000000",
+    "l2TransactionHash": "0xda747128383d35914b4a0766b0b78af80b16e00fdbe7161744a386e9a2c457d2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619880702000,
+    "account": "0x95adE8f907D4A62bDcFEdd5Fd867e18cE9A34A86",
+    "amount": "499854182282910730534",
+    "l2TransactionHash": "0x82740777f531a94b4bb39788633e192a1899116af9a0db1e1516ca1d31d0b037",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619883535000,
+    "account": "0xBB39Cd5dB415783DB640E66b257d75454603Bb9D",
+    "amount": "211228361187358142670",
+    "l2TransactionHash": "0xc3f46013db7dd58b99ff757235cd72b98366d290a6fe57707b1de3d921330606",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619884505000,
+    "account": "0x4b2c289a9a475554ed8791844b2E0d03924F8358",
+    "amount": "13292998024300403766",
+    "l2TransactionHash": "0x10c48e73a86dfc0400e172331a3f2609e65ab14c19e246983d8c465989c273b5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x632a4a31d9854a14d898d407ef08f8d658269980146c6e40ca9b478022b6a114"
+  },
+  {
+    "initiatedTime": 1619723694000,
+    "account": "0xa8701104915e91EB09aEa950782Bd0264FF819Af",
+    "amount": "1762601515750573124083",
+    "l2TransactionHash": "0x90648d1c251aca608576e57410a10086ea6b221cc282ec8c9dab948e09b45681",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619725989000,
+    "account": "0x659431f1Bb5E50Fe281d9B61e39b26A81633F6c7",
+    "amount": "39262959391764379552",
+    "l2TransactionHash": "0x2c1280bd16aae647962db1e0eab623b4597fb9a8733df5d2f840c6c11c7c8bc9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619727601000,
+    "account": "0xF6133d0C13cc2B5dE647c78A346477cfB150b2a1",
+    "amount": "1050117477990856770934",
+    "l2TransactionHash": "0xd872d1325497660883c79258bfe3026395d644df6ed0c07372fed2e0012fcfa4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619739735000,
+    "account": "0x340d6F6f684AA1fC73A9476a3ac85ff8408e9496",
+    "amount": "47080416224497474670",
+    "l2TransactionHash": "0x2da9b36089c0953fa004fe34a0a15f3ddf698a775a91c9e89cf9235fec96f984",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619770289000,
+    "account": "0x6969ecD635A4C155dc8cd1347a5365603cF77b4c",
+    "amount": "559031408175287087900",
+    "l2TransactionHash": "0xacd97eb9319a496678106cdeb987dbb9e58106c46d492d6a0f698a055559e226",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619780404000,
+    "account": "0x7c95D0cD038e06C4152a37325d48aED406006fE3",
+    "amount": "404054071293603166534",
+    "l2TransactionHash": "0xe92d3f9b6f3f122f245a1387235578d18b9120c03c0cc0c4b66f9968280a090f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619781361000,
+    "account": "0xbB94E90CBB89417317c0Cc816a93821586516645",
+    "amount": "20101334846544650874",
+    "l2TransactionHash": "0xde79e6b6f9095df08347654cfbc0db3ab05eaeb29d004eec904c27d7ae385ee2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619782936000,
+    "account": "0x9F985f2363ca31052A939C0D157217D280cB6cb8",
+    "amount": "151305576400000000000",
+    "l2TransactionHash": "0x5582b929e49ea70352b396f698c422baaeb0d4ef6c3ef2594ce5354c38a00774",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619785099000,
+    "account": "0xFc830CD343857a3BefC4dc53828846cE97CA13A9",
+    "amount": "208769830023916349807",
+    "l2TransactionHash": "0xaf6d4592e672ce05f1cce8a21ef52e402329add8f0c9a6c242de7fef02ded01c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619785099000,
+    "account": "0x2173895042B4C74b65E5f2815A612F06Aa63BB87",
+    "amount": "29027384333953118658",
+    "l2TransactionHash": "0x9e7fa600d9298911c291c9267b49561f0bb6433412eaaf5719af28490dfd4ee9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe2918b5b5027090478b44c7275da593173c3f5d26d7264191a47417be6d0c88f"
+  },
+  {
+    "initiatedTime": 1619677433000,
+    "account": "0xC984946Ea53D6D840b3696deB499F139b64aa9a2",
+    "amount": "66804598433928805879",
+    "l2TransactionHash": "0xfec68c5beb94f86d15bcb3b5ef7657e3328ddea7402580f00b19d411cdf27c1d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619685333000,
+    "account": "0xD23DF138e3c7a74b2832f5ecC1ed9Eea6c04C80F",
+    "amount": "30209120525091540729",
+    "l2TransactionHash": "0x8607ca5701a8398b30d32f4b85d58f170b8009bf5f862a9bab6a0b08ca637597",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619699244000,
+    "account": "0x7B32783a53344CF1D28a7C3EbF5587e0de652AFa",
+    "amount": "500000000000000000000",
+    "l2TransactionHash": "0x304c1e948e63b4b206bd205696f767ed68bc81b20dd574e72d132f6bd659c3cf",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619705359000,
+    "account": "0xfA7C6fEB9c138A9Cc60d80Acf66cfa3C2FDBC047",
+    "amount": "14029308506600738232",
+    "l2TransactionHash": "0x189ee3f6f1d1b08504dbb954bc7b41b69f6b04c2e1132e71250a8aaba2d69a7a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619711985000,
+    "account": "0x30b9498A2532f9aF62d67A8cD7f55b708491E138",
+    "amount": "3059479835331433178452",
+    "l2TransactionHash": "0xdb79953047408304ca53790d07d236f7299e70ef392add61726839a3c6905cf8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619714505000,
+    "account": "0x427a4B0dAEa3b22a82ef7f108D392522A924Db61",
+    "amount": "1509410000000000000000",
+    "l2TransactionHash": "0x8c43efcc3d54c1a689b3035e5c403357986e2d087c9c3e2ebdf8f5b3bbf30cb2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619641198000,
+    "account": "0xCD23A6feC507811a8AA9975Ae5aDf5f09dB9EB30",
+    "amount": "477749724047832798502",
+    "l2TransactionHash": "0x8176bd0e899efb5f914dcf92097e1ea9f9e6c46ee530ad19010a1dfee2e8c608",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619645388000,
+    "account": "0xC789026A0f0b15C532c77405491331997F2b2bBC",
+    "amount": "475359513274984627073",
+    "l2TransactionHash": "0xea64bdc3d4779700af7780efaacbc7aecc47f09f0fc60b3502bf521dd3e856d4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619648552000,
+    "account": "0x71af10B15b779fCC1f271942Bc066FaDfb815070",
+    "amount": "82884928576009153217",
+    "l2TransactionHash": "0x666a329f19cd3279a86b802b85e58868de9ecf1b5a5c4d5dc76442f0203ffbfd",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619662194000,
+    "account": "0xb0Ef0F2Dd567407AE343992a2e1C8c7c0A8d4C39",
+    "amount": "180512000000000000000",
+    "l2TransactionHash": "0xe2015d58d234f8d4731f271aa49ace49ba826ff0a09cf490a3017874a340e6dc",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619674244000,
+    "account": "0x09A01a4cc5b0EC8d606EA3B42bBec7145173BACe",
+    "amount": "593478553340141308574",
+    "l2TransactionHash": "0xde1173b0e7691c70cbbb8414ff64b79c3e1122c453fda677c0f06eb76d67a59b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xff49c5ea8043531bfb663961a4cf76388a4d7cf5299fe451d0d96f716283a5c4"
+  },
+  {
+    "initiatedTime": 1619631171000,
+    "account": "0x57e0eF04b3D4bE5583d89AbD135e110517f0AC59",
+    "amount": "1724028462294713402379",
+    "l2TransactionHash": "0xeee54516097abdccad313c75a6d80bb234f804c51636ee856d323af88867569c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe3b54f706d144a4d5a5a81a04d9f297f490402b3e348da7191ca97ac30e2d5ee"
+  },
+  {
+    "initiatedTime": 1619604464000,
+    "account": "0x254528D99bf13E156058400D0650C648F6042f69",
+    "amount": "476674340000000000000",
+    "l2TransactionHash": "0xe8600a0d070bed71a931f3a4aa3046940e187eb7545f72932ee54f3df9e1ef79",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619607501000,
+    "account": "0x7bd2B1c17638C44933ffD0d65734136a1b2ED67A",
+    "amount": "1741664009336505134246",
+    "l2TransactionHash": "0xbe033f1f4917288595a55585574895f873308445685ca96e471e8f153d3e969f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe3b54f706d144a4d5a5a81a04d9f297f490402b3e348da7191ca97ac30e2d5ee"
+  },
+  {
+    "initiatedTime": 1619614352000,
+    "account": "0x2E45e558f76eb181176a61B6207e94DD77316aa2",
+    "amount": "152358843000000000000",
+    "l2TransactionHash": "0x5809d114df3b29466352b86abbf83f0ac7d1c3bb0b44c351b3479ff5fdad3b08",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe3b54f706d144a4d5a5a81a04d9f297f490402b3e348da7191ca97ac30e2d5ee"
+  },
+  {
+    "initiatedTime": 1619617196000,
+    "account": "0xe254f70f57Ecf04e120a1F8a1c853a54090A0EA1",
+    "amount": "30018530471786102524",
+    "l2TransactionHash": "0xac92e2d66090bbd35498f79206d19080bf2a906f3b1e6a0b3c57fb1648099de0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe3b54f706d144a4d5a5a81a04d9f297f490402b3e348da7191ca97ac30e2d5ee"
+  },
+  {
+    "initiatedTime": 1619617517000,
+    "account": "0xa53A13A80D72A855481DE5211E7654fAbDFE3526",
+    "amount": "1630721384612318733797",
+    "l2TransactionHash": "0x9cebf65c481c120a3d350fe93ca99a499067b24d80908941bafe5dd8b191a12f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe3b54f706d144a4d5a5a81a04d9f297f490402b3e348da7191ca97ac30e2d5ee"
+  },
+  {
+    "initiatedTime": 1619591761000,
+    "account": "0x29317636d73a6AF35fa3113835BBa7A4cE8E9354",
+    "amount": "644745264920000000000",
+    "l2TransactionHash": "0x3b61bf3b4236a02da6723e261abd93c7340e0e9ebd47bef48fcc90db1e5e607e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619594923000,
+    "account": "0x34cadF09dbf50a39D1a68b87D7763DB3961ef483",
+    "amount": "4578764826856361916615",
+    "l2TransactionHash": "0xc4d77369df6ec029f6cd75f049ff9c7ddef2b8abf4200dc380cdaa643a4830f0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619528503000,
+    "account": "0x7844A1a73934AcEb32eCb4e7B8a5EA82678755Da",
+    "amount": "1017750000000000000000",
+    "l2TransactionHash": "0xe4a824c9b41054a1cd1bda7010b8cddb3947f783dde9130e7c1664e21c1b0ebc",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619529139000,
+    "account": "0xe701287D9BF31DA30E45712f59e947AEFCd9D22B",
+    "amount": "700735701777988824833",
+    "l2TransactionHash": "0x212b0c93867956c328bcf64b1e2884f41886eb60469ccea38b01fdec68781e27",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619530130000,
+    "account": "0x9a376C8e244CDBB07eb7856DA3cAC7f5794b58fA",
+    "amount": "1000000000000000000000",
+    "l2TransactionHash": "0xd61e26bde8da0790900316bb4cfc4377aec35714b4eea349fbcfaa8b41e562a9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619530130000,
+    "account": "0x7D7eFbD5575d68c146610b3916b793a0325e0DF6",
+    "amount": "1248358988282899910942",
+    "l2TransactionHash": "0x58d747150fbed1d748341acf2a6426161a37efda29c20fffc1163705ac974c29",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619562060000,
+    "account": "0x024E8b74a7502a075dd70FA2ef9F9B4Bf22d246a",
+    "amount": "4097220364325227160688",
+    "l2TransactionHash": "0x7d412b6035b09aabf2c84eae2e964593add5936d928b46f9e4b3746d5d2f7386",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619448359000,
+    "account": "0x07B15c706A16EB2909a2E265f8A7488d7CBF1e4b",
+    "amount": "1000000000000000000",
+    "l2TransactionHash": "0x949c173f3746eaeef4872c58d56a49c83681a841d3c0520d946ed3131563f029",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x02f97aa4e6c0eef0e7a913f74c554ff0479a9f05f519862dc2a12a198e93aee6"
+  },
+  {
+    "initiatedTime": 1619481373000,
+    "account": "0xc84C19Bbf07d0CB7CC430fC3C51173c4ACD5dD9D",
+    "amount": "606886190283961023412",
+    "l2TransactionHash": "0xfe0b19394956e4cea88f226966abe3d8be6bff88e8cf94d5129f76ac7ab8d155",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619490461000,
+    "account": "0xA7bF01395aFc8f3c8F9cFFAe676B15Ad2D675c7c",
+    "amount": "85933225222834793813",
+    "l2TransactionHash": "0x7711d16e05aa43aa639030813c45d6b1df8289b2b245a36426a2f6452df615e5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619492044000,
+    "account": "0xa982BbDaf783Eb7C3914D988b7e2a0bE865ccB53",
+    "amount": "1410280628324362502766",
+    "l2TransactionHash": "0xb0d5233779db64d2da695ee39acc337a21d4d1885457a830fd2cedb1b2868d8d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619498663000,
+    "account": "0x89F3950F3d535fBaf6237B69139535603Cb8EDE3",
+    "amount": "60000000000000000000",
+    "l2TransactionHash": "0xd93a373b6a3737a344439a416e50f38e3157ce843d20c11e145b971b9e6584d9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619506660000,
+    "account": "0x257f6c24c4bBfED2196e3C1B98eEa6d5494d83Bf",
+    "amount": "165418622931932213438",
+    "l2TransactionHash": "0x89586725cfe9812e05610aed4e6fd821426238b06124167e31119c899e4bea73",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619513431000,
+    "account": "0x30763daa6deEBaF996EEb6c5Dbc06Bd8a5a69ad9",
+    "amount": "169007854513023574231",
+    "l2TransactionHash": "0x813f25476bdcc7bc3d9c56e73e2e10360eae5dbdef8872f58b4d2e90be50d3f4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619516689000,
+    "account": "0x64D5D83f38B7e3470eE32387F3A1795a20D88762",
+    "amount": "61000000000000000000",
+    "l2TransactionHash": "0xd34208519de092079aebf9c38a562bc96acb994434e2e362a2c3ef25de38e0e1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xacaccc8c320bd9426f75a188a86ac8913086c71d7090137a1d6bb7be4a17058a"
+  },
+  {
+    "initiatedTime": 1619338927000,
+    "account": "0xA1a2Ef732dfb115CC446301aB64D48E0079fD322",
+    "amount": "1150000000000000000000",
+    "l2TransactionHash": "0x22c70306f6ffc79e7494fed36d76c50d06e3e24d2508c7560d5635c3fda010b9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619353536000,
+    "account": "0x9DF9040f37dD730e0d37C7405129f58816ff3AE2",
+    "amount": "365604760051487555108",
+    "l2TransactionHash": "0xdfdddb48e683a6ca0708f4570037b6a564bd27741f551b8983f9e7a8b1cc068d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619373399000,
+    "account": "0x7c95D0cD038e06C4152a37325d48aED406006fE3",
+    "amount": "431548972183064716032",
+    "l2TransactionHash": "0x0c418e4b74370787da8fc4a11bf53c4caab428c0d7a5948949361be30df559c2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619373641000,
+    "account": "0x8f851c3949a4EE610486AD2cA40E0bFeB7a30F47",
+    "amount": "150000000000000000000",
+    "l2TransactionHash": "0x2c8745be561cf703fee564339a747f0648dc1ce0ef7deed948ee6be06cba48e8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619375237000,
+    "account": "0x2173895042B4C74b65E5f2815A612F06Aa63BB87",
+    "amount": "30973113153959815092",
+    "l2TransactionHash": "0xda63783c717b0839e455568670d66cd0d595bd6647745a8b50a2996927bf81e6",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619376165000,
+    "account": "0xFc830CD343857a3BefC4dc53828846cE97CA13A9",
+    "amount": "222976111294242441734",
+    "l2TransactionHash": "0xa9949028727551edbe628cff48b2674a99b399171431542aef5ee4855eb59a4c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619379733000,
+    "account": "0x5B93FF82faaF241c15997ea3975419DDDd8362c5",
+    "amount": "500820097937397363080",
+    "l2TransactionHash": "0x5fa66ceac1dbfc23fe3912c35323a8df38e2efe60d3b298406adce5ea15ee4ff",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619384393000,
+    "account": "0xe5101a843fcD104dC0C36cD1b5ebBbd494837Da7",
+    "amount": "56634227800000000000",
+    "l2TransactionHash": "0x024edc09f68f6fd8761a15b5f05e6e2a5583d46929c5cb9ec3cd9969d071e58d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619386780000,
+    "account": "0x74E8B9E13087CCcE27013c2Ebb5b5093dF134262",
+    "amount": "1203863975523215552264",
+    "l2TransactionHash": "0x4ba1de98be5e800cd0a4b9d5ea60612d9215d439368952aeee436e51bfda0c02",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619389039000,
+    "account": "0xa0463d9133F97968f30eF5e761eCbdE587dDd918",
+    "amount": "243776644673373601566",
+    "l2TransactionHash": "0x0fecfefb6167b185338aff5628ac6c13642cc91d2c4a5aa39b1d05ef5d54fd31",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619389355000,
+    "account": "0x453e692bEa81E32CAa6AE385CeCF8c9cb85d443e",
+    "amount": "593163017454052467697",
+    "l2TransactionHash": "0x7fe904d0d5af93bdd30daf60e15f7d504b24719de7f470979211159ca20e8459",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619414585000,
+    "account": "0x71541A65789E5760704DF98Ad2C6a4ca8a71C80e",
+    "amount": "958104145418779847461",
+    "l2TransactionHash": "0xdb0ba1f0721ad51b0334c08ccd9bf79d561ed089d993592cfbb2923c95265cc2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619421444000,
+    "account": "0x17e33637f6B64E9082Ea499481b6e6EbAE7EEA23",
+    "amount": "976767597584180145540",
+    "l2TransactionHash": "0x9708b25942cd6521d3f6d5c2aae98ddc84b519c7857a305be4085474e4738474",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619422726000,
+    "account": "0xD9e822fb5679EA1fE695FBB44408397dB2de0Afc",
+    "amount": "102026000000000000000",
+    "l2TransactionHash": "0xbacc7c189338061671f6861cf7bf999ed8e683c1ef80a665057d42077f623553",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619429240000,
+    "account": "0xfb9CC0c596a37dFdC2aa86918f3cfeE94bdDC48D",
+    "amount": "506117249000000000000",
+    "l2TransactionHash": "0x35fdf8be351bc81b0ff84de41dc0419e553ae992692f443d34e17e34784aff13",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x37b756014cc394a42c7910732fa7047f511ee1a948eaef647b173dfa954710f5"
+  },
+  {
+    "initiatedTime": 1619211935000,
+    "account": "0x7d33d658755984d1d5D4EAc6CA96Ed758E978e6a",
+    "amount": "910846890724134292928",
+    "l2TransactionHash": "0x27fc7f059cb670f0be54d89e591d400ba03bc234555bd5ff7a3f37585d2d3913",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b089dc7aa8134397b6c1a386a7a6c5e6c4750d225bf7642ce0a88cb667f7d07"
+  },
+  {
+    "initiatedTime": 1619213559000,
+    "account": "0xCC7DB065f61E14a892B94725aE1d7fe203179929",
+    "amount": "22284364494463400409",
+    "l2TransactionHash": "0xd89de8f608bfa636b3e7ca033c5c32e2c594fa26928082f65b9ecb18f2fad1fe",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b089dc7aa8134397b6c1a386a7a6c5e6c4750d225bf7642ce0a88cb667f7d07"
+  },
+  {
+    "initiatedTime": 1619225383000,
+    "account": "0x9Eeb74d20F288eD1D2AdB6887642Ffea656BeF2f",
+    "amount": "299829022465994684831",
+    "l2TransactionHash": "0xd35db2b076ab97222f7cf41aef230e3d4cc76d7bfa861a7d746e25542e6a5090",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619231830000,
+    "account": "0xCe9D5fDc295dA5c25C5b216DEdc30bc4B9247373",
+    "amount": "742063331767400391479",
+    "l2TransactionHash": "0xf8983f2f483e369b7d678747b19652459aaac374131cdc2513725db2622bdff1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619243220000,
+    "account": "0x80658E3657882cFa73fff0eb20c92Aa5E948230C",
+    "amount": "3145666000005036613527",
+    "l2TransactionHash": "0x460f464dbeab96b1e2b03c2f8135b72ed8551945b2a2ea17dd8a9870b6b749e6",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619251785000,
+    "account": "0x79414ee7d3988E56C0BbF34e1568CBFC27c3634b",
+    "amount": "945162000000000000000",
+    "l2TransactionHash": "0x305fb4ae58ebaf0a892260062838ceab36bb1c1af777fecbb273c0cc504da82f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619254251000,
+    "account": "0xD71178410c9630BaA0e350393A75dD144a0cb4BA",
+    "amount": "217123432412337128773",
+    "l2TransactionHash": "0xf6c14d68bbe1b302e968c6eb1a8075f9bb361bbc82353809e8178475064ed12c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619256233000,
+    "account": "0x984aAF814012CF15b4b47e9D4D9994092C6C0EdC",
+    "amount": "80497116434578764845621",
+    "l2TransactionHash": "0xfaae047798096963bdb7130627d63ce588fb44d2bee3ca7962bdbf78cc4e7f41",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619267715000,
+    "account": "0x4A41b48314C0bDa6c1954AC1B1670F62fEB7AE9b",
+    "amount": "71276636288025896979",
+    "l2TransactionHash": "0x7fc55f82ba1cda8d5744364b5da83c0be8bcf8a954bdd71ccf06168defca4d90",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619272410000,
+    "account": "0xaCaA0Ab7FDBc52A971c66d00aDe4372e57108bC3",
+    "amount": "577489670952331492902",
+    "l2TransactionHash": "0xc588b4a1c00698d75442a7abb8077fd81c4aa6baa71bb441e64cf229b68929d4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619290336000,
+    "account": "0xd37CC0CB12A05F021A6Eb1837419D9E62c41e6Ff",
+    "amount": "68340374513254752602",
+    "l2TransactionHash": "0xf2642c380c052035a4fb5d8e19c017c6eaf5cbfb3eed6b48e04527a284d96ecb",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619292319000,
+    "account": "0x787b4b7FFEf8edDaD54F311039aCF4c36FEC9593",
+    "amount": "1615590119625445567641",
+    "l2TransactionHash": "0x4564094cb7750e23640875893f468dde477d43c04fec6ab8a25328bc43f2878b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619295589000,
+    "account": "0xD3CE9ECa64b9c136B9FF95d0eDB7F6720003b9De",
+    "amount": "212354252220530785846",
+    "l2TransactionHash": "0xaebd77ccba1d2b80d53b758b39decfa91e781a2da00759f9846ddfd2aef9133a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619297825000,
+    "account": "0xa21FA4FA5e8A51165b77F24d21fbe2bC0FBF97F6",
+    "amount": "99928562550829618674",
+    "l2TransactionHash": "0x2596df9325128e9930d68a4b47b10ab7bf6ad661a711eb64a2061bf68ca8e5dc",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619317012000,
+    "account": "0x8DB03D7ed6F6a081c561C242412c98080E9FA13a",
+    "amount": "705863478618093673330",
+    "l2TransactionHash": "0xb81f86df80632d289c9fb82116e63037eaaa6545a636dbdcf34ac25f373ad3a0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619318732000,
+    "account": "0x401D3B307932A4A96FEB2FdA9878a9B5EB91A554",
+    "amount": "3569500000000000000",
+    "l2TransactionHash": "0x8aa80ea5399ea57e3376a1579053e43bc14c1c2b0014b163c1024126e8b03246",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619320391000,
+    "account": "0xBBDE1E05d96c5C4F7e377D5EaEd21Cac08A92945",
+    "amount": "619409499444296198411",
+    "l2TransactionHash": "0x96203e39b9450230083144b5c7e97ccb4a64e76c6748c9b309bc1411841b9cc4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xb681e3dfd3c525096ef2275bb588ba79e4e1616122a95580582d460f3fcb6ff8"
+  },
+  {
+    "initiatedTime": 1619142845000,
+    "account": "0x2b7Ce9F2000afafB6c1483D703E4724b33aEfa5d",
+    "amount": "103214014005545756738",
+    "l2TransactionHash": "0xd6ebac6f85e06a69845bd741a16d547ab96d7bfb19501f479a8e8aa1f45d9fce",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619148445000,
+    "account": "0x0B7E38BF0Bca35D9c5b435DAe88aE6C74aCaB7ee",
+    "amount": "138645917964900501891",
+    "l2TransactionHash": "0x65b0f3737c29e6a64fc49db15c9b4f23b0a04ea6b9f1728e022ff1b897a909da",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619150672000,
+    "account": "0x9318af62A5bA1a3EdDD8e771293d8c8d2Cef6df3",
+    "amount": "60974747000000000000",
+    "l2TransactionHash": "0xe7e3c5d8f0cea09a76c365043d15f5930fa5331ee4070df67b4241b641439f26",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619154793000,
+    "account": "0xfb38ca629ADA5710D697C0CaCFe988af477Bfbd5",
+    "amount": "272636193000000001603",
+    "l2TransactionHash": "0x8987262a828d94abd932ad1b5d79b1c17084ee3a5e3fb871b5e127d5f89aba58",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619156022000,
+    "account": "0x59c8a4Ab9db3a50554C4884Bc00b323fCeD931C4",
+    "amount": "102702758690000000000",
+    "l2TransactionHash": "0x7b7cbbb7c2c4bde1cec7382c548f20e5a813d32d96a6da46bb37f9511a65d8b8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619166289000,
+    "account": "0x484451aB795A7c5d644Cb01455FED06c466aab6b",
+    "amount": "150367149347823093832",
+    "l2TransactionHash": "0x965143cc494d9fbdcd0625ea29e38112065a9c928d320544ab5b1b53ac67f3aa",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619167214000,
+    "account": "0x7C0264F26c356EB647341f3f184C31833BeDE4BE",
+    "amount": "915257665138683924722",
+    "l2TransactionHash": "0x6b507f9f732f484a3a1029ec00f9e039daf930af1b8fa35ac41f9eaaa375ae5e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619173265000,
+    "account": "0xa8e0f532656Ab6C2cD83BeF11f6e6Ce1F7c18a9b",
+    "amount": "6057681166585598828",
+    "l2TransactionHash": "0x67a4860a99de9825b53652e2d97df95d127e256c2a1e492f232c0440968c18dc",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619174548000,
+    "account": "0x6a6425D90DC5199e4Be8Cc310409bbB3a1b87492",
+    "amount": "87202082487755705786",
+    "l2TransactionHash": "0x2c45c72d07d9db73a1af88e4d4e244d6aef481296a83898a619b1b7f79d0140a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619175204000,
+    "account": "0xb96182A4F708949F0263Eae69e04A66836C319A6",
+    "amount": "44719552031483328853",
+    "l2TransactionHash": "0x3405a6c36e718f614418386dcde246f21506fd7ad0ec086691368f43ff2d6bdd",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619178021000,
+    "account": "0x0Fddf683A5F3a2B51704aAE4e828Ec9A35DEE5e5",
+    "amount": "540616787100163793644",
+    "l2TransactionHash": "0xf2deba07ef22e4d086850c4b32345002e74c96714853a868c98be8a251b21b57",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619179794000,
+    "account": "0x62c72c74c8f8d0c94FF4E43293b3200E79e3712e",
+    "amount": "55180000000000000000",
+    "l2TransactionHash": "0x687d0dec6d3461004436a4ec876ebff099b0043431dc863dac91871e19e96b86",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619183641000,
+    "account": "0xb8Ea6Ef99AC1a009c011f8aE21984b33e9B0F6d2",
+    "amount": "1000000000000000000000",
+    "l2TransactionHash": "0xc8c8784737b4f031855de011309d8e902003236d83b19a6c13f311bfb208a00a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b089dc7aa8134397b6c1a386a7a6c5e6c4750d225bf7642ce0a88cb667f7d07"
+  },
+  {
+    "initiatedTime": 1619183641000,
+    "account": "0x3E1b1Fe45cB2040B97CDb3191d4933Ad1FF0928d",
+    "amount": "504649687950590143158",
+    "l2TransactionHash": "0x56d9d4f0bac2d9d984e9dd0c8484775f8ae9ee6ec5efd6484151b52b4e93ea53",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b089dc7aa8134397b6c1a386a7a6c5e6c4750d225bf7642ce0a88cb667f7d07"
+  },
+  {
+    "initiatedTime": 1619201237000,
+    "account": "0xff250599FA5DB73275A903fEB09D7C06b31E5b67",
+    "amount": "217050000000000000000",
+    "l2TransactionHash": "0xa7de918f25682007d627a364f3adbc3e3fd413d86db7212786bd1b76ba30271d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x2b089dc7aa8134397b6c1a386a7a6c5e6c4750d225bf7642ce0a88cb667f7d07"
+  },
+  {
+    "initiatedTime": 1619099333000,
+    "account": "0xE3D973A1b738942c87B534ba2Bb31A8388874241",
+    "amount": "523207454174917078203",
+    "l2TransactionHash": "0x1d0c95be781db0852bd68ee7bb3c56dce574babba5cab3c8e7de290d87353465",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619100295000,
+    "account": "0xf643DF4c45909815b82A0C587010A8d8edde7A98",
+    "amount": "1245980000000000000000",
+    "l2TransactionHash": "0x66757b18e0e15c0215c22fefe531575d4013c2a813fea42dbaf32bfca7111549",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619104813000,
+    "account": "0x94A37c367508f089A02fd6dD18e678C70a7e9543",
+    "amount": "2483518332000000000000",
+    "l2TransactionHash": "0xa69aaa7b38c8b088535fe14c10d99d0371cb4add0523f065c2124a3954320884",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619106047000,
+    "account": "0xcF0722F0F8d164529A1aAA4280057103DAea8007",
+    "amount": "106020596775806872762",
+    "l2TransactionHash": "0x8075f8969fa73eb63dab6499bbf2e136a363e551aeb12a54b363992b4f4b44f0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619107731000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "22292525509043614937",
+    "l2TransactionHash": "0xa1d607638e5bb1f5aafede4945bd2372f9f127b817e43002cd0f0a14e15a1b2a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619108949000,
+    "account": "0xA5412139E921C5b737beD20A432AF0A3FA13c147",
+    "amount": "50637066194511287002",
+    "l2TransactionHash": "0xd50133eae687dd0943eecb5dea4003e82b08928befc4e2e89f46e50864a1246b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619111061000,
+    "account": "0x558C6DA37aBfbC5E622a399272E7CF7B30FD83bd",
+    "amount": "46849571000000000000",
+    "l2TransactionHash": "0xf90e78dcbf484872794ada0cb7dc340690d4381010c8caef4edb16654f78a67c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619119900000,
+    "account": "0x9A20a5B173b938F846B00875833aF437DD7a1716",
+    "amount": "2430486294105812734837",
+    "l2TransactionHash": "0x5b2703369a01c4966fcb3dfcfaf56661904fd18056a9ab4a25f5438716842854",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619120225000,
+    "account": "0x0a77AcE569d4f5a0810b95eC62814c1D05a6938C",
+    "amount": "3942940426013732811350",
+    "l2TransactionHash": "0xb97f5ccd0aa9be7bd7a41bed83ce8b9e20c637e6b9c98cfd273791433a32d64a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619122828000,
+    "account": "0x2C95F06ea821f6984ddE30449AA392E2b846cBBa",
+    "amount": "23776807106951410393",
+    "l2TransactionHash": "0xe84b7907a13df086ce7efd7a576e91616b5d39cfef55e6e58150c8467b08acdb",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619130251000,
+    "account": "0xa72782657dd132cEEC83344488c5A25E2fB2A083",
+    "amount": "164325858077412864079",
+    "l2TransactionHash": "0x0fce1168e60bea6d44df9d0a9065e444a1862c3235ea549799b39bb440790bd6",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619132776000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "341907908021184124644",
+    "l2TransactionHash": "0x06f20bc76949cf8ef7953d63d311e2172b001d99a983d0f849bd15880b5f4a42",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619140564000,
+    "account": "0x8C822F1377Cd8a3e26B99A77a78FF1Bbf2AECEd3",
+    "amount": "1638776425858669785395",
+    "l2TransactionHash": "0x95a883b8230b72db6c25aa907dad8621f215f8ace9c71dd5134ba3df20357ec3",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619142845000,
+    "account": "0xCEf0c0d30A100A13b1c193584D31567A9077cC0a",
+    "amount": "701733123295477092960",
+    "l2TransactionHash": "0x3d0149e9e50f00583cc671faf56ff7e166c035fce8129ca21893e7cbd0d94717",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xd85e4f9881142d08234d44aa53060af6cb4f99ef6b755c7fb5690b53d64f87a0"
+  },
+  {
+    "initiatedTime": 1619057077000,
+    "account": "0x67BC76E8Fd78CC59594C9F43C643eA7CAfA48669",
+    "amount": "8298000000000000000000",
+    "l2TransactionHash": "0xba4cc98d239b6ccbd9c279ba5dd630c454d8041021085f9e39dca2db8e0ea827",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619062131000,
+    "account": "0x618b56fD507e8400bEA52162bBA67c52AAe8Ae83",
+    "amount": "532206593860000000000",
+    "l2TransactionHash": "0x5686aafe47a013b8b7ba9b4e23aadc03600413cde52dbba5226961472e3260b2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619073448000,
+    "account": "0xfeb60bDCcdEAb4ad217fdf8F252e61B68eFb1538",
+    "amount": "750552804063913802090",
+    "l2TransactionHash": "0xce16f9eb9c8c8bf1a070c7ad456c86cdc74c96fbda5648871389c804c45b7007",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619016919000,
+    "account": "0xd185a341E2D30df901D4792F52af0265b45D7D9c",
+    "amount": "199990466000000000000",
+    "l2TransactionHash": "0xec6ae9c6bbe1e93f6e241e4b61e2130abac0de4427dc6657361bc31eba015936",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1619028755000,
+    "account": "0x32349c94082a8cFd9CaC7031f4ec980f8d94cbFD",
+    "amount": "22084120000327427562",
+    "l2TransactionHash": "0x9b4b08739563b6add408095313db191fdfd0d534a8db2c60896a80fef84a09a7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1619036971000,
+    "account": "0xd1282134a3481Cb548504073ea31E602228f15b1",
+    "amount": "152000000000000000000",
+    "l2TransactionHash": "0xe0e0087364532bd3713602eb7d49c96fb9b7a3f795ef9e235f7b20a9af167ba2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x80517774f3e79968ae7fd6e8ae8d45e492fccdc310a57639eb9f112f1f096c08"
+  },
+  {
+    "initiatedTime": 1619001657000,
+    "account": "0x2c98A551551879bFFa273a5Aa931Ae76e8c83eC0",
+    "amount": "131989463483120555733",
+    "l2TransactionHash": "0x186f8b771603084a0622add87e7e694f5edcb5dbfa1ca6eec9648215b9964621",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1619002584000,
+    "account": "0xf9815a579Cbc8f1C2c52EB93c99B168246AE3334",
+    "amount": "1537430356590806738393",
+    "l2TransactionHash": "0x4bff90f39ab0f404b4c64e7c02f6e195d1263bb2c30e36dd6d04766b592a6951",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1619005573000,
+    "account": "0xf60C9808a0205535C6A211f2732c730157F163fc",
+    "amount": "57369854615669458227",
+    "l2TransactionHash": "0x189714c25e8682bbeae2a344d321761c6d4b42df716d278949adcce73bf60ae5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618949658000,
+    "account": "0x9AC6Cea904baE4632A9e880fA78fe39b3Fc01f1D",
+    "amount": "700013445966508466649",
+    "l2TransactionHash": "0x515342abfb64915dbcf65f87f61c8eb09e6b6026a2fc8b58d025e8bc0dc36a8a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618964857000,
+    "account": "0xa22667A196Fd750A9B9C6d019648A9ac6C20Bdf3",
+    "amount": "250632575220000000000",
+    "l2TransactionHash": "0xe9c0361fe746a5a9ed85be2e75ed055ab1e889f395bac2ff7b449173acbede28",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618989098000,
+    "account": "0x52dd13e620A35E7188413b67e12534BcEF71764D",
+    "amount": "9652524019004760995778",
+    "l2TransactionHash": "0x963f1fd8cef81a0e84ea4fb13a0c830f2af1bddd391253b11e895071d56c6ed7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618990322000,
+    "account": "0xb5ce7Ff10e73930625A9d7F46Dae2c262FC4C87D",
+    "amount": "708303265702161809408",
+    "l2TransactionHash": "0x7042f37c349db97f9497b267a939bd1c1a6afb8cb305b753daa12f74c3bf3298",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618843882000,
+    "account": "0xFCe09541e694599089E45E374f9b346b8AE342A3",
+    "amount": "56663636566325281708",
+    "l2TransactionHash": "0x0ce35d5df85fb0bb82f2d16ea4c28924c2ffe8da4af40c9064c0574d45164e41",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618844487000,
+    "account": "0xc537b677d45530Cc2352C904B4af221f4dE3D16F",
+    "amount": "1521238075317065682712",
+    "l2TransactionHash": "0x5953f96a0cb1d75766f4eca0155ecd58ea580b68bef04a84c95e5de33b9647ee",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618864536000,
+    "account": "0x18C449e8be17bD57E4d20DBc936cA1cd2554e56d",
+    "amount": "1000000000000000000",
+    "l2TransactionHash": "0xfdbe041e35c672266af137db457e22c905ec3936a249eea65499c1ab33d36358",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x383e3f21e198f04a0a6d17342bd6299d6056c92fafac7c732f5b1cb2dae7a33e"
+  },
+  {
+    "initiatedTime": 1618879759000,
+    "account": "0x898A7B28764796581D4bA40a0723A60A67D71431",
+    "amount": "81816271000000000000",
+    "l2TransactionHash": "0xbe66ec3a1f571fea7e3304a3818b168c40dfa84ccb79920953ce26a23f46608c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618924564000,
+    "account": "0xA88170E2142b0e1EeFCB2041B7f3754f4F4298Fd",
+    "amount": "106121000000000000000",
+    "l2TransactionHash": "0x2d399f3ef826b89d4f1e5ed94262e44dcdd4b6b433d8a9693754d8891a24f49a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x05ae043ce4317aa8964c7c6ccc438bd865ef64473f4249efab9103cb112f9e0f"
+  },
+  {
+    "initiatedTime": 1618721372000,
+    "account": "0xF002632eCCbd7892656B6BfE9420d3e7bD62b8bb",
+    "amount": "184849221380608792330",
+    "l2TransactionHash": "0xaddb3c11d618f87d20636daa6929a126b423aa458438d6a8edb251b025ebf299",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618729757000,
+    "account": "0xE79c7aF2aAe16716B888042c5845eBb9C38Bcf46",
+    "amount": "209569628832713264017",
+    "l2TransactionHash": "0x0894a35667dece2009e52c8dee337d498541fcbaae772cc487949bb1bd6a2c2f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618779767000,
+    "account": "0x6365CA7eeaC872310727dACebFd5C31FE9ebACeA",
+    "amount": "128077792290778907753",
+    "l2TransactionHash": "0x990a894c8b6e7ad2dafd2d0b553fbc8b2966e368b8b6f57735dbbd5344b1225b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618787720000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "9688888786427944995",
+    "l2TransactionHash": "0xe7b6c277cfbfa63f6f3a9646b7dcfee57e416c08d349e1f188664ab0218392c1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618799879000,
+    "account": "0xA27e7cD1250b0cbf1e7192Db90D16060592C7f96",
+    "amount": "604029073036507801747",
+    "l2TransactionHash": "0x438d64511d158fb0668dd7f4300597f81b0ab29f2bcb3691285100ff934c78e9",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618813683000,
+    "account": "0x0FA3c6bc61B31331188799FD2fDd52eE3C027314",
+    "amount": "24422637100000000000",
+    "l2TransactionHash": "0x4f3d91fb54a9ed062b63bc39a8dab79a763764d275ec8cd7adc83929333c78c8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618607948000,
+    "account": "0xE5b2Df41C22EFBeC5C0b68b08794dbD2A6ffA383",
+    "amount": "623474654822839830461",
+    "l2TransactionHash": "0x59470e320c9de3bf3148084d50f840fdf454a3198bb59fd4794718df4cf24bea",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618611472000,
+    "account": "0x4A41b48314C0bDa6c1954AC1B1670F62fEB7AE9b",
+    "amount": "64154506501411587213",
+    "l2TransactionHash": "0x697d305c972c2aca2a67ed0e9e84b5bf13e7455f98ea37ffd2fc3a15574d483c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618624727000,
+    "account": "0x52D4E9c6b23cFAfA13938034814AcdAB895B6848",
+    "amount": "253478507007400791788",
+    "l2TransactionHash": "0xbd97e1ec14915964884b688a53bb49a2a4370e0681c13bea8163a74385302fe7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618649327000,
+    "account": "0x81312Ad57EF129a6Cc8C3Ffc16816f7B512e0636",
+    "amount": "100000000000000000000",
+    "l2TransactionHash": "0x09928224af81e247d81aefd547688f729982b83a90df64b7914cbf69ee77d017",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618669596000,
+    "account": "0x2e48c41E36f03471248DF0dc879423d7329c69dE",
+    "amount": "425234029450000000000",
+    "l2TransactionHash": "0xc1752f2c34146bf46af7d511967a0196e8d50dbd388eba0b5d5c545a54485090",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618674120000,
+    "account": "0x35D84b68dE772E04Af0287695443871a3aFB0782",
+    "amount": "1894797463265607940529",
+    "l2TransactionHash": "0xde42eb6d2b287be193a1e4595d5b0a294a323a13349b2c096cfd55722095f96c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618699965000,
+    "account": "0x5724C9480139Ee8CD9cF7955D62192aefA145483",
+    "amount": "350944155166609868583",
+    "l2TransactionHash": "0xb349f698c9017edabdbc6e63398c781a829977a27670c1485dc116b6e74af99c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x809a74a1d2fba13e01f30e2f92f459b636cd9586fb7d49d1d4419eb8b419b62c"
+  },
+  {
+    "initiatedTime": 1618523865000,
+    "account": "0xBaf36227160A1468b9f2a90B1194Fa34d00Ef38F",
+    "amount": "16422995412108840605",
+    "l2TransactionHash": "0x45f0572c4091c343986ac25d085a3aa0f9e5f351c82c6d2420c320e241323670",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618526043000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "4868815803131573282",
+    "l2TransactionHash": "0xd6a50a8df87a2818d17db827845e638398a1026e5b6381c5ad745be5036da44b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618531854000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "2978260582948557881",
+    "l2TransactionHash": "0x1eab4e7d721e9c25e6c16923d035115a03033ce0792173e57b9c0050f7b5226c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618537413000,
+    "account": "0xA0AAB9d130Ed36F0412641345940fC623712cFF2",
+    "amount": "450000000000000000000",
+    "l2TransactionHash": "0x03ffdfebc49e85d113f5bae7b554011fd86a23f5c3b9a7f49470db8872490d29",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618539320000,
+    "account": "0xcB7AF25308eb188c1c1F00eA051f3dE476527d64",
+    "amount": "288928293027967618664",
+    "l2TransactionHash": "0xd0533ed1b5bd5ddcdd164ab780d1f05adb065ec9dbe337a8c380b01bb0e41da2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618539950000,
+    "account": "0x014acA255ad2332867eC17c893ad7587eB6491a5",
+    "amount": "92443413330000000000",
+    "l2TransactionHash": "0x2385356337003609b8484852ecb4e7fca6fd4139231bc2a858887b85dfe090c2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618542163000,
+    "account": "0x891aCdEfa5f01ab48Bf69ff789CE9D3a9997f017",
+    "amount": "95699984175325564996",
+    "l2TransactionHash": "0x0132b0eb7015a9e037b71f48d3e77ce06551261b07fd69a0280dd948cf7673e8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618542783000,
+    "account": "0x6B1d9d91F0C226BC94616cD6224e367fd1aD2430",
+    "amount": "110907000000000000000",
+    "l2TransactionHash": "0x2ebb59d13fcca2851243756f44774bcc449ec975f5e3e9324069d6286d5cb456",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618544105000,
+    "account": "0xca7aB6dEC064A5DAAf7657F04E584C317a59B03f",
+    "amount": "1508445755910000000000",
+    "l2TransactionHash": "0x93b7bf0de4f2ab1ec64a7f5a1a7bd38992ce85e7a41f120617663d2a2d4a1375",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618561343000,
+    "account": "0xaC749eF37797F963acC59146E1D2F4015E97dC79",
+    "amount": "2000000000000000000000",
+    "l2TransactionHash": "0xe2789a687cf35f2dec2f14bd6f2a3df3533d61440566dbab8bf48f68eae0faf1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618562589000,
+    "account": "0xDeFc925DD7d7Be4e538fE320CbA30673caB9566e",
+    "amount": "138781520659617148600",
+    "l2TransactionHash": "0xe87132b97b10f77cf56ef301e2fe3fc45fd97b396a02d50a8d86a347d7fb9da1",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618576375000,
+    "account": "0xa982BbDaf783Eb7C3914D988b7e2a0bE865ccB53",
+    "amount": "1300307518917801510670",
+    "l2TransactionHash": "0x6b09f8352d01b2368184ab5b1e1bf7a2bb4f13b6f801c30446fa606c076fb4da",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618586189000,
+    "account": "0xB8DB4Aa562e5706f2331a7b6D8E00F58892F64Bb",
+    "amount": "244813624790935493478",
+    "l2TransactionHash": "0xf9dee3c1a29d1df2490cfe3fecf93ca73e6ce5fef45cf92e3222e41029a7e8b2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618590161000,
+    "account": "0x25Acc9bd6aF42183f9DB30476D174402fd6f757C",
+    "amount": "9914684612625968931",
+    "l2TransactionHash": "0x2d4210ab577ac6c888ffb236b1709be9523dfc66e7b0b83e09655bda0138b1ee",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618591141000,
+    "account": "0xa969475b7FFfdB97F29Df047118dfdCAA1122009",
+    "amount": "4000000000000000000000",
+    "l2TransactionHash": "0x567f57c578e96285ea6f3d062999a45e5223ebe1fc76a4f1fe6bcefd303456de",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xe7740fb792c11e6dd4bd8648f80dc7afc31db501ceb538202caf0887fe31af81"
+  },
+  {
+    "initiatedTime": 1618492709000,
+    "account": "0x3B542e49E96CbeA0b010456B5bE7F1d353DCe767",
+    "amount": "5014242000000000000000",
+    "l2TransactionHash": "0xc7366f9dd9ccc9b35e30bb723b23f738bc5be7efbd88874c4c0d6e337a6e3d68",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618493338000,
+    "account": "0x528e78375759C0EDB635376D10EE360540ccDC3a",
+    "amount": "157899412455821452726",
+    "l2TransactionHash": "0x135877f434a724425674d8078bfe5e3f72a3fae938eb631a072ec2dcc1f86124",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618496956000,
+    "account": "0x14FCa733f9283CAaA6D0f2294239Ff379B29Fd0a",
+    "amount": "868702385873982698154",
+    "l2TransactionHash": "0x68583c5926695c662304c9a366bdf81224c1155d3192d7a9d0b9039bb5b17f6e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618499816000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "27151227800984376691",
+    "l2TransactionHash": "0x2c340d8c692fa51de19064b5f435f30ba23e3ed4eee7483961a37be206d6d510",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618507073000,
+    "account": "0x4Bf1fBC233Cd6109c35a4cd9D34540173Af3234c",
+    "amount": "381200516705298183423",
+    "l2TransactionHash": "0x4ad8e9da9f8b29ef41efa144b8fc14311e6a9eef9f72c3f4361ae363dc1ad352",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618508687000,
+    "account": "0x121667B6690F5040C672c3Df912A5aAF8735Ca23",
+    "amount": "25964663758852866246",
+    "l2TransactionHash": "0xa84620cc94cbd5deb1a9ce5b87db0ab5463489b69dc5f6d9e92d2c46a4bfe313",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618513585000,
+    "account": "0xe142e51f11B783e4986F86b19Ba7333aab4dfd36",
+    "amount": "5283006570460137340860",
+    "l2TransactionHash": "0x1f46c1a9881b7090d2d7b0147267f8788ac0b8ea53bef622fa4ca4cec9fbb351",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xae71a2b3205a1d71a8557746c90ca1b294a3e5c3aa15788bda049d862b25d34a"
+  },
+  {
+    "initiatedTime": 1618445341000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "1073205780173202706",
+    "l2TransactionHash": "0xae4da1a3e4872aa6fcbeedbcf3cddc21b7dab4f7a031782052d04b52952d3aac",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618448670000,
+    "account": "0x3c834EcaF4Af7ffF616EdBC6e0cB0Cb42825e8F8",
+    "amount": "692569175823215892301",
+    "l2TransactionHash": "0x444b762c01bf99e43413e054dd040fb18046e9a03fd29a45a9f99d9ce615ba75",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618451042000,
+    "account": "0x27CeF68437CB19a87ecE341985691EC8e1EE0937",
+    "amount": "300989063122363078600",
+    "l2TransactionHash": "0xee455914ef1dd315429819e0a9b936ff1277dc66bb066c04457e1939ffe1dfd5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618463036000,
+    "account": "0x6273540b8160b2d923652552FaDe0Da98bb10dC5",
+    "amount": "900197648078384291600",
+    "l2TransactionHash": "0x8b3b0a85941065c0eb696a41db52541b9a91bf9ca20d85321de898bf67b1f9cf",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618466244000,
+    "account": "0x3DA7bCAa038E2FA4f18571D8F16C991FB7E6696C",
+    "amount": "34774602810980344307",
+    "l2TransactionHash": "0xa0c6bd0555ff1bab9fb912bbc97660272cc89914830e7d56d85c5b44bdde42a2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618482717000,
+    "account": "0xECB949c68C825650fD9D0Aebe0cd3796FD126e66",
+    "amount": "99350450414468978534",
+    "l2TransactionHash": "0xd9f05c7df8d2a78dccc2d629ad7ff7f6154f954c75e85c631ce0353393ca311e",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618422299000,
+    "account": "0x51F13C84b49B64ba6B1615e7D91b11066908BF3C",
+    "amount": "185010709921659251063",
+    "l2TransactionHash": "0x9a78860026da0f0044fd42f5e0d705a37b3d2a0d0e375e4b02214dc753ef8445",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xcab4c48ac8906690c20e85425e57f9ae8437b0564262371791ed03791e183537"
+  },
+  {
+    "initiatedTime": 1618424388000,
+    "account": "0x04ADA96a5c5A1FDf7E315F14aeB2CE9EB61efb5E",
+    "amount": "813666002317182684584",
+    "l2TransactionHash": "0x5e1661f4debb807fe72bb9cd077775ca633f9060d8925969c6a206907ec8e245",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618430464000,
+    "account": "0x7c95D0cD038e06C4152a37325d48aED406006fE3",
+    "amount": "442351160515676420229",
+    "l2TransactionHash": "0xbc1adc8d14e93a442c9eb1dfb6faa7f2ee383f147dd91c249bed58ea98f64052",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618430779000,
+    "account": "0xFc830CD343857a3BefC4dc53828846cE97CA13A9",
+    "amount": "228557470776317733429",
+    "l2TransactionHash": "0x7609893f37517fad10790ad47ce256cbb81655235835f921a2f808f3fba55a4d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618431081000,
+    "account": "0x2173895042B4C74b65E5f2815A612F06Aa63BB87",
+    "amount": "31419557208765383609",
+    "l2TransactionHash": "0x137e8234644c4f69260f946f53523e89c73e03ba7d392efa52f62abe8bbf0dc6",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618433394000,
+    "account": "0x85B777c3fcEf0F387B394c5216e9414a9E881898",
+    "amount": "2568124956525910465156",
+    "l2TransactionHash": "0xd9e7d9daa706e52fb8a917ce87db27200de12d276434697cb5e80fc29c4fda46",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618437053000,
+    "account": "0xc98E4B1AF1A3D12b35a88e48A862C29A90179c3C",
+    "amount": "33210000000000000000",
+    "l2TransactionHash": "0xe8bdce18e2f613309e1b2164ed3eb01de8ae6c1d80a2fa9eb0c52fcf1c7a23b5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618437365000,
+    "account": "0xB28397E0e9a9CD849A30AF694f46765310274aF5",
+    "amount": "382769893849269790650",
+    "l2TransactionHash": "0xca3643954624065d27c465a29f51902782264951856c21a339de65b3daf9057a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618442180000,
+    "account": "0xB9cbAd40AE8a6514A58f5cDb20FFAB3f255E536f",
+    "amount": "15786698716106604864",
+    "l2TransactionHash": "0xe0f77a547a2d1ee0342d29a55cdf280d48379f2becbf595f29d7c28cf6483c07",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618442496000,
+    "account": "0xb8Ea6Ef99AC1a009c011f8aE21984b33e9B0F6d2",
+    "amount": "200000000000000000000",
+    "l2TransactionHash": "0x0b3dcf1f995898d14c79a220bea7ed352e638052f30faac643090235cd73a99f",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x68ca11bad98846bbec0fc1365489f183a5ff04726db78b0203860aa4ee47b211"
+  },
+  {
+    "initiatedTime": 1618395593000,
+    "account": "0x6c342F25d50854C857bed31dce2bBe0d02e39768",
+    "amount": "451826638267329242574",
+    "l2TransactionHash": "0x657fda8b5c244ddda2a8aa8a75be563b8963a7cfb931d8bd3c4f522889022a2c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618399653000,
+    "account": "0x80acF755b3967e42F659D78972C989c68Cc33DFA",
+    "amount": "1279664743432687834123",
+    "l2TransactionHash": "0x074efd8a7f929af942e3ab637894a71875e9648bca84d78672f39daa4df2c107",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618403357000,
+    "account": "0xAe8689174799400C71100dB57e0CAf51CcBefA46",
+    "amount": "606460515000000000000",
+    "l2TransactionHash": "0x6398eba69380956a5de19e3c76aa5c1bde0c613205057c12ee4ace2015649956",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618407892000,
+    "account": "0x1F5A399f4A01b7b93f58a638FB7F8e4d7DAB4332",
+    "amount": "2584803236740849825780",
+    "l2TransactionHash": "0x0636b15bf055c91ee7dcf6e1cce3df5f9b1d0fb3d2e37a2b9c8cfafc14539ff8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xcab4c48ac8906690c20e85425e57f9ae8437b0564262371791ed03791e183537"
+  },
+  {
+    "initiatedTime": 1618410925000,
+    "account": "0xD29AB297B697049430eadBc21F7a3d5d60253A36",
+    "amount": "1490484702006802801486",
+    "l2TransactionHash": "0xa978190a36e1085d67d43bd8725b94578d9fb804195600c718a3adc2ca5e27e4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xcab4c48ac8906690c20e85425e57f9ae8437b0564262371791ed03791e183537"
+  },
+  {
+    "initiatedTime": 1618360380000,
+    "account": "0x6178005F0c8A2dE6d5469e634940Bb1042C8A59f",
+    "amount": "813914465426665534581",
+    "l2TransactionHash": "0xcb0d083e556e6fa7053924159950a98d99276f202eaaca4cf940f3a6d40ba8a8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618383224000,
+    "account": "0xa72782657dd132cEEC83344488c5A25E2fB2A083",
+    "amount": "458555901800902300438",
+    "l2TransactionHash": "0x58c3bca99f55753e1e178010910ec674811933373f60ad9c27d64370c39954c4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618384851000,
+    "account": "0x67BC76E8Fd78CC59594C9F43C643eA7CAfA48669",
+    "amount": "1000000000000000000",
+    "l2TransactionHash": "0xe4b2632db7ba101fcb909c869ad0eeb9b72dcccd92df5f54b4e7ec85749f6891",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618385224000,
+    "account": "0x05bAca0Bd84cac13D8fFb86C49DC58DeBcB54672",
+    "amount": "2751634073955609155177",
+    "l2TransactionHash": "0x9e28a42bbd567b200d9015c646606d6bade66d4be97fc7f4c9529ad550001485",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618390613000,
+    "account": "0x509aaF71f59b61F6e2184F8c2dB7dA0BaCF6d53a",
+    "amount": "300000000000000000000",
+    "l2TransactionHash": "0x0affcdfb4c9c0f9b0ec18ed26ac505157c77cd62624ecc12b97801d926d6be1a",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618222201000,
+    "account": "0x14e495f1C792185C4491B2317a02f3C3c6775C82",
+    "amount": "2061346635180189278967",
+    "l2TransactionHash": "0x154611471e02ca683a22490ccc2e568de51f4dec856f4c8f0f037b310ef627f0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618238881000,
+    "account": "0x1F3c9C9197a584B2F85f760D54d218C9F320BdB2",
+    "amount": "344153039942148075252",
+    "l2TransactionHash": "0x234fd50034f46925187e40186b227be6e112cda94ff80845b64cf03ceb1b756b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618239809000,
+    "account": "0x00f051cB90271D686e2Cb9B6e2962579B6d68033",
+    "amount": "100928529738690531191",
+    "l2TransactionHash": "0x8905caf6ccdf5d99f093a664d6c573af5fe13986abb0c07e63269f8f331aa320",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618242083000,
+    "account": "0x9096ebbBc017Be572bF13a7a68C89D341Bc3Aaa3",
+    "amount": "427955594315319770710",
+    "l2TransactionHash": "0x011493280ad57854e80b8cff77d518383f9883cb287b23f21e15602ed8167519",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618244915000,
+    "account": "0x40a9CAd2314e08f2012ffE51125B0e0798161e73",
+    "amount": "308177729633767882185",
+    "l2TransactionHash": "0xb8c4f3ed0c4f85650417f9806c15ce0ab30af7336a46656b663da25904a204f2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618248704000,
+    "account": "0x7eAfe3FBD6B784861E700C34Df3a1249ea8Ccf6e",
+    "amount": "314469447313911375280",
+    "l2TransactionHash": "0xd4ad5830119ab961835ff719371d12f41daf65e1de0162e40bed359bfe0e1030",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618257401000,
+    "account": "0x25Acc9bd6aF42183f9DB30476D174402fd6f757C",
+    "amount": "5350000000000000000",
+    "l2TransactionHash": "0x08c8a5f56964f3b3f76ef871da26f75309c8476cc2c25ae9e4395b1cb4fae9ec",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x433378feb511e2f1a8cd21a8cfcc90dc82a5e09a655a6e6e62841c4de423d6d3"
+  },
+  {
+    "initiatedTime": 1618269210000,
+    "account": "0xB1eD7ECa89f6DEe9154B538AFB1D3bdEA8872E36",
+    "amount": "101490000000000000000",
+    "l2TransactionHash": "0x56d1f7dfe9b86c30e35c99f9b2eeab5c2efcae5cb75dadc5d26070095b27c818",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618271185000,
+    "account": "0x20528B7Bd123dc0FEf8f608E34f0fFC969dA9034",
+    "amount": "25868740057089747526",
+    "l2TransactionHash": "0x03a9124f41779e7a88fa31c4b43df448dc690918a4bf5af8f3afa32641ade038",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618294645000,
+    "account": "0x21AA10FF06a366B642D034A6A0FcB1d88B9e804C",
+    "amount": "549577066062045627956",
+    "l2TransactionHash": "0xc50b4cec9dfd1f728483cb05c59d6aa80956a3719a374a2b12f1c88ade2754b8",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618318147000,
+    "account": "0xc1cDf09444fF210994688CfAE1349606646b31FC",
+    "amount": "735594679960263727324",
+    "l2TransactionHash": "0x2717440937492b703f0aab0f09d4323a45df492eba2424cd424bde9122e2cea0",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618336553000,
+    "account": "0xa982BbDaf783Eb7C3914D988b7e2a0bE865ccB53",
+    "amount": "1605827457565821205032",
+    "l2TransactionHash": "0x8a33120fb5dcaedfcd701c755d8b442e0b54b2e0d5e49e20d53f0178aec2ba99",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618338208000,
+    "account": "0x6355cECef97dfC787949c5d6cD33Ef1D959e7D6c",
+    "amount": "18788154000000000000",
+    "l2TransactionHash": "0x3df5381c762d6cb45533c3de8dca3cd7228ccdfc628a9705a3e9075a7730f33d",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618349053000,
+    "account": "0xF4c731c530B74C142b005Dd70D2f31101E929dfC",
+    "amount": "1148255381850640686302",
+    "l2TransactionHash": "0x4159ddbe222e1b57569b8993a512a38019b168c854d4efcd795bd754768bfff5",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0xbc8e8626e2b5b7f50e021b7db4a9604e7ecf3d0f93a95bae219c4500159a4f00"
+  },
+  {
+    "initiatedTime": 1618078112000,
+    "account": "0x57e0eF04b3D4bE5583d89AbD135e110517f0AC59",
+    "amount": "3354037553406461552028",
+    "l2TransactionHash": "0x7c88d5423534833beafa64240789c2040117c298a08292e518c2d01c7212c7a7",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618087140000,
+    "account": "0xfEc2dE8D9e77214Cd219cd03C0e722D82b4DE541",
+    "amount": "90066197498294985599",
+    "l2TransactionHash": "0x3aee9c2a484c2e93494135573ec5f833725b7ebb83f8bf80222b3713d6c5e7aa",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618088838000,
+    "account": "0x145DD77C0EB627b7B93CEabECAd82472e424B0f5",
+    "amount": "365132191450094299556",
+    "l2TransactionHash": "0xd06f4313bb97c997c57b6b91dbf2640680f58d80391f18aee82f64bd59ee91ec",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618102134000,
+    "account": "0x8adDabF339c54Aa0c6e8Adb41C2CB2F1d68451f5",
+    "amount": "633411350896806935773",
+    "l2TransactionHash": "0x26e6c650d49bc7be85816175bc36a4cfc1a45abe3d5af581de4f693b10fea135",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618102761000,
+    "account": "0xA5C76dfc97C5ACeEc34bCd563b8FF8a833833B61",
+    "amount": "303110023138491131615",
+    "l2TransactionHash": "0xdac114a7bf5903f7021d62b701e38150863596f64b120d9a8563cc31661a1b3b",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618116310000,
+    "account": "0x6BDFA6257e032E5cEf97AB1A02a4757B01589e71",
+    "amount": "34364212730208390910",
+    "l2TransactionHash": "0x72ea4930c3bfddb0051fc793e7494e8f79e85223d379f61bdb1a9d824b561679",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618119469000,
+    "account": "0x8441e4F954D9578e4005464B932055e5376d3cCA",
+    "amount": "396889330904700504667",
+    "l2TransactionHash": "0x662afb00d071fe0a987c9ab07f20496cffa1a5f824ce3862c36cc6e96cec2eb2",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618123930000,
+    "account": "0x215D67998DaCd9DA4118E4a4899bec60b79987A0",
+    "amount": "2572322358188369207042",
+    "l2TransactionHash": "0x7c0f25bd83c2fed1155f91129c4f37806b33e19756cac21fcd1280b977e97993",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618132233000,
+    "account": "0x16AE80DF484A73bB2Ce3cBD30d3100Ce9a97fEFa",
+    "amount": "1141081126423133110341",
+    "l2TransactionHash": "0x1b06310a03bce5655aa4e92bcbb04f0ca3cb2935f6a9094fd304f19821341240",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618160235000,
+    "account": "0x3d31Fbfdcf1F08E22b4c2d1948d8885E8c5632E1",
+    "amount": "681862618410453368564",
+    "l2TransactionHash": "0x227ba65a4f9094c38abd89f2a1e31457e0a5e32eaf11a81ee7c2a4c83d058baf",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618160235000,
+    "account": "0x66Ea2F829D4392bEf3B4B01e86dA0985962eDc5C",
+    "amount": "63386256482791134",
+    "l2TransactionHash": "0x3d5b8839731c77910b9077c55ddaebac3b2dabd274810ece24027dba5d5ab38c",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618187963000,
+    "account": "0xCfaba3994C45aa03e479000300801AE35B39c388",
+    "amount": "3232712369225807590775",
+    "l2TransactionHash": "0xbe0036d42cb2060e1ffc01a349c4213dca7fd89eecf24f317597522e6a971cf4",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  },
+  {
+    "initiatedTime": 1618192772000,
+    "account": "0x051Abc20C0440aF42181C1dC9cA4aBFC74C07fE0",
+    "amount": "89274333229874760000",
+    "l2TransactionHash": "0xf2c6b65d08963dbc9965c04a34eda7416074039e14885f1a9d2f03088c859141",
+    "status": "COMPLETE",
+    "l1TransactionHash": "0x3446ba64446c49fd61ad7f5d57cd5583de9650827c96c1379a60e29d8a1af3ce"
+  }
+]
