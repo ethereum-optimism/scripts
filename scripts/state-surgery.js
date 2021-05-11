@@ -11,13 +11,10 @@
 const fs = require('fs');
 const axios = require('axios');
 const { JsonRpcProvider } = require('@ethersproject/providers');
-const { getLatestStateDump, getContractDefinition } = require('@eth-optimism/contracts')
+const { getLatestStateDump } = require('@eth-optimism/contracts')
 
 const cfg = config()
 
-const contracts = {
-  ProxyEOA: getContractDefinition('OVM_ProxyEOA'),
-}
 const sequencer = new JsonRpcProvider(cfg.sequencerEndpoint);
 const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/publish/deployed/${cfg.ethNetwork}-ovm/deployment.json`
 
@@ -101,10 +98,16 @@ const unknowns = []
           abi: OVM_ETH.abi,
         }
       }
+
       // Do nothing
     } else if (isSynthetix(address)) {
       // Handle the synthetix contracts
       const name = synthetix[address]
+      if (!name)
+        throw new Error(`Unknown synthetix account: ${address}`)
+      if (name in contractsDump.accounts)
+        throw new Error(`Duplicate synthetix account: ${address}`)
+
       contractsDump.accounts[name] = {
         address: address,
         nonce: account.nonce,
@@ -131,13 +134,6 @@ const unknowns = []
     }
   }
   contractsDump.unknowns = unknowns
-
-  contractsDump.accounts.ProxyERC20.code = add0x(contractsDump.accounts.ProxyERC20.code)
-  const erc20State = {}
-  for ([key, val] of Object.entries(contractsDump.accounts.ProxyERC20.storage)) {
-    erc20State[add0x(key)] = add0x(val)
-  }
-  contractsDump.accounts.ProxyERC20.storage = erc20State
 
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
