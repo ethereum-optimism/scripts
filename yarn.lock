@@ -123,6 +123,15 @@
     ethers "^5.0.31"
     lodash "^4.17.21"
 
+"@eth-optimism/core-utils@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.5.tgz#a3ad0c780ddb3fa9b20fe595f78401d993606d71"
+  integrity sha512-nG5bj3Okk9z8ALLS3fbBpAzU3tMZIDbwB32zQejGy0ZFqIA8XWNbuhC1i53qPQCwKJITtSufXYPCDGXu1exlqQ==
+  dependencies:
+    "@ethersproject/abstract-provider" "^5.0.9"
+    ethers "^5.0.31"
+    lodash "^4.17.21"
+
 "@eth-optimism/data-transport-layer@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@eth-optimism/data-transport-layer/-/data-transport-layer-0.1.0.tgz#49813320bd4afa287b4aebfe01e5d57fe4325cfa"
