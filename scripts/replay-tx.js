@@ -48,9 +48,10 @@ const main = async () => {
     try {
       const logs = await provider.getLogs({
         address: messengerAddress,
-        topics: [utils.id(`RelayedMessage(bytes32)`)],
-        fromBlock: Number(argOptions.blockNumber,
+        topics: [utils.id(`SentMessage(bytes)`)],
+        fromBlock: Number(argOptions.blockNumber),
       });
+
       const txHashes = logs.map((log) => log.transactionHash);
       for (const txHash of txHashes) {
         await replayMessage(txHash);
