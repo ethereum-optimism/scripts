@@ -17,7 +17,7 @@ program.requiredOption("-k, --key <number>", "specify private key");
 program.option("-h, --hash <number>", "specify transaction hash");
 program.option("-from, --fromBlock <number>", "specify a block number to start from");
 program.option("-to, --toBlock <number>", "specify a block number to end at");
-program.option("-c, --clearTxs", "clear ");
+program.option("-c, --clearPendingTx", "clear a pending transaction");
 
 program.parse(process.argv);
 const argOptions = program.opts();
