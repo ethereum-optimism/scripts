@@ -26,7 +26,7 @@ if (argOptions.network !== "mainnet" && argOptions.network !== "kovan") {
   process.exit();
 }
 
-if (!argOptions.hash && !argOptions.toBlock) {
+if (!argOptions.hash && !argOptions.fromBlock) {
   console.error("Must provide a hash or block number to start from.");
   return;
 }
