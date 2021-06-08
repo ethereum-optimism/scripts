@@ -43,7 +43,7 @@ const wallet = new Wallet(argOptions.key, provider);
 const proxyL1Messenger = new Contract(messengerAddress, getContractInterface("OVM_L1CrossDomainMessenger"), wallet);
 
 const main = async () => {
-  if (argOptions.clearTxs) {
+  if (argOptions.clearPendingTx) {
     latestTxCount = await wallet.getTransactionCount('latest')
     pendingTxCount = await wallet.getTransactionCount('pending')
     if (latestTxCount < pendingTxCount) {
