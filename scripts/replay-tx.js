@@ -44,19 +44,21 @@ const proxyL1Messenger = new Contract(messengerAddress, getContractInterface("OV
 
 const main = async () => {
   if (argOptions.clearPendingTx) {
-    latestTxCount = await wallet.getTransactionCount('latest')
-    pendingTxCount = await wallet.getTransactionCount('pending')
+    latestTxCount = await wallet.getTransactionCount("latest");
+    pendingTxCount = await wallet.getTransactionCount("pending");
     if (latestTxCount < pendingTxCount) {
-      console.log('Detected a pending transaction! Clearing it...')
+      console.log("Detected a pending transaction! Clearing it...");
       await wallet.sendTransaction({
         to: await wallet.getAddress(),
         value: 0,
-        nonce: latestTxCount
-      })
+        nonce: latestTxCount,
+      });
     }
     if (latestTxCount + 1 < pendingTxCount) {
-      console.log('Detected another pending transaction - exiting. Run this script again if you want to clear out the next transaction as well.')
-      process.exit(1)
+      console.log(
+        "Detected another pending transaction - exiting. Run this script again if you want to clear out the next transaction as well."
+      );
+      process.exit(1);
     }
   }
   if (argOptions.hash) {
@@ -100,13 +102,15 @@ const replayMessage = async (hash) => {
 
   for (const message of decodedMessages) {
     try {
-      await proxyL1Messenger.replayMessage(
+      const tx = await proxyL1Messenger.replayMessage(
         message._target,
         message._sender,
         message._message,
         message._messageNonce,
         3000000
       );
+      await tx.wait();
+      console.log("success! tx hash:", tx.hash);
     } catch (err) {
       console.log(err);
     }
