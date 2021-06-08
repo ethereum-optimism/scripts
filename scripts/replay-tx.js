@@ -15,7 +15,8 @@ const program = new Command();
 program.requiredOption("-n, --network <string>", "specify network");
 program.requiredOption("-k, --key <number>", "specify private key");
 program.option("-h, --hash <number>", "specify transaction hash");
-program.option("-b, --blockNumber <number>", "specify a block number");
+program.option("-from, --fromBlock <number>", "specify a block number to start from");
+program.option("-to, --toBlock <number>", "specify a block number to end at");
 
 program.parse(process.argv);
 const argOptions = program.opts();
@@ -25,8 +26,8 @@ if (argOptions.network !== "mainnet" && argOptions.network !== "kovan") {
   process.exit();
 }
 
-if (!argOptions.hash && !argOptions.blockNumber) {
-  console.error("Must provide a hash or block number.");
+if (!argOptions.hash && !argOptions.toBlock) {
+  console.error("Must provide a hash or block number to start from.");
   return;
 }
 const provider = new InfuraProvider(argOptions.network, process.env.INFURA_KEY);
@@ -44,14 +45,17 @@ const main = async () => {
   if (argOptions.hash) {
     replayMessage(argOptions.hash);
   } else {
-    // Replay all transactions from provided blockNumber
+    // Replay all transactions from provided toBlock number
     try {
-      const logs = await provider.getLogs({
+      const logParams = {
         address: messengerAddress,
         topics: [utils.id(`SentMessage(bytes)`)],
-        fromBlock: Number(argOptions.blockNumber),
-      });
-
+        fromBlock: Number(argOptions.fromBlock),
+      };
+      if (argOptions.toBlock) {
+        logParams.toBlock = Number(argOptions.toBlock);
+      }
+      const logs = await provider.getLogs(logParams);
       const txHashes = logs.map((log) => log.transactionHash);
       for (const txHash of txHashes) {
         await replayMessage(txHash);
