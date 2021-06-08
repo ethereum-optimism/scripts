@@ -17,6 +17,7 @@ program.requiredOption("-k, --key <number>", "specify private key");
 program.option("-h, --hash <number>", "specify transaction hash");
 program.option("-from, --fromBlock <number>", "specify a block number to start from");
 program.option("-to, --toBlock <number>", "specify a block number to end at");
+program.option("-c, --clearPendingTx", "clear a pending transaction");
 
 program.parse(process.argv);
 const argOptions = program.opts();
@@ -42,6 +43,22 @@ const wallet = new Wallet(argOptions.key, provider);
 const proxyL1Messenger = new Contract(messengerAddress, getContractInterface("OVM_L1CrossDomainMessenger"), wallet);
 
 const main = async () => {
+  if (argOptions.clearPendingTx) {
+    latestTxCount = await wallet.getTransactionCount('latest')
+    pendingTxCount = await wallet.getTransactionCount('pending')
+    if (latestTxCount < pendingTxCount) {
+      console.log('Detected a pending transaction! Clearing it...')
+      await wallet.sendTransaction({
+        to: await wallet.getAddress(),
+        value: 0,
+        nonce: latestTxCount
+      })
+    }
+    if (latestTxCount + 1 < pendingTxCount) {
+      console.log('Detected another pending transaction - exiting. Run this script again if you want to clear out the next transaction as well.')
+      process.exit(1)
+    }
+  }
   if (argOptions.hash) {
     replayMessage(argOptions.hash);
   } else {
