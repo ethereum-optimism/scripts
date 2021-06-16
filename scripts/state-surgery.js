@@ -142,10 +142,8 @@ const unknowns = []
   process.exit(1)
 })
 
-// corresponds to the storage slots
-// 0xdead....dead => 0x4200....03
 function isEOA(account) {
-  return account.root === '75d420245863567e51996db1c1a5e781bcf2a94d7f8d8c0eb549ee6c82b3a8cc'
+  return account.codeHash === 'ef2ab076db773ffc554c9f287134123439a5228e92f5b3194a28fec0a0afafe3'
 }
 
 function isPredeploy(address) {
