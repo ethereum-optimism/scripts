@@ -9,6 +9,7 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 const axios = require('axios');
 const { JsonRpcProvider } = require('@ethersproject/providers');
 const { getLatestStateDump } = require('@eth-optimism/contracts');
@@ -23,8 +24,9 @@ const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/pub
 const synthetix = {}
 const unknowns = []
 
-const doBalanceMigration = false
-const migrationAccounts = []
+const doBalanceMigration = true
+//const doBalanceMigration = false
+const migrationAccounts = require(path.join(__dirname, '..', 'all-balances.json'))
 
 // This script will need to be updated for the next state dump
 // - isEOA will need to use EIP-1967
@@ -93,7 +95,7 @@ const migrationAccounts = []
       // Keep the storage for OVM_ETH to preserve the L2 balances
       if (address === '0x4200000000000000000000000000000000000006') {
         const OVM_ETH = contractsDump.accounts.OVM_ETH
-        
+
         const oldStorage = add0xToObject(account.storage)
         const newStorage = add0xToObject(OVM_ETH.storage)
 
