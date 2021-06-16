@@ -114,6 +114,7 @@ const migrationAccounts = []
           const balanceSlots = makeStorageFromAccounts(migrationAccounts)
 
           // Update the new storage
+          // New totalSupply storage slot is at index 2: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/00128bd26061986d10172573ceec914a4f3b4d3c/contracts/token/ERC20/ERC20.sol#L38
           storage = newStorage
           storage[ethers.utils.hexZeroPad('0x02', 32)] = totalSupply
           for (const slot of Object.keys(balanceSlots)) {
