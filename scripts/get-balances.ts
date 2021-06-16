@@ -13,7 +13,7 @@ const ETH_ADDR = env.ETH_ADDR || '0x4200000000000000000000000000000000000006'
 const FROM_BLOCK = env.FROM_BLOCK || '0'
 const TO_BLOCK = env.TO_BLOCK || 'latest'
 
-const blockInterval = 5000
+const blockInterval = parseInt(env.BLOCK_INTERVAL, 10) || 2000
 
 const events = []
 
@@ -54,7 +54,7 @@ const balances = {}
   console.log('setting all known addresses balances to zero')
   // go through all addresses that we found and set their balances to zero
   for (const e of events) {
-    balances[e.args.from] = '0x00'
+    balances[e.args.to] = '0x00'
   }
 
   console.log('querying all known addresses for their real balance')
