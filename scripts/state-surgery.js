@@ -142,8 +142,11 @@ const unknowns = []
   process.exit(1)
 })
 
+const eipslot = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
 function isEOA(account) {
-  return account.codeHash === 'ef2ab076db773ffc554c9f287134123439a5228e92f5b3194a28fec0a0afafe3'
+  if (!account.storage)
+    return false
+  return account.storage[eipslot] === '4200000000000000000000000000000000000003'
 }
 
 function isPredeploy(address) {
