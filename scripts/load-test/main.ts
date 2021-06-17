@@ -87,19 +87,15 @@ const main = async () => {
 
   try {
     console.log(`starting load test...`)
-    const multibar = new cliprogress.MultiBar({
+    const progress = new cliprogress.SingleBar({
       clearOnComplete: true
     })
-
-    const bars = {}
-    for (const wallet of wallets) {
-      bars[wallet.address] = multibar.create(numTransactionsPerThread.toNumber(), 0)
-    }
+    progress.start(numThreads.mul(numTransactionsPerThread).toNumber(), 0)
 
     await Promise.all(wallets.map(async (wallet) => {
       for (let i = 0; i < numTransactionsPerThread.toNumber(); i++) {
         // TODO: Add support for more interesting transactions.
-        bars[wallet.address].increment()
+        progress.increment()
         const l2TxResult = await wallet.connect(l2RpcProvider).sendTransaction({
           to: "0x" + "11".repeat(20)
         })
@@ -107,7 +103,7 @@ const main = async () => {
       }
     }))
 
-    multibar.stop()
+    progress.stop()
   } catch (err) {
     console.log(`caught an unhandled error: ${err}`)
   } finally {
