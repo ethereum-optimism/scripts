@@ -1,6 +1,5 @@
 import { ethers } from "ethers"
 import dotenv from "dotenv"
-import yesno from "yesno"
 import cliprogress from "cli-progress"
 
 import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
@@ -18,17 +17,6 @@ const sleep = async (ms: number): Promise<void> => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
-}
-
-const yesOrExit = async (question: string): Promise<void> => {
-  const ok = await yesno({
-    question
-  })
-
-  if (!ok) {
-    console.log(`exiting`)
-    process.exit(1)
-  }
 }
 
 const main = async () => {
@@ -54,8 +42,6 @@ const main = async () => {
   if (l2MainBalance.lt(minL2Balance)) {
     console.log(`need to fund account on L2`)
     if (l1MainBalance.gt(minL2Balance)) {
-      await yesOrExit(`ok to deposit ${ethers.utils.formatEther(minL2Balance)} ETH?`)
-
       console.log(`funding account on L2 by depositing on L1...`)
       const l2DepositResult = await l1MainWallet.sendTransaction({
         to: l1BridgeAddress,
@@ -75,8 +61,6 @@ const main = async () => {
       throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(minL2Balance)} L2 and does NOT have enough funds to deposit on L1`)
     }
   }
-
-  await yesOrExit(`ready to start load test?`)
 
   // We want to keep track of these wallets so we can send the funds back when we're done.
 	const wallets: ethers.Wallet[] = []
