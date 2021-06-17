@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import yesno from "yesno"
 import cliprogress from "cli-progress"
 
-
 import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
 
 dotenv.config()
@@ -39,16 +38,14 @@ const main = async () => {
 	const l1MainWallet = new ethers.Wallet(privateKey, l1RpcProvider)
 	const l2MainWallet = new ethers.Wallet(privateKey, l2RpcProvider)
 
-  console.log(`wallet address on L1 is: ${l1MainWallet.address}`)
-  console.log(`wallet address on L2 is: ${l2MainWallet.address}`)
+  console.log(`main wallet address is: ${l1MainWallet.address}`)
 
   // Calculate how much ETH we need.
   const ethPerThread = ethAllocationPerTransaction.mul(numTransactionsPerThread)
   const minL2Balance = ethPerThread.mul(numThreads).mul(2) // Multiply by a factor of 2 just to be safe.
   console.log(`number of threads: ${numThreads}`)
   console.log(`number of transactions per thread: ${numTransactionsPerThread}`)
-  console.log(`gas allocation per thread: ${ethers.utils.formatEther(ethPerThread)} ETH`)
-  console.log(`total gas allocation: ${ethers.utils.formatEther(minL2Balance)} ETH`)
+  console.log(`ETH required for load test: ${ethers.utils.formatEther(minL2Balance)} ETH`)
 
   // Fund the L2 wallet if necessary.
   let l1MainBalance = await l1MainWallet.getBalance()
@@ -105,6 +102,7 @@ const main = async () => {
   await l2DistributionResult.wait()
 
   try {
+    console.log(`starting load test...`)
     const multibar = new cliprogress.MultiBar({
       clearOnComplete: true
     })
@@ -114,7 +112,7 @@ const main = async () => {
       bars[wallet.address] = multibar.create(numTransactionsPerThread.toNumber(), 0)
     }
 
-    await Promise.all(wallets.map(async (wallet, idx) => {
+    await Promise.all(wallets.map(async (wallet) => {
       for (let i = 0; i < numTransactionsPerThread.toNumber(); i++) {
         // TODO: Add support for more interesting transactions.
         bars[wallet.address].increment()
@@ -129,7 +127,7 @@ const main = async () => {
   } catch (err) {
     console.log(`caught an unhandled error: ${err}`)
   } finally {
-    console.log(`returning funds to main wallet`)
+    console.log(`returning funds to main wallet...`)
     const intrinsicTxCost = ethers.utils.parseEther('0.005')
 
     await Promise.all(wallets.map(async (wallet) => {
@@ -141,9 +139,6 @@ const main = async () => {
           value: l2RefundAmount
         })
         await l2RefundResult.wait()
-        console.log(`returned L2 funds for account: ${wallet.address}`)
-      } else {
-        console.log(`account has no L2 funds to return: ${wallet.address}`)
       }
     }))
 
