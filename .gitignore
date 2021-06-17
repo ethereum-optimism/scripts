@@ -10,3 +10,7 @@ node_modules/
 diff.json
 
 .DS_Store
+artifacts
+artifacts-ovm
+cache
+cache-ovm
