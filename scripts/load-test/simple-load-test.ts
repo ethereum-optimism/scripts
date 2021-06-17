@@ -1,10 +1,8 @@
-import hre from "hardhat"
 import { ethers } from "ethers"
 import dotenv from "dotenv"
 import yesno from "yesno"
 
-import * as l1FundDistrubutorJSON from '../artifacts/contracts/FundDistributor.sol/FundDistributor.json'
-import * as l2FundDistributorJSON from '../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
+import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
 
 dotenv.config()
 const l1RpcUrl = process.env.LOAD_TEST__L1_RPC_URL
@@ -44,34 +42,29 @@ const main = async () => {
 
   // Calculate how much ETH we need.
   const ethPerThread = ethAllocationPerTransaction.mul(numTransactionsPerThread)
-  const minEthPerMainWallet = ethPerThread.mul(numThreads).mul(2)
+  const minL2Balance = ethPerThread.mul(numThreads).mul(2) // Multiply by a factor of 2 just to be safe.
   console.log(`number of threads: ${numThreads}`)
   console.log(`number of transactions per thread: ${numTransactionsPerThread}`)
   console.log(`gas allocation per thread: ${ethers.utils.formatEther(ethPerThread)} ETH`)
-
-  // Make sure the wallet has a balance on L1.
-  const l1MainBalance = await l1MainWallet.getBalance()
-  console.log(`balance on L1 is ${ethers.utils.formatEther(l1MainBalance)} ETH`)
-  if (l1MainBalance.lt(minEthPerMainWallet)) {
-    throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(minEthPerMainWallet)} on L1`)
-  }
+  console.log(`total gas allocation: ${ethers.utils.formatEther(minL2Balance)} ETH`)
 
   // Fund the L2 wallet if necessary.
+  let l1MainBalance = await l1MainWallet.getBalance()
   let l2MainBalance = await l2MainWallet.getBalance()
   console.log(`balance on L2 is ${ethers.utils.formatEther(l2MainBalance)} ETH`)
-  if (l2MainBalance.lt(minEthPerMainWallet)) {
+  if (l2MainBalance.lt(minL2Balance)) {
     console.log(`need to fund account on L2`)
-    if (l2MainBalance.sub(minEthPerMainWallet).gt(minEthPerMainWallet)) {
-      await yesOrExit(`ok to deposit ${ethers.utils.formatEther(minEthPerMainWallet)} ETH?`)
+    if (l1MainBalance.gt(minL2Balance)) {
+      await yesOrExit(`ok to deposit ${ethers.utils.formatEther(minL2Balance)} ETH?`)
 
       console.log(`funding account on L2 by depositing on L1...`)
       const l2DepositResult = await l1MainWallet.sendTransaction({
         to: l1BridgeAddress,
-        value: minEthPerMainWallet
+        value: minL2Balance
       })
       await l2DepositResult.wait()
 
-      while (l2MainBalance.lt(minEthPerMainWallet)) {
+      while (l2MainBalance.lt(minL2Balance)) {
         console.log(`waiting for deposit...`)
         await sleep(5000)
         l2MainBalance = await l2MainWallet.getBalance()
@@ -80,9 +73,11 @@ const main = async () => {
       console.log(`deposit completed successfully`)
       console.log(`new balance on L2 is ${l2MainBalance.toString()}`)
     } else {
-      throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(minEthPerMainWallet)} L2 and does NOT have enough funds to deposit on L1`)
+      throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(minL2Balance)} L2 and does NOT have enough funds to deposit on L1`)
     }
   }
+
+  await yesOrExit(`ready to start load test?`)
 
   // We want to keep track of these wallets so we can send the funds back when we're done.
 	const wallets: ethers.Wallet[] = []
@@ -90,66 +85,24 @@ const main = async () => {
 		wallets.push(ethers.Wallet.createRandom())
   }
 
-  const l1FundDistributorFactory = new ethers.ContractFactory(
-    l1FundDistrubutorJSON.abi,
-    l1FundDistrubutorJSON.bytecode
-  )
-  console.log(`deploying L1 fund distributor contract...`)
-  const l1FundDistributor = await l1FundDistributorFactory.connect(l1MainWallet).deploy()
-  await l1FundDistributor.deployTransaction.wait()
-  console.log(`depositing funds into L1 distributor...`)
-  const l1DepositResult = await l1FundDistributor.deposit({
-    value: minEthPerMainWallet
-  })
-  await l1DepositResult.wait()
-  console.log(`approving L1 wallets...`)
-  const l1ApproveResult = await l1FundDistributor.approve(wallets.map((wallet) => {
-    return wallet.address
-  }))
-  await l1ApproveResult.wait()
-
+  console.log(`distributing L2 funds...`)
   const l2FundDistributorFactory = new ethers.ContractFactory(
     l2FundDistributorJSON.abi,
     l2FundDistributorJSON.bytecode
   )
-  console.log(`deploying L2 fund distributor contract...`)
   const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy()
   await l2FundDistributor.deployTransaction.wait()
-  console.log(`depositing funds into L2 distributor...`)
-  const l2DepositResult = await l2FundDistributor.deposit({
-    value: minEthPerMainWallet
-  })
-  await l2DepositResult.wait()
-  console.log(`approving L2 wallets...`)
-  const l2ApproveResult = await l2FundDistributor.approve(wallets.map((wallet) => {
-    return wallet.address
-  }))
-  await l2ApproveResult.wait()
-
-  await yesOrExit(`ready to start load test?`)
+  const l2DistributionResult = await l2FundDistributor.distribute(
+    wallets.map((wallet) => {
+      return wallet.address
+    }),
+    {
+      value: minL2Balance.mul(90).div(100) // We already overestimated by 2x so using 90% here is fine. We need to retain gas for fees.
+    }
+  )
+  await l2DistributionResult.wait()
 
   try {
-    console.log(`funding wallets...`)
-    await Promise.all(wallets.map(async (wallet) => {
-      const l1Wallet = wallet.connect(l1RpcProvider)
-      const l1FundResult = await l1FundDistributor.connect(l1Wallet).withdraw(ethPerThread)
-      await l1FundResult.wait()
-      const l1Balance = await l1Wallet.getBalance()
-      if (l1Balance.eq(0)) {
-        throw new Error(`unable to fund account on L1: ${wallet.address}`)
-      }
-      console.log(`funded address ${wallet.address} on L1`)
-
-      const l2Wallet = wallet.connect(l2RpcProvider)
-      const l2FundResult = await l2FundDistributor.connect(l2Wallet).withdraw(ethPerThread)
-      await l2FundResult.wait()
-      const l2Balance = await l2Wallet.getBalance()
-      if (l2Balance.eq(0)) {
-        throw new Error(`unable to fund account on L2: ${wallet.address}`)
-      }
-      console.log(`funded address ${wallet.address} on L2`)
-    }))
-
     console.log(`running load tests...`)
     await Promise.all(wallets.map(async (wallet, idx) => {
       console.log(`starting thread for account: ${wallet.address}`)
@@ -170,19 +123,6 @@ const main = async () => {
     const intrinsicTxCost = ethers.utils.parseEther('0.005')
 
     await Promise.all(wallets.map(async (wallet) => {
-      const l1Wallet = wallet.connect(l1RpcProvider)
-      const l1Balance = await l1Wallet.getBalance()
-      const l1RefundAmount = l1Balance.sub(intrinsicTxCost)
-      if (l1RefundAmount.gt(0)) {
-        const l1RefundResult = await l1FundDistributor.connect(l1Wallet).deposit({
-          value: l1RefundAmount
-        })
-        await l1RefundResult.wait()
-        console.log(`returned L1 funds from account: ${wallet.address}`)
-      } else {
-        console.log(`account has no L1 funds to return: ${wallet.address}`)
-      }
-
       const l2Wallet = wallet.connect(l2RpcProvider)
       const l2Balance = await l2Wallet.getBalance()
       const l2RefundAmount = l2Balance.sub(intrinsicTxCost)
@@ -197,14 +137,8 @@ const main = async () => {
       }
     }))
 
-    console.log(`withdrawing funds from L1 distributor...`)
-    const l1FundDistributorBalance = await l1FundDistributor.balance()
-    const l1WithdrawResult = await l1FundDistributor.connect(l1MainWallet).withdraw(l1FundDistributorBalance)
-    await l1WithdrawResult.wait()
-
     console.log(`withdrawing funds from L2 distributor...`)
-    const l2FundDistributorBalance = await l2FundDistributor.balance()
-    const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw(l2FundDistributorBalance)
+    const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw()
     await l2WithdrawResult.wait()
   }
 
@@ -218,4 +152,5 @@ const main = async () => {
   
   console.log(`done.`)
 }
+
 main()
