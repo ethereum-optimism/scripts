@@ -59,8 +59,8 @@ const main = async () => {
   }
 
   // We want to keep track of these wallets so we can send the funds back when we're done.
-  const transactionsPerThreadPerSecond = 25
-  const numThreads = transactionsPerSecond.div(transactionsPerThreadPerSecond)
+  const transactionsPerThreadPerSecond = 0.5
+  const numThreads = ethers.BigNumber.from(transactionsPerSecond.toNumber() / transactionsPerThreadPerSecond)
 
 	const wallets: ethers.Wallet[] = []
 	for (let i = 0; i < numThreads.toNumber(); i++) {
@@ -72,7 +72,9 @@ const main = async () => {
     l2FundDistributorJSON.abi,
     l2FundDistributorJSON.bytecode
   )
-  const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy()
+  const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy({
+    gasPrice: 0
+  })
   await l2FundDistributor.deployTransaction.wait()
 
   const maxWalletsPerDistribution = 50
@@ -82,11 +84,12 @@ const main = async () => {
     const walletsToFund = Math.min(maxWalletsPerDistribution, numWallets - numWalletsFunded)
     const fundingAmount = totalEthAllocation.mul(walletsToFund).div(numWallets)
     const l2DistributionResult = await l2FundDistributor.distribute(
-      wallets.slice().map((wallet) => {
+      wallets.slice(numWalletsFunded, numWalletsFunded + walletsToFund).map((wallet) => {
         return wallet.address
       }),
       {
-        value: fundingAmount
+        value: fundingAmount,
+        gasPrice: 0
       }
     )
     await l2DistributionResult.wait()
@@ -95,7 +98,7 @@ const main = async () => {
 
   try {
     const progress = new cliprogress.SingleBar({
-      format: 'Load test progress | {bar} | {percentage}% || TPS: {tps}',
+      format: 'Load test progress | {bar} | {percentage}% | TPS: {tps}',
     })
     progress.start(totalRuntimeSeconds.toNumber(), 0, {
       tps: 0
@@ -125,7 +128,8 @@ const main = async () => {
 
       while (running) {
         const l2TxResult = await wallet.connect(l2RpcProvider).sendTransaction({
-          to: "0x" + "11".repeat(20)
+          to: "0x" + "11".repeat(20),
+          gasPrice: 0
         })
         await l2TxResult.wait()
         totalTxs++
@@ -135,7 +139,8 @@ const main = async () => {
     console.log(`caught an unhandled error: ${err}`)
   } finally {
     console.log(`returning funds to main wallet...`)
-    const intrinsicTxCost = ethers.utils.parseEther('0.005')
+    // Zero for now because we can do gasPrice = 0
+    const intrinsicTxCost = ethers.utils.parseEther('0')
 
     await Promise.all(wallets.map(async (wallet) => {
       const l2Wallet = wallet.connect(l2RpcProvider)
@@ -143,14 +148,17 @@ const main = async () => {
       const l2RefundAmount = l2Balance.sub(intrinsicTxCost)
       if (l2RefundAmount.gt(0)) {
         const l2RefundResult = await l2FundDistributor.connect(l2Wallet).deposit({
-          value: l2RefundAmount
+          value: l2RefundAmount,
+          gasPrice: 0
         })
         await l2RefundResult.wait()
       }
     }))
 
     console.log(`withdrawing funds from L2 distributor...`)
-    const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw()
+    const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw({
+      gasPrice: 0
+    })
     await l2WithdrawResult.wait()
   }
 
