@@ -9,9 +9,9 @@ const l1RpcUrl = process.env.LOAD_TEST__L1_RPC_URL
 const l2RpcUrl = process.env.LOAD_TEST__L2_RPC_URL
 const privateKey = process.env.LOAD_TEST__L1_PRIVATE_KEY
 const l1BridgeAddress = process.env.LOAD_TEST__L1_BRIDGE_ADDRESS
-const numThreads = ethers.BigNumber.from(process.env.LOAD_TEST__NUM_THREADS)
-const numTransactionsPerThread = ethers.BigNumber.from(process.env.LOAD_TEST__NUM_TRANSACTIONS_PER_THREAD)
-const ethAllocationPerTransaction = ethers.utils.parseEther(process.env.LOAD_TEST__ETH_ALLOCATION_PER_TRANSACTION)
+const transactionsPerSecond = ethers.BigNumber.from(process.env.LOAD_TEST__TRANSACTIONS_PER_SECOND)
+const totalRuntimeSeconds = ethers.BigNumber.from(process.env.LOAD_TEST__TOTAL_RUNTIME_SECONDS || Infinity)
+const totalEthAllocation = ethers.utils.parseEther(process.env.LOAD_TEST__TOTAL_ETH_ALLOCATION)
 
 const sleep = async (ms: number): Promise<void> => {
   return new Promise((resolve) => {
@@ -27,29 +27,25 @@ const main = async () => {
 	const l2MainWallet = new ethers.Wallet(privateKey, l2RpcProvider)
 
   console.log(`main wallet address is: ${l1MainWallet.address}`)
-
-  // Calculate how much ETH we need.
-  const ethPerThread = ethAllocationPerTransaction.mul(numTransactionsPerThread)
-  const minL2Balance = ethPerThread.mul(numThreads).mul(2) // Multiply by a factor of 2 just to be safe.
-  console.log(`number of threads: ${numThreads}`)
-  console.log(`number of transactions per thread: ${numTransactionsPerThread}`)
-  console.log(`ETH required for load test: ${ethers.utils.formatEther(minL2Balance)} ETH`)
+  console.log(`transactions per second: ${transactionsPerSecond.toString()}`)
+  console.log(`total runtime: ${totalRuntimeSeconds.toString()} seconds`)
+  console.log(`total ETH allocation: ${ethers.utils.formatEther(totalEthAllocation)} ETH`)
 
   // Fund the L2 wallet if necessary.
   let l1MainBalance = await l1MainWallet.getBalance()
   let l2MainBalance = await l2MainWallet.getBalance()
   console.log(`balance on L2 is ${ethers.utils.formatEther(l2MainBalance)} ETH`)
-  if (l2MainBalance.lt(minL2Balance)) {
+  if (l2MainBalance.lt(totalEthAllocation)) {
     console.log(`need to fund account on L2`)
-    if (l1MainBalance.gt(minL2Balance)) {
+    if (l1MainBalance.gt(totalEthAllocation)) {
       console.log(`funding account on L2 by depositing on L1...`)
       const l2DepositResult = await l1MainWallet.sendTransaction({
         to: l1BridgeAddress,
-        value: minL2Balance
+        value: totalEthAllocation
       })
       await l2DepositResult.wait()
 
-      while (l2MainBalance.lt(minL2Balance)) {
+      while (l2MainBalance.lt(totalEthAllocation)) {
         console.log(`waiting for deposit...`)
         await sleep(5000)
         l2MainBalance = await l2MainWallet.getBalance()
@@ -58,11 +54,14 @@ const main = async () => {
       console.log(`deposit completed successfully`)
       console.log(`new balance on L2 is ${l2MainBalance.toString()}`)
     } else {
-      throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(minL2Balance)} L2 and does NOT have enough funds to deposit on L1`)
+      throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(totalEthAllocation)} L2 and does NOT have enough funds to deposit on L1`)
     }
   }
 
   // We want to keep track of these wallets so we can send the funds back when we're done.
+  const transactionsPerThreadPerSecond = 25
+  const numThreads = transactionsPerSecond.div(transactionsPerThreadPerSecond)
+
 	const wallets: ethers.Wallet[] = []
 	for (let i = 0; i < numThreads.toNumber(); i++) {
 		wallets.push(ethers.Wallet.createRandom())
@@ -75,35 +74,63 @@ const main = async () => {
   )
   const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy()
   await l2FundDistributor.deployTransaction.wait()
-  const l2DistributionResult = await l2FundDistributor.distribute(
-    wallets.map((wallet) => {
-      return wallet.address
-    }),
-    {
-      value: minL2Balance.mul(90).div(100) // We already overestimated by 2x so using 90% here is fine. We need to retain gas for fees.
-    }
-  )
-  await l2DistributionResult.wait()
+
+  const maxWalletsPerDistribution = 50
+  const numWallets = wallets.length
+  let numWalletsFunded = 0
+  while (numWalletsFunded < numWallets) {
+    const walletsToFund = Math.min(maxWalletsPerDistribution, numWallets - numWalletsFunded)
+    const fundingAmount = totalEthAllocation.mul(walletsToFund).div(numWallets)
+    const l2DistributionResult = await l2FundDistributor.distribute(
+      wallets.slice().map((wallet) => {
+        return wallet.address
+      }),
+      {
+        value: fundingAmount
+      }
+    )
+    await l2DistributionResult.wait()
+    numWalletsFunded += walletsToFund
+  }
 
   try {
-    console.log(`starting load test...`)
     const progress = new cliprogress.SingleBar({
-      clearOnComplete: true
+      format: 'Load test progress | {bar} | {percentage}% || TPS: {tps}',
     })
-    progress.start(numThreads.mul(numTransactionsPerThread).toNumber(), 0)
+    progress.start(totalRuntimeSeconds.toNumber(), 0, {
+      tps: 0
+    })
 
+    let runtime = 0
+    let totalTxs = 0
+    const progressUpdateInterval = setInterval(() => {
+      runtime++
+      const tps = totalTxs / runtime
+      progress.update(runtime, {
+        tps: tps.toFixed(2)
+      })
+
+      if (runtime === totalRuntimeSeconds.toNumber()) {
+        progress.stop()
+        clearInterval(progressUpdateInterval)
+      }
+    }, 1000)
+
+    console.log(`starting load test...`)
     await Promise.all(wallets.map(async (wallet) => {
-      for (let i = 0; i < numTransactionsPerThread.toNumber(); i++) {
-        // TODO: Add support for more interesting transactions.
-        progress.increment()
+      let running = true
+      setTimeout(() => {
+        running = false
+      }, totalRuntimeSeconds.toNumber() * 1000)
+
+      while (running) {
         const l2TxResult = await wallet.connect(l2RpcProvider).sendTransaction({
           to: "0x" + "11".repeat(20)
         })
         await l2TxResult.wait()
+        totalTxs++
       }
     }))
-
-    progress.stop()
   } catch (err) {
     console.log(`caught an unhandled error: ${err}`)
   } finally {
