@@ -2,16 +2,16 @@ import { ethers } from "ethers"
 import dotenv from "dotenv"
 import cliprogress from "cli-progress"
 
-import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
+// import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
 
 dotenv.config()
 const l1RpcUrl = process.env.LOAD_TEST__L1_RPC_URL
 const l2RpcUrl = process.env.LOAD_TEST__L2_RPC_URL
 const privateKey = process.env.LOAD_TEST__L1_PRIVATE_KEY
-const l1BridgeAddress = process.env.LOAD_TEST__L1_BRIDGE_ADDRESS
+// const l1BridgeAddress = process.env.LOAD_TEST__L1_BRIDGE_ADDRESS
 const transactionsPerSecond = ethers.BigNumber.from(process.env.LOAD_TEST__TRANSACTIONS_PER_SECOND)
 const totalRuntimeSeconds = ethers.BigNumber.from(process.env.LOAD_TEST__TOTAL_RUNTIME_SECONDS || Infinity)
-const totalEthAllocation = ethers.utils.parseEther(process.env.LOAD_TEST__TOTAL_ETH_ALLOCATION)
+// const totalEthAllocation = ethers.utils.parseEther(process.env.LOAD_TEST__TOTAL_ETH_ALLOCATION)
 
 const sleep = async (ms: number): Promise<void> => {
   return new Promise((resolve) => {
@@ -29,34 +29,34 @@ const main = async () => {
   console.log(`main wallet address is: ${l1MainWallet.address}`)
   console.log(`transactions per second: ${transactionsPerSecond.toString()}`)
   console.log(`total runtime: ${totalRuntimeSeconds.toString()} seconds`)
-  console.log(`total ETH allocation: ${ethers.utils.formatEther(totalEthAllocation)} ETH`)
+  // console.log(`total ETH allocation: ${ethers.utils.formatEther(totalEthAllocation)} ETH`)
 
   // Fund the L2 wallet if necessary.
   let l1MainBalance = await l1MainWallet.getBalance()
   let l2MainBalance = await l2MainWallet.getBalance()
-  console.log(`balance on L2 is ${ethers.utils.formatEther(l2MainBalance)} ETH`)
-  if (l2MainBalance.lt(totalEthAllocation)) {
-    console.log(`need to fund account on L2`)
-    if (l1MainBalance.gt(totalEthAllocation)) {
-      console.log(`funding account on L2 by depositing on L1...`)
-      const l2DepositResult = await l1MainWallet.sendTransaction({
-        to: l1BridgeAddress,
-        value: totalEthAllocation
-      })
-      await l2DepositResult.wait()
+  // console.log(`balance on L2 is ${ethers.utils.formatEther(l2MainBalance)} ETH`)
+  // if (l2MainBalance.lt(totalEthAllocation)) {
+  //   console.log(`need to fund account on L2`)
+  //   if (l1MainBalance.gt(totalEthAllocation)) {
+  //     console.log(`funding account on L2 by depositing on L1...`)
+  //     const l2DepositResult = await l1MainWallet.sendTransaction({
+  //       to: l1BridgeAddress,
+  //       value: totalEthAllocation
+  //     })
+  //     await l2DepositResult.wait()
 
-      while (l2MainBalance.lt(totalEthAllocation)) {
-        console.log(`waiting for deposit...`)
-        await sleep(5000)
-        l2MainBalance = await l2MainWallet.getBalance()
-      }
+  //     while (l2MainBalance.lt(totalEthAllocation)) {
+  //       console.log(`waiting for deposit...`)
+  //       await sleep(5000)
+  //       l2MainBalance = await l2MainWallet.getBalance()
+  //     }
 
-      console.log(`deposit completed successfully`)
-      console.log(`new balance on L2 is ${l2MainBalance.toString()}`)
-    } else {
-      throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(totalEthAllocation)} L2 and does NOT have enough funds to deposit on L1`)
-    }
-  }
+  //     console.log(`deposit completed successfully`)
+  //     console.log(`new balance on L2 is ${l2MainBalance.toString()}`)
+  //   } else {
+  //     throw new Error(`main account has less than minimum balance of ${ethers.utils.formatEther(totalEthAllocation)} L2 and does NOT have enough funds to deposit on L1`)
+  //   }
+  // }
 
   // We want to keep track of these wallets so we can send the funds back when we're done.
   const transactionsPerThreadPerSecond = 0.5
@@ -67,34 +67,34 @@ const main = async () => {
 		wallets.push(ethers.Wallet.createRandom())
   }
 
-  console.log(`distributing L2 funds...`)
-  const l2FundDistributorFactory = new ethers.ContractFactory(
-    l2FundDistributorJSON.abi,
-    l2FundDistributorJSON.bytecode
-  )
-  const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy({
-    gasPrice: 0
-  })
-  await l2FundDistributor.deployTransaction.wait()
+  // console.log(`distributing L2 funds...`)
+  // const l2FundDistributorFactory = new ethers.ContractFactory(
+  //   l2FundDistributorJSON.abi,
+  //   l2FundDistributorJSON.bytecode
+  // )
+  // const l2FundDistributor = await l2FundDistributorFactory.connect(l2MainWallet).deploy({
+  //   gasPrice: 0
+  // })
+  // await l2FundDistributor.deployTransaction.wait()
 
-  const maxWalletsPerDistribution = 50
-  const numWallets = wallets.length
-  let numWalletsFunded = 0
-  while (numWalletsFunded < numWallets) {
-    const walletsToFund = Math.min(maxWalletsPerDistribution, numWallets - numWalletsFunded)
-    const fundingAmount = totalEthAllocation.mul(walletsToFund).div(numWallets)
-    const l2DistributionResult = await l2FundDistributor.distribute(
-      wallets.slice(numWalletsFunded, numWalletsFunded + walletsToFund).map((wallet) => {
-        return wallet.address
-      }),
-      {
-        value: fundingAmount,
-        gasPrice: 0
-      }
-    )
-    await l2DistributionResult.wait()
-    numWalletsFunded += walletsToFund
-  }
+  // const maxWalletsPerDistribution = 50
+  // const numWallets = wallets.length
+  // let numWalletsFunded = 0
+  // while (numWalletsFunded < numWallets) {
+  //   const walletsToFund = Math.min(maxWalletsPerDistribution, numWallets - numWalletsFunded)
+  //   const fundingAmount = totalEthAllocation.mul(walletsToFund).div(numWallets)
+  //   const l2DistributionResult = await l2FundDistributor.distribute(
+  //     wallets.slice(numWalletsFunded, numWalletsFunded + walletsToFund).map((wallet) => {
+  //       return wallet.address
+  //     }),
+  //     {
+  //       value: fundingAmount,
+  //       gasPrice: 0
+  //     }
+  //   )
+  //   await l2DistributionResult.wait()
+  //   numWalletsFunded += walletsToFund
+  // }
 
   try {
     const progress = new cliprogress.SingleBar({
@@ -138,28 +138,28 @@ const main = async () => {
   } catch (err) {
     console.log(`caught an unhandled error: ${err}`)
   } finally {
-    console.log(`returning funds to main wallet...`)
-    // Zero for now because we can do gasPrice = 0
-    const intrinsicTxCost = ethers.utils.parseEther('0')
+    // console.log(`returning funds to main wallet...`)
+    // // Zero for now because we can do gasPrice = 0
+    // const intrinsicTxCost = ethers.utils.parseEther('0')
 
-    await Promise.all(wallets.map(async (wallet) => {
-      const l2Wallet = wallet.connect(l2RpcProvider)
-      const l2Balance = await l2Wallet.getBalance()
-      const l2RefundAmount = l2Balance.sub(intrinsicTxCost)
-      if (l2RefundAmount.gt(0)) {
-        const l2RefundResult = await l2FundDistributor.connect(l2Wallet).deposit({
-          value: l2RefundAmount,
-          gasPrice: 0
-        })
-        await l2RefundResult.wait()
-      }
-    }))
+    // await Promise.all(wallets.map(async (wallet) => {
+    //   const l2Wallet = wallet.connect(l2RpcProvider)
+    //   const l2Balance = await l2Wallet.getBalance()
+    //   const l2RefundAmount = l2Balance.sub(intrinsicTxCost)
+    //   if (l2RefundAmount.gt(0)) {
+    //     const l2RefundResult = await l2FundDistributor.connect(l2Wallet).deposit({
+    //       value: l2RefundAmount,
+    //       gasPrice: 0
+    //     })
+    //     await l2RefundResult.wait()
+    //   }
+    // }))
 
-    console.log(`withdrawing funds from L2 distributor...`)
-    const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw({
-      gasPrice: 0
-    })
-    await l2WithdrawResult.wait()
+    // console.log(`withdrawing funds from L2 distributor...`)
+    // const l2WithdrawResult = await l2FundDistributor.connect(l2MainWallet).withdraw({
+    //   gasPrice: 0
+    // })
+    // await l2WithdrawResult.wait()
   }
 
   const finalL1MainBalance = await l1MainWallet.getBalance()
