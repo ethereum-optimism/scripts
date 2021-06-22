@@ -10,12 +10,12 @@ dotenv.config();
 
 const FETCH_SIZE = 1000;
 const l1Provider = new JsonRpcProvider(`https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`);
-const l2Provider = new JsonRpcProvider(`https://mainnet.optimism.io`);
+const l2Provider = new JsonRpcProvider(`https://a262ec99d693.ngrok.io`);
 
 const watcher = new Watcher({
   l1: {
     provider: l1Provider,
-    messengerAddress: "0xD1EC7d40CCd01EB7A305b94cBa8AB6D17f6a9eFE",
+    messengerAddress: "0x902e5fF5A99C4eC1C21bbab089fdabE32EF0A5DF",
   },
   l2: {
     provider: l2Provider,
@@ -25,7 +25,7 @@ const watcher = new Watcher({
 
 (async () => {
   // SNX bridge
-  const l2BridgeAddress = "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc";
+  const l2BridgeAddress = "0x3f87Ff1de58128eF8FCb4c807eFD776E1aC72E51";
   const l2BridgeContract = new Contract(l2BridgeAddress, synthetixL2Bridge, l2Provider);
 
   try {
