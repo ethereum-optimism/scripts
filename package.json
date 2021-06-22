@@ -8,10 +8,11 @@
   "scripts": {
     "start:print-blocks": "ts-node ./scripts/verifier/print-blocks-and-queue-elements.ts",
     "diff-dumps:kovan": "ETH_NETWORK=kovan node ./scripts/verifier/diff-verifier-sequencer-state-dump.js",
-    "diff-dumps:mainnet": "ETH_NETWORK=mainnet node ./scripts/verifier/diff-verifier-sequencer-state-dump.js"
+    "diff-dumps:mainnet": "ETH_NETWORK=mainnet node ./scripts/verifier/diff-verifier-sequencer-state-dump.js",
+    "get-balances": "ts-node ./scripts/get-balances.ts --max_old_space_size=10096"
   },
   "dependencies": {
-    "@eth-optimism/contracts": "^0.2.11",
+    "@eth-optimism/contracts": "0.3.5",
     "@eth-optimism/core-utils": "^0.1.5",
     "@eth-optimism/data-transport-layer": "^0.1.0",
     "@eth-optimism/provider": "^0.0.1-alpha.14",
