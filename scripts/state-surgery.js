@@ -24,9 +24,11 @@ const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/pub
 const synthetix = {}
 const unknowns = []
 
-const doBalanceMigration = true
-//const doBalanceMigration = false
-const migrationAccounts = require(path.join(__dirname, '..', 'all-balances.json'))
+const doBalanceMigration = false
+
+// This needs to be an object where the keys are
+// ethereum addresses and the values are their balances
+const migrationAccounts = {}
 
 // This script will need to be updated for the next state dump
 // - isEOA will need to use EIP-1967
