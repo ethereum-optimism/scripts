@@ -173,6 +173,19 @@ const migrationAccounts = {}
   }
   contractsDump.unknowns = unknowns
 
+  for (const [name, account] of Object.entries(contractsDump.accounts)) {
+    for (const [key, val] of Object.entries(account.storage)) {
+      if (!key.startsWith('0x')) {
+        throw new Error('Not prefixed key')
+      }
+      if (!val.startsWith('0x')) {
+        console.log(name)
+        console.log(val)
+        throw new Error('Not prefixed val')
+      }
+    }
+  }
+
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
   console.error(err)
