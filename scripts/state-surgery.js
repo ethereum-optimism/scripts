@@ -9,9 +9,12 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 const axios = require('axios');
 const { JsonRpcProvider } = require('@ethersproject/providers');
-const { getLatestStateDump } = require('@eth-optimism/contracts')
+const { getLatestStateDump } = require('@eth-optimism/contracts');
+const { ethers } = require('ethers');
+const { makeStorageFromAccounts } = require('./make-slots')
 
 const cfg = config()
 
@@ -20,6 +23,12 @@ const snx = `https://raw.githubusercontent.com/Synthetixio/synthetix/develop/pub
 
 const synthetix = {}
 const unknowns = []
+
+const doBalanceMigration = false
+
+// This needs to be an object where the keys are
+// ethereum addresses and the values are their balances
+const migrationAccounts = {}
 
 // This script will need to be updated for the next state dump
 // - isEOA will need to use EIP-1967
@@ -88,7 +97,36 @@ const unknowns = []
       // Keep the storage for OVM_ETH to preserve the L2 balances
       if (address === '0x4200000000000000000000000000000000000006') {
         const OVM_ETH = contractsDump.accounts.OVM_ETH
-        const storage = Object.assign(add0xToObject(OVM_ETH.storage), add0xToObject(account.storage))
+
+        const oldStorage = add0xToObject(account.storage)
+        const newStorage = add0xToObject(OVM_ETH.storage)
+
+        let storage = {}
+        if (doBalanceMigration) {
+          // Mapping of storage slot indices to variables
+          // 0: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/libraries/bridge/OVM_CrossDomainEnabled.sol#L21
+          // 1: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/OVM/bridge/tokens/Abs_L2DepositedToken.sol#L36
+          // 2: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/libraries/standards/UniswapV2ERC20.sol#L10
+          // 3: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/libraries/standards/UniswapV2ERC20.sol#L11
+          // 4: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/libraries/standards/UniswapV2ERC20.sol#L13
+          // 5: https://github.com/ethereum-optimism/optimism/blob/aba77c080d1bb951cab2084e6208c249e33aaef8/packages/contracts/contracts/optimistic-ethereum/libraries/standards/UniswapV2ERC20.sol#L14
+
+          // totalSupply is located at index 4 (see above)
+          const totalSupply = oldStorage[ethers.utils.hexZeroPad('0x04', 32)]
+
+          // Create the new balance storage slots
+          const balanceSlots = makeStorageFromAccounts(migrationAccounts)
+
+          // Update the new storage
+          // New totalSupply storage slot is at index 2: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/00128bd26061986d10172573ceec914a4f3b4d3c/contracts/token/ERC20/ERC20.sol#L38
+          storage = newStorage
+          storage[ethers.utils.hexZeroPad('0x02', 32)] = totalSupply
+          for (const slot of Object.keys(balanceSlots)) {
+            storage[slot] = balanceSlots[slot]
+          }
+        } else {
+          storage = Object.assign(newStorage, oldStorage)
+        }
 
         contractsDump.accounts.OVM_ETH = {
           address: OVM_ETH.address,
@@ -135,6 +173,19 @@ const unknowns = []
   }
   contractsDump.unknowns = unknowns
 
+  for (const [name, account] of Object.entries(contractsDump.accounts)) {
+    for (const [key, val] of Object.entries(account.storage)) {
+      if (!key.startsWith('0x')) {
+        throw new Error('Not prefixed key')
+      }
+      if (!val.startsWith('0x')) {
+        console.log(name)
+        console.log(val)
+        throw new Error('Not prefixed val')
+      }
+    }
+  }
+
   console.log(JSON.stringify(contractsDump))
 })().catch(err => {
   console.error(err)
@@ -142,10 +193,11 @@ const unknowns = []
   process.exit(1)
 })
 
-// corresponds to the storage slots
-// 0xdead....dead => 0x4200....03
+const eipslot = '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc'
 function isEOA(account) {
-  return account.root === '75d420245863567e51996db1c1a5e781bcf2a94d7f8d8c0eb549ee6c82b3a8cc'
+  if (!account.storage)
+    return false
+  return account.storage[eipslot] === '4200000000000000000000000000000000000003'
 }
 
 function isPredeploy(address) {
