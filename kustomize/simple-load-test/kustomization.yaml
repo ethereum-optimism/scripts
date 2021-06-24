@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kovan-load-test
+
+resources:
+  - ./load-test-deploy.yaml
+
+images:
+  - name: load-test
+    newName: optimisticben/simple-load-test
+    newTag: sha256:6e119e9fb9c66adf5c8eff54c64dd61cd62b7c0b36fbd61a67ff49a1cdc24a31
+
+configMapGenerator:
+  - name: simple-load-test
+    envs:
+      - ./load-test-configmap.env

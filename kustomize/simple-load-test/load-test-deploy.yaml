@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-test
+  namespace: kovan-load-test
+  labels:
+    app: load-test
+spec:
+  selector:
+    matchLabels:
+      app: load-test
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: load-test
+    spec:
+      containers:
+        - name: load-test
+          image: load-test
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+            requests:
+              cpu: 250m
+              memory: 512Mi
+          envFrom:
+            - configMapRef:
+                name: simple-load-test
+          env:
+            - name: LOAD_TEST__L1_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: load-test
+                  key: LOAD_TEST__L1_PRIVATE_KEY
+            - name: LOAD_TEST__L1_RPC_URL
+              valueFrom:
+                secretKeyRef:
+                  name: load-test
+                  key: LOAD_TEST__L1_RPC_URL
