@@ -10,7 +10,8 @@
     "diff-dumps:kovan": "ETH_NETWORK=kovan node ./scripts/verifier/diff-verifier-sequencer-state-dump.js",
     "diff-dumps:mainnet": "ETH_NETWORK=mainnet node ./scripts/verifier/diff-verifier-sequencer-state-dump.js",
     "get-balances": "ts-node ./scripts/get-balances.ts --max_old_space_size=10096",
-    "withdrawals-dump": "node ./scripts/pre-regen-withdrawals-dump"
+    "withdrawals-dump": "node ./scripts/pre-regen-withdrawals-dump",
+    "l2-transfer": "ts-node ./scripts/l2-transfer.ts"
   },
   "dependencies": {
     "@eth-optimism/contracts": "0.3.5",

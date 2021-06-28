@@ -2,21 +2,27 @@
  * This script transfers ETH between Optimistic Mainnet accounts
  */
 
-const { providers, Wallet, utils, Contract } = require("ethers");
-const { getContractInterface } = require("@eth-optimism/contracts");
+import { providers, Wallet, utils, Contract } from "ethers";
+import { getContractInterface, predeploys } from "@eth-optimism/contracts";
 const { JsonRpcProvider } = providers;
 
-const cfg = config();
-
-const provider = new JsonRpcProvider("https://mainnet.optimism.io");
-const wallet = new Wallet(cfg.privateKey).connect(provider);
-const l2ETHContract = new Contract(
-  "0x4200000000000000000000000000000000000006",
-  getContractInterface("OVM_ETH"),
-  wallet
-);
+function config() {
+  if (!process.env.PRIVATE_KEY) throw new Error("Must pass PRIVATE_KEY");
+  if (!process.env.TO) throw new Error("Must pass TO");
+  if (!process.env.AMOUNT) throw new Error("Must pass AMOUNT");
+  return {
+    privateKey: process.env.PRIVATE_KEY,
+    to: process.env.TO,
+    amount: process.env.AMOUNT,
+  };
+}
 
 (async () => {
+  const cfg = config();
+
+  const provider = new JsonRpcProvider("https://mainnet.optimism.io");
+  const wallet = new Wallet(cfg.privateKey).connect(provider);
+  const l2ETHContract = new Contract(predeploys.OVM_ETH, getContractInterface("OVM_ETH"), wallet);
   const address = await wallet.getAddress();
   console.log(`Sending from ${address}`);
 
@@ -34,14 +40,3 @@ const l2ETHContract = new Contract(
   console.log(err);
   process.exit(1);
 });
-
-function config() {
-  if (!process.env.PRIVATE_KEY) throw new Error("Must pass PRIVATE_KEY");
-  if (!process.env.TO) throw new Error("Must pass TO");
-  if (!process.env.AMOUNT) throw new Error("Must pass AMOUNT");
-  return {
-    privateKey: process.env.PRIVATE_KEY,
-    to: process.env.TO,
-    amount: process.env.AMOUNT,
-  };
-}
