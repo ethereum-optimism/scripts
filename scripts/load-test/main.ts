@@ -1,8 +1,11 @@
-import { ethers } from "ethers"
+import { ethers, BigNumber, Contract } from "ethers"
 import dotenv from "dotenv"
 import cliprogress from "cli-progress"
 
 import * as l2FundDistributorJSON from '../../artifacts-ovm/contracts/FundDistributor.sol/FundDistributor.json'
+import {
+  abi as SWAP_ROUTER_ABI,
+} from '@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json'
 
 dotenv.config()
 const l1RpcUrl = process.env.LOAD_TEST__L1_RPC_URL
@@ -120,6 +123,7 @@ const main = async () => {
     }, 1000)
 
     console.log(`starting load test...`)
+    const SwapRouter = new Contract('0xE592427A0AEce92De3Edee1F18E0157C05861564', SWAP_ROUTER_ABI, l2RpcProvider)
     await Promise.all(wallets.map(async (wallet) => {
       let running = true
       setTimeout(() => {
@@ -127,9 +131,26 @@ const main = async () => {
       }, totalRuntimeSeconds.toNumber() * 1000)
 
       while (running) {
-        const l2TxResult = await wallet.connect(l2RpcProvider).sendTransaction({
-          to: "0x" + "11".repeat(20)
-        })
+        // swap 10 wei of ETH for Dai
+        const tokenIn = '0x4200000000000000000000000000000000000006'
+        const tokenOut = '0xda10009cbd5d07dd0cecc66161fc93d7c9000da1'
+        const params = {
+          tokenIn,
+          tokenOut,
+          fee: 3000,
+          sqrtPriceLimitX96:
+            tokenIn.toLowerCase() < tokenOut.toLowerCase()
+              ? BigNumber.from('4295128740')
+              : BigNumber.from('1461446703485210103287273052203988822378723970341'),
+          recipient: wallet.address,
+          deadline: Math.round(Date.now()/1000) + 3600, // 1 hour from now
+          amountIn: 10,
+          amountOutMinimum: 0,
+        }
+
+        const l2TxResult = await SwapRouter.connect(
+          wallet.connect(l2RpcProvider)
+        ).exactInputSingle(params, { value: 10 })
         await l2TxResult.wait()
         totalTxs++
       }
@@ -139,7 +160,7 @@ const main = async () => {
   } finally {
     console.log(`returning funds to main wallet...`)
     // Zero for now because we can do gasPrice = 0
-    const intrinsicTxCost = ethers.utils.parseEther('0.0002')
+    const intrinsicTxCost = ethers.utils.parseEther('0.0001')
 
     await Promise.all(wallets.map(async (wallet) => {
       const l2Wallet = wallet.connect(l2RpcProvider)
