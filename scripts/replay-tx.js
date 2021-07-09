@@ -15,7 +15,7 @@ const argOptions = program.opts();
 
 const mainnetProvider = getDefaultProvider(argOptions.network);
 
-const L1_MESSENGER_PROXY = "0xD1EC7d40CCd01EB7A305b94cBa8AB6D17f6a9eFE";
+const L1_MESSENGER_PROXY = "0x4361d0F75A0186C05f971c566dC6bEa5957483fD";
 
 const wallet = new Wallet(argOptions.key, mainnetProvider);
 const proxyL1Messenger = new Contract(L1_MESSENGER_PROXY, getContractInterface("OVM_L1CrossDomainMessenger"), wallet);
@@ -36,6 +36,7 @@ const main = async () => {
 
   for (const message of decodedMessages) {
     try {
+      console.log('replaying message', message)
       await proxyL1Messenger.replayMessage(
         message._target,
         message._sender,

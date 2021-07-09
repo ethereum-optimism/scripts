@@ -38,20 +38,17 @@
   dependencies:
     ethers "5.0.0"
 
-<<<<<<< HEAD
-"@eth-optimism/contracts@0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.3.5.tgz#f63ff93bffde7310a5b990aea599dbb8395d2c0e"
-  integrity sha512-tjRadNBjbB/5uj5Boidl0d8f3k6pB+N7jP0JH6LQOk59aAGL4oY1F4Tetr0Igz+r7PZMjulen5rSP1UbCHPbNw==
+"@eth-optimism/contracts@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.4.0.tgz#aff389a116fc0344e80da365328534655f70ce06"
+  integrity sha512-sRLfBdURgLYtl3yJgK7o+jvA+ZKBLMsBPsCaDyzZ7GNokFEzllgIQq9YyXW3EX99FX8Q2G8BAThYawz5Lp2SKA==
   dependencies:
-    "@eth-optimism/core-utils" "^0.4.5"
+    "@eth-optimism/core-utils" "^0.4.6"
     "@ethersproject/abstract-provider" "^5.0.8"
     "@ethersproject/abstract-signer" "^5.1.0"
     "@ethersproject/contracts" "^5.0.5"
     glob "^7.1.6"
 
-=======
->>>>>>> Finalizes withdrawals-dump script
 "@eth-optimism/contracts@^0.1.4":
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.1.11.tgz#d33354b69e1bdaf11eac799a1f4dfb17295a04e7"
@@ -64,16 +61,6 @@
     "@ethersproject/hardware-wallets" "^5.0.8"
     "@openzeppelin/contracts" "^3.3.0"
     ganache-core "^2.12.1"
-    glob "^7.1.6"
-
-"@eth-optimism/contracts@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.3.0.tgz#0c34ceb048bdbdb5956b29bdbf1d6e4c09af00eb"
-  integrity sha512-pJcH2gjhp48Nw9rw1OrfOKyH0RWdoWoNoIRGnfxLhleFbABwqhRnJG+QhUSgjxtaA+mGqcqz4DDMAv62FWvM6w==
-  dependencies:
-    "@eth-optimism/core-utils" "^0.4.2"
-    "@ethersproject/abstract-provider" "^5.0.8"
-    "@ethersproject/contracts" "^5.0.5"
     glob "^7.1.6"
 
 "@eth-optimism/core-utils@0.0.1-alpha.30":
@@ -123,17 +110,10 @@
     ethers "^5.0.31"
     pino "^6.11.1"
 
-<<<<<<< HEAD
-"@eth-optimism/core-utils@^0.4.5":
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.5.tgz#a3ad0c780ddb3fa9b20fe595f78401d993606d71"
-  integrity sha512-nG5bj3Okk9z8ALLS3fbBpAzU3tMZIDbwB32zQejGy0ZFqIA8XWNbuhC1i53qPQCwKJITtSufXYPCDGXu1exlqQ==
-=======
-"@eth-optimism/core-utils@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.2.tgz#5b77973760caec83fa0ad17ce712a9d798ba005e"
-  integrity sha512-GQm0zbPfr/FuT0xywcZMEhKzk9VlEOWLRbzbSbBvvHtA6mmCO1oiL/Rr3O3f8DbHXB5JNBOK84tcciCMhJ3BSA==
->>>>>>> Finalizes withdrawals-dump script
+"@eth-optimism/core-utils@^0.4.6":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.7.tgz#3eeec47222ccfad1d8f3d9539a368c9283b2df1e"
+  integrity sha512-H+NdGAyx6w4Wmjy3PaTF7xnBEeKh8BZK1jfU6yy52sd2E0oH7ABd0H5FtRY2SLPTH8AZ8gAgOhrTNoqE0Mlktw==
   dependencies:
     "@ethersproject/abstract-provider" "^5.0.9"
     ethers "^5.0.31"
