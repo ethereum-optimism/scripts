@@ -160,7 +160,7 @@ const main = async () => {
   } finally {
     console.log(`returning funds to main wallet...`)
     // Zero for now because we can do gasPrice = 0
-    const intrinsicTxCost = ethers.utils.parseEther('0.0001')
+    const intrinsicTxCost = ethers.utils.parseEther('0.0005')
 
     await Promise.all(wallets.map(async (wallet) => {
       const l2Wallet = wallet.connect(l2RpcProvider)
