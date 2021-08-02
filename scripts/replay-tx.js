@@ -10,7 +10,7 @@ const main = async () => {
   const l2ProviderUrl = process.env.REPLAY__L2_RPC_PROVIDER_URL
   const l1MessengerProxyAddress = process.env.REPLAY__L1_MESSENGER_PROXY_ADDRESS
   const l1PrivateKey = process.env.REPLAY__L1_PRIVATE_KEY
-  
+
   // Load the command line arguments
   const program = new Command()
   // Specify a hash if you want to replay a specific transaction
@@ -104,7 +104,7 @@ const main = async () => {
       if (matchingEvents.length === 0) {
         console.log(`Found unsuccessful message for event in tx: ${event.transactionHash}`)
         console.log(`Attempting to replay message...`)
-        // await replayMessages(event.transactionHash)
+        await replayMessages(event.transactionHash)
       } else {
         console.log(`Found successful message for event in tx: ${event.transactionHash}`)
       }
