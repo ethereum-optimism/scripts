@@ -14,7 +14,7 @@
     "l2-transfer": "ts-node ./scripts/l2-transfer.ts"
   },
   "dependencies": {
-    "@eth-optimism/contracts": "0.3.5",
+    "@eth-optimism/contracts": "^0.4.6",
     "@eth-optimism/core-utils": "^0.4.5",
     "@eth-optimism/data-transport-layer": "^0.1.0",
     "@eth-optimism/provider": "^0.0.1-alpha.14",
