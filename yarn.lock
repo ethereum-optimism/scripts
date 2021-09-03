@@ -31,6 +31,11 @@
     "@truffle/contract" "^4.2.6"
     ethers "^4.0.45"
 
+"@discoveryjs/json-ext@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
+  integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
+
 "@eth-optimism/contracts@0.0.2-alpha.7":
   version "0.0.2-alpha.7"
   resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.0.2-alpha.7.tgz#1d77b59f504ee94d9f2f46e0d4c01889ba8f9fd5"
@@ -38,7 +43,6 @@
   dependencies:
     ethers "5.0.0"
 
-<<<<<<< HEAD
 "@eth-optimism/contracts@0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.3.5.tgz#f63ff93bffde7310a5b990aea599dbb8395d2c0e"
@@ -50,8 +54,6 @@
     "@ethersproject/contracts" "^5.0.5"
     glob "^7.1.6"
 
-=======
->>>>>>> Finalizes withdrawals-dump script
 "@eth-optimism/contracts@^0.1.4":
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.1.11.tgz#d33354b69e1bdaf11eac799a1f4dfb17295a04e7"
@@ -64,16 +66,6 @@
     "@ethersproject/hardware-wallets" "^5.0.8"
     "@openzeppelin/contracts" "^3.3.0"
     ganache-core "^2.12.1"
-    glob "^7.1.6"
-
-"@eth-optimism/contracts@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.3.0.tgz#0c34ceb048bdbdb5956b29bdbf1d6e4c09af00eb"
-  integrity sha512-pJcH2gjhp48Nw9rw1OrfOKyH0RWdoWoNoIRGnfxLhleFbABwqhRnJG+QhUSgjxtaA+mGqcqz4DDMAv62FWvM6w==
-  dependencies:
-    "@eth-optimism/core-utils" "^0.4.2"
-    "@ethersproject/abstract-provider" "^5.0.8"
-    "@ethersproject/contracts" "^5.0.5"
     glob "^7.1.6"
 
 "@eth-optimism/core-utils@0.0.1-alpha.30":
@@ -122,22 +114,6 @@
     debug "^4.3.1"
     ethers "^5.0.31"
     pino "^6.11.1"
-
-<<<<<<< HEAD
-"@eth-optimism/core-utils@^0.4.5":
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.5.tgz#a3ad0c780ddb3fa9b20fe595f78401d993606d71"
-  integrity sha512-nG5bj3Okk9z8ALLS3fbBpAzU3tMZIDbwB32zQejGy0ZFqIA8XWNbuhC1i53qPQCwKJITtSufXYPCDGXu1exlqQ==
-=======
-"@eth-optimism/core-utils@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.4.2.tgz#5b77973760caec83fa0ad17ce712a9d798ba005e"
-  integrity sha512-GQm0zbPfr/FuT0xywcZMEhKzk9VlEOWLRbzbSbBvvHtA6mmCO1oiL/Rr3O3f8DbHXB5JNBOK84tcciCMhJ3BSA==
->>>>>>> Finalizes withdrawals-dump script
-  dependencies:
-    "@ethersproject/abstract-provider" "^5.0.9"
-    ethers "^5.0.31"
-    lodash "^4.17.21"
 
 "@eth-optimism/core-utils@^0.4.5":
   version "0.4.5"
@@ -1124,6 +1100,26 @@
     strip-indent "^2.0.0"
     super-split "^1.1.0"
 
+"@tsconfig/node10@^1.0.7":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.8.tgz#c1e4e80d6f964fbecb3359c43bd48b40f7cadad9"
+  integrity sha512-6XFfSQmMgq0CFLY1MslA/CPUfhIL919M1rMsa5lP2P097N2Wd1sSX0tx1u4olM16fLNhtHZpRhedZJphNJqmZg==
+
+"@tsconfig/node12@^1.0.7":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node12/-/node12-1.0.9.tgz#62c1f6dee2ebd9aead80dc3afa56810e58e1a04c"
+  integrity sha512-/yBMcem+fbvhSREH+s14YJi18sp7J9jpuhYByADT2rypfajMZZN4WQ6zBGgBKp53NKmqI36wFYDb3yaMPurITw==
+
+"@tsconfig/node14@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node14/-/node14-1.0.1.tgz#95f2d167ffb9b8d2068b0b235302fafd4df711f2"
+  integrity sha512-509r2+yARFfHHE7T6Puu2jjkoycftovhXRqW328PDXTVGKihlb1P8Z9mMZH04ebyajfRY7dedfGynlrFHJUQCg==
+
+"@tsconfig/node16@^1.0.1":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
+  integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
+
 "@types/bn.js@^4.11.3", "@types/bn.js@^4.11.4", "@types/bn.js@^4.11.5":
   version "4.11.6"
   resolved "https://registry.yarnpkg.com/@types/bn.js/-/bn.js-4.11.6.tgz#c306c70d9358aaea33cd4eda092a742b9505967c"
@@ -1250,6 +1246,11 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
+
+"@uniswap/v3-core-optimism@^1.0.0-rc.0":
+  version "1.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@uniswap/v3-core-optimism/-/v3-core-optimism-1.0.0-rc.0.tgz#fafe94c2d435a2133a470fc2793370c544463dd3"
+  integrity sha512-mJ5TwiWabR02G8lceVc2+3lmFOqVI3p++wpQQcvVHv+pfGq38NSaHbirmGB8sbv7x29wUteiNL7soHoD6tGe7g==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
@@ -2378,9 +2379,9 @@ bs58check@^2.1.2:
     safe-buffer "^5.1.2"
 
 buffer-from@^1.0.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
-  integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
+  integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
 buffer-to-arraybuffer@^0.0.5:
   version "0.0.5"
@@ -7634,6 +7635,22 @@ ts-md5@^1.2.4:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/ts-md5/-/ts-md5-1.2.7.tgz#b76471fc2fd38f0502441f6c3b9494ed04537401"
   integrity sha512-emODogvKGWi1KO1l9c6YxLMBn6CEH3VrH5mVPIyOtxBG52BvV4jP3GWz6bOZCz61nLgBc3ffQYE4+EHfCD+V7w==
+
+ts-node@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.0.0.tgz#05f10b9a716b0b624129ad44f0ea05dac84ba3be"
+  integrity sha512-ROWeOIUvfFbPZkoDis0L/55Fk+6gFQNZwwKPLinacRl6tsxstTF1DbAcLKkovwnpKMVvOMHP1TIbnwXwtLg1gg==
+  dependencies:
+    "@tsconfig/node10" "^1.0.7"
+    "@tsconfig/node12" "^1.0.7"
+    "@tsconfig/node14" "^1.0.0"
+    "@tsconfig/node16" "^1.0.1"
+    arg "^4.1.0"
+    create-require "^1.1.0"
+    diff "^4.0.1"
+    make-error "^1.1.1"
+    source-map-support "^0.5.17"
+    yn "3.1.1"
 
 ts-node@^9.1.1:
   version "9.1.1"
